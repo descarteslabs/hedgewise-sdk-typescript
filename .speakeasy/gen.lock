@@ -1,0 +1,533 @@
+lockVersion: 2.0.0
+id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
+management:
+  docChecksum: 7fee9bd0b2fc9dcddf2d0e5929eca20a
+  docVersion: 1.0.0
+  speakeasyVersion: 1.508.1
+  generationVersion: 2.536.0
+  releaseVersion: 0.1.1
+  configChecksum: f0fa323968ef834c73a47c5db62af781
+features:
+  typescript:
+    additionalDependencies: 0.1.0
+    constsAndDefaults: 0.1.11
+    core: 3.21.3
+    defaultEnabledRetries: 0.1.0
+    devContainers: 2.90.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.1.2
+    globalSecurityCallbacks: 0.1.0
+    groups: 2.81.2
+    mcpServer: 0.3.0
+    nameOverrides: 2.81.2
+    nullables: 0.1.1
+    responseFormat: 0.2.3
+    retries: 2.83.0
+    sdkHooks: 0.2.0
+    unions: 2.85.8
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .npmignore
+  - FUNCTIONS.md
+  - RUNTIMES.md
+  - USAGE.md
+  - docs/lib/utils/retryconfig.md
+  - docs/models/components/asset.md
+  - docs/models/components/assetclass.md
+  - docs/models/components/assetforecastdata.md
+  - docs/models/components/assetindicatordata.md
+  - docs/models/components/assetlongtermforecastdata.md
+  - docs/models/components/assetpricedata.md
+  - docs/models/components/availablefuture.md
+  - docs/models/components/availableindicator.md
+  - docs/models/components/availablesupplymodels.md
+  - docs/models/components/contract.md
+  - docs/models/components/contractwithforecasts.md
+  - docs/models/components/contractwithindicator.md
+  - docs/models/components/contractwithpriceticks.md
+  - docs/models/components/data.md
+  - docs/models/components/feature.md
+  - docs/models/components/featurecategory.md
+  - docs/models/components/featuredrilldown.md
+  - docs/models/components/featurehistoricaldata.md
+  - docs/models/components/featurenode.md
+  - docs/models/components/featuretransformedhistoricaldata.md
+  - docs/models/components/featuretreemodel.md
+  - docs/models/components/forecast.md
+  - docs/models/components/forecasttick.md
+  - docs/models/components/forexdata.md
+  - docs/models/components/forextick.md
+  - docs/models/components/getallforexdataresponse.md
+  - docs/models/components/getassetcalendarresponse.md
+  - docs/models/components/getassetforecastsresponse.md
+  - docs/models/components/getassetlongtermforecastsresponse.md
+  - docs/models/components/getassetpricesresponse.md
+  - docs/models/components/getavailableassetcategoriesresponse.md
+  - docs/models/components/getavailablefeaturesresponse.md
+  - docs/models/components/getavailablefuturesresponse.md
+  - docs/models/components/getavailableindicatorsresponse.md
+  - docs/models/components/getavailableperformancemetricsresponse.md
+  - docs/models/components/getavailablesupplycommoditiesresponse.md
+  - docs/models/components/getdataresponse.md
+  - docs/models/components/getfeaturehistoricalresponse.md
+  - docs/models/components/getforexdataresponse.md
+  - docs/models/components/gethedgeindicatorresponse.md
+  - docs/models/components/getperformancemetricsresponse.md
+  - docs/models/components/getsectorindexhistoricalresponse.md
+  - docs/models/components/getsupplyresponse.md
+  - docs/models/components/gettransformedfeatureresponse.md
+  - docs/models/components/indicator.md
+  - docs/models/components/indicatortick.md
+  - docs/models/components/loc.md
+  - docs/models/components/longtermforecast.md
+  - docs/models/components/marketdriver.md
+  - docs/models/components/movingaverage.md
+  - docs/models/components/movingaveragetick.md
+  - docs/models/components/performancemetric.md
+  - docs/models/components/performancemetricresult.md
+  - docs/models/components/pingresponse.md
+  - docs/models/components/sectorindexhistoricaldata.md
+  - docs/models/components/sectorindextick.md
+  - docs/models/components/status.md
+  - docs/models/components/supplydata.md
+  - docs/models/components/tick.md
+  - docs/models/components/validationerror.md
+  - docs/models/errors/httpvalidationerror.md
+  - docs/models/operations/getassetcalendarrequest.md
+  - docs/models/operations/getassetclassindexrequest.md
+  - docs/models/operations/getavailablefeaturesrequest.md
+  - docs/models/operations/getfeatureshistoricalvaluesrequest.md
+  - docs/models/operations/getforexpricesrequest.md
+  - docs/models/operations/getfuturesforecastsrequest.md
+  - docs/models/operations/getfuturespricesrequest.md
+  - docs/models/operations/gethedgeindicatorrequest.md
+  - docs/models/operations/getlongtermforecastrequest.md
+  - docs/models/operations/getperformancemetricsrequest.md
+  - docs/models/operations/getsupplyrequest.md
+  - docs/models/operations/gettransformedfeaturevaluesrequest.md
+  - docs/models/operations/getweightedindexrequest.md
+  - docs/sdks/assets/README.md
+  - docs/sdks/data/README.md
+  - docs/sdks/features/README.md
+  - docs/sdks/forex/README.md
+  - docs/sdks/futures/README.md
+  - docs/sdks/hedgewise/README.md
+  - docs/sdks/indicators/README.md
+  - docs/sdks/performancemetrics/README.md
+  - docs/sdks/sectorindices/README.md
+  - docs/sdks/supply/README.md
+  - docs/sdks/system/README.md
+  - docs/types/rfcdate.md
+  - eslint.config.mjs
+  - jsr.json
+  - package.json
+  - src/core.ts
+  - src/funcs/assetsGetCategories.ts
+  - src/funcs/dataGetMetadata.ts
+  - src/funcs/featuresGetHistoricalValues.ts
+  - src/funcs/featuresGetTransformedValues.ts
+  - src/funcs/featuresGetTree.ts
+  - src/funcs/featuresGetWeightedIndex.ts
+  - src/funcs/featuresList.ts
+  - src/funcs/forexGetPrices.ts
+  - src/funcs/forexListPrices.ts
+  - src/funcs/futuresGetCalendar.ts
+  - src/funcs/futuresGetForecasts.ts
+  - src/funcs/futuresGetHedgeIndicator.ts
+  - src/funcs/futuresGetLongTermForecast.ts
+  - src/funcs/futuresGetPrices.ts
+  - src/funcs/futuresList.ts
+  - src/funcs/indicatorsList.ts
+  - src/funcs/performanceMetricsGet.ts
+  - src/funcs/performanceMetricsList.ts
+  - src/funcs/sectorIndicesGet.ts
+  - src/funcs/supplyGet.ts
+  - src/funcs/supplyListCommodities.ts
+  - src/funcs/systemPing.ts
+  - src/hooks/hooks.ts
+  - src/hooks/index.ts
+  - src/hooks/types.ts
+  - src/index.ts
+  - src/lib/base64.ts
+  - src/lib/config.ts
+  - src/lib/dlv.ts
+  - src/lib/encodings.ts
+  - src/lib/env.ts
+  - src/lib/files.ts
+  - src/lib/http.ts
+  - src/lib/is-plain-object.ts
+  - src/lib/logger.ts
+  - src/lib/matchers.ts
+  - src/lib/primitives.ts
+  - src/lib/retries.ts
+  - src/lib/schemas.ts
+  - src/lib/sdks.ts
+  - src/lib/security.ts
+  - src/lib/url.ts
+  - src/mcp-server/build.mts
+  - src/mcp-server/cli.ts
+  - src/mcp-server/cli/start/command.ts
+  - src/mcp-server/cli/start/impl.ts
+  - src/mcp-server/console-logger.ts
+  - src/mcp-server/mcp-server.ts
+  - src/mcp-server/resources.ts
+  - src/mcp-server/scopes.ts
+  - src/mcp-server/server.ts
+  - src/mcp-server/shared.ts
+  - src/mcp-server/tools.ts
+  - src/mcp-server/tools/assetsGetCategories.ts
+  - src/mcp-server/tools/dataGetMetadata.ts
+  - src/mcp-server/tools/featuresGetHistoricalValues.ts
+  - src/mcp-server/tools/featuresGetTransformedValues.ts
+  - src/mcp-server/tools/featuresGetTree.ts
+  - src/mcp-server/tools/featuresGetWeightedIndex.ts
+  - src/mcp-server/tools/featuresList.ts
+  - src/mcp-server/tools/forexGetPrices.ts
+  - src/mcp-server/tools/forexListPrices.ts
+  - src/mcp-server/tools/futuresGetCalendar.ts
+  - src/mcp-server/tools/futuresGetForecasts.ts
+  - src/mcp-server/tools/futuresGetHedgeIndicator.ts
+  - src/mcp-server/tools/futuresGetLongTermForecast.ts
+  - src/mcp-server/tools/futuresGetPrices.ts
+  - src/mcp-server/tools/futuresList.ts
+  - src/mcp-server/tools/indicatorsList.ts
+  - src/mcp-server/tools/performanceMetricsGet.ts
+  - src/mcp-server/tools/performanceMetricsList.ts
+  - src/mcp-server/tools/sectorIndicesGet.ts
+  - src/mcp-server/tools/supplyGet.ts
+  - src/mcp-server/tools/supplyListCommodities.ts
+  - src/mcp-server/tools/systemPing.ts
+  - src/models/components/asset.ts
+  - src/models/components/assetclass.ts
+  - src/models/components/assetforecastdata.ts
+  - src/models/components/assetindicatordata.ts
+  - src/models/components/assetlongtermforecastdata.ts
+  - src/models/components/assetpricedata.ts
+  - src/models/components/availablefuture.ts
+  - src/models/components/availableindicator.ts
+  - src/models/components/availablesupplymodels.ts
+  - src/models/components/contract.ts
+  - src/models/components/contractwithforecasts.ts
+  - src/models/components/contractwithindicator.ts
+  - src/models/components/contractwithpriceticks.ts
+  - src/models/components/data.ts
+  - src/models/components/feature.ts
+  - src/models/components/featurecategory.ts
+  - src/models/components/featuredrilldown.ts
+  - src/models/components/featurehistoricaldata.ts
+  - src/models/components/featurenode.ts
+  - src/models/components/featuretransformedhistoricaldata.ts
+  - src/models/components/featuretreemodel.ts
+  - src/models/components/forecast.ts
+  - src/models/components/forecasttick.ts
+  - src/models/components/forexdata.ts
+  - src/models/components/forextick.ts
+  - src/models/components/getallforexdataresponse.ts
+  - src/models/components/getassetcalendarresponse.ts
+  - src/models/components/getassetforecastsresponse.ts
+  - src/models/components/getassetlongtermforecastsresponse.ts
+  - src/models/components/getassetpricesresponse.ts
+  - src/models/components/getavailableassetcategoriesresponse.ts
+  - src/models/components/getavailablefeaturesresponse.ts
+  - src/models/components/getavailablefuturesresponse.ts
+  - src/models/components/getavailableindicatorsresponse.ts
+  - src/models/components/getavailableperformancemetricsresponse.ts
+  - src/models/components/getavailablesupplycommoditiesresponse.ts
+  - src/models/components/getdataresponse.ts
+  - src/models/components/getfeaturehistoricalresponse.ts
+  - src/models/components/getforexdataresponse.ts
+  - src/models/components/gethedgeindicatorresponse.ts
+  - src/models/components/getperformancemetricsresponse.ts
+  - src/models/components/getsectorindexhistoricalresponse.ts
+  - src/models/components/getsupplyresponse.ts
+  - src/models/components/gettransformedfeatureresponse.ts
+  - src/models/components/index.ts
+  - src/models/components/indicator.ts
+  - src/models/components/indicatortick.ts
+  - src/models/components/longtermforecast.ts
+  - src/models/components/marketdriver.ts
+  - src/models/components/movingaverage.ts
+  - src/models/components/movingaveragetick.ts
+  - src/models/components/performancemetric.ts
+  - src/models/components/performancemetricresult.ts
+  - src/models/components/pingresponse.ts
+  - src/models/components/sectorindexhistoricaldata.ts
+  - src/models/components/sectorindextick.ts
+  - src/models/components/supplydata.ts
+  - src/models/components/tick.ts
+  - src/models/components/validationerror.ts
+  - src/models/errors/apierror.ts
+  - src/models/errors/httpclienterrors.ts
+  - src/models/errors/httpvalidationerror.ts
+  - src/models/errors/index.ts
+  - src/models/errors/sdkvalidationerror.ts
+  - src/models/operations/getassetcalendar.ts
+  - src/models/operations/getassetclassindex.ts
+  - src/models/operations/getavailablefeatures.ts
+  - src/models/operations/getfeatureshistoricalvalues.ts
+  - src/models/operations/getforexprices.ts
+  - src/models/operations/getfuturesforecasts.ts
+  - src/models/operations/getfuturesprices.ts
+  - src/models/operations/gethedgeindicator.ts
+  - src/models/operations/getlongtermforecast.ts
+  - src/models/operations/getperformancemetrics.ts
+  - src/models/operations/getsupply.ts
+  - src/models/operations/gettransformedfeaturevalues.ts
+  - src/models/operations/getweightedindex.ts
+  - src/models/operations/index.ts
+  - src/sdk/assets.ts
+  - src/sdk/data.ts
+  - src/sdk/features.ts
+  - src/sdk/forex.ts
+  - src/sdk/futures.ts
+  - src/sdk/index.ts
+  - src/sdk/indicators.ts
+  - src/sdk/performancemetrics.ts
+  - src/sdk/sdk.ts
+  - src/sdk/sectorindices.ts
+  - src/sdk/supply.ts
+  - src/sdk/system.ts
+  - src/types/async.ts
+  - src/types/blobs.ts
+  - src/types/constdatetime.ts
+  - src/types/enums.ts
+  - src/types/fp.ts
+  - src/types/index.ts
+  - src/types/operations.ts
+  - src/types/rfcdate.ts
+  - src/types/streams.ts
+  - tsconfig.json
+examples:
+  ping:
+    speakeasy-default-ping:
+      responses:
+        "200":
+          application/json: {}
+  get_data:
+    speakeasy-default-get-data:
+      responses:
+        "200":
+          application/json: {"data": {"asset_classes": [{"symbol": "<value>", "name": "<value>"}], "assets": [{"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}], "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>"}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>"}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>"}]}}
+  get_available_asset_categories:
+    speakeasy-default-get-available-asset-categories:
+      responses:
+        "200":
+          application/json: {"data": []}
+  get_available_futures:
+    speakeasy-default-get-available-futures:
+      responses:
+        "200":
+          application/json: {"data": []}
+  get_asset_calendar:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          start_date: "2025-02-23"
+          end_date: "2025-03-02"
+      responses:
+        "200":
+          application/json: {"data": ["<value>", "<value>", "<value>"]}
+        "422": {}
+  get_futures_forecasts:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          start_date: "2025-03-01"
+          end_date: "2025-03-01"
+          interpolate: false
+          estimate_uncertainty: false
+          get_market_drivers: false
+          get_moving_averages: false
+          price_collar_sigma: 0
+      responses:
+        "200":
+          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "Malibu", "forecast_date": "2024-01-04T14:55:43.401Z", "close_price_trajectory": [{"date": "2023-11-28T20:56:45.189Z", "close_price": 8019.17}, {"date": "2023-03-17T22:24:56.249Z", "close_price": 7786.33}]}, {"model": "Silverado", "forecast_date": "2024-07-14T18:04:34.000Z", "close_price_trajectory": []}, {"model": "XTS", "forecast_date": "2023-06-16T12:47:39.722Z", "close_price_trajectory": [{"date": "2025-07-15T00:00:42.354Z", "close_price": 6363.25}]}], "market_drivers": [{"model": "ATS", "forecast_date": "2023-08-03T11:32:36.666Z", "horizon": 12062, "categories": [{"category": "<value>", "contribution": 903.6, "drilldown": [{"feature_code": "<value>", "contribution": 7856.72, "description": "catalyst drain that saw decriminalize however afore once"}, {"feature_code": "<value>", "contribution": 3036.03, "description": "snoop unripe trash to"}, {"feature_code": "<value>", "contribution": 4366.63, "description": "quirkily hm address front er defiantly fuss jaggedly smoke"}]}]}, {"model": "ATS", "forecast_date": "2025-08-12T04:53:33.205Z", "horizon": 294636, "categories": [{"category": "<value>", "contribution": 3126.08, "drilldown": [{"feature_code": "<value>", "contribution": 264.69, "description": "upright blushing more"}, {"feature_code": "<value>", "contribution": 8877.15, "description": "per slime ack from handover gruesome snoopy gymnast"}]}]}, {"model": "XC90", "forecast_date": "2024-08-15T10:55:54.521Z", "horizon": 740523, "categories": [{"category": "<value>", "contribution": 2149.69, "drilldown": [{"feature_code": "<value>", "contribution": 6292.91, "description": "now remorseful what"}]}, {"category": "<value>", "contribution": 1315.26, "drilldown": [{"feature_code": "<value>", "contribution": 9853.08, "description": "octave pace apropos rapidly apparatus whoever through ugh"}]}]}], "moving_averages": [{"horizon": 539231, "moving_average": [{"date": "2023-03-30T15:24:26.040Z", "value": 1032.13}, {"date": "2023-08-01T22:20:00.592Z", "value": 2134.71}, {"date": "2024-10-16T13:59:58.596Z", "value": 3057.26}]}]}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "Accord", "forecast_date": "2024-03-11T22:06:44.944Z", "close_price_trajectory": [{"date": "2024-05-24T17:57:38.078Z", "close_price": 9067.16}]}, {"model": "Alpine", "forecast_date": "2024-05-02T11:00:03.860Z", "close_price_trajectory": [{"date": "2025-03-29T20:33:32.256Z", "close_price": 3108.44}, {"date": "2025-03-08T03:57:29.322Z", "close_price": 2360.88}]}, {"model": "Silverado", "forecast_date": "2025-09-08T20:29:53.215Z", "close_price_trajectory": [{"date": "2023-08-05T09:46:46.772Z", "close_price": 4917.24}, {"date": "2025-08-18T15:32:48.710Z", "close_price": 2599.23}, {"date": "2024-08-03T21:19:29.007Z", "close_price": 3478.58}]}], "market_drivers": [{"model": "Land Cruiser", "forecast_date": "2023-04-28T15:31:17.488Z", "horizon": 569101, "categories": []}], "moving_averages": [{"horizon": 656823, "moving_average": [{"date": "2023-11-17T04:58:24.079Z", "value": 9100.82}, {"date": "2024-10-18T08:22:03.952Z", "value": 538.93}, {"date": "2025-04-15T00:53:54.422Z", "value": 4055.2}]}]}]}}
+        "422": {}
+  get_long_term_forecast:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          horizon: 12
+          start_date: "2025-02-02"
+          end_date: "2025-03-02"
+          rollover_type: "hist_vol"
+      responses:
+        "200":
+          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "long_term_forecast": []}}
+        "422": {}
+  get_available_indicators:
+    speakeasy-default-get-available-indicators:
+      responses:
+        "200":
+          application/json: {"data": [{"name": "<value>", "assets": [{"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}]}]}
+  get_hedge_indicator:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          contract: "2025H"
+          hedge_horizon: 86
+          lookback_days: 30
+          start_date: "2025-02-02"
+          end_date: "2025-03-01"
+      responses:
+        "200":
+          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}]}}
+        "422": {}
+  get_futures_prices:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          contract: "2025H"
+          start_date: "2025-03-01"
+          end_date: "2025-03-01"
+          active_contracts_only: true
+          rollover_method: "hist_vol"
+          back_adjust: false
+      responses:
+        "200":
+          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "front_month": "<value>", "contracts": []}}
+        "422": {}
+  get_all_forex_prices:
+    speakeasy-default-get-all-forex-prices:
+      responses:
+        "200":
+          application/json: {"data": [{"code": "<value>", "name": "<value>", "market_date": "2024-12-20T10:30:26.771Z", "prices": []}, {"code": "<value>", "name": "<value>", "market_date": "2024-12-21T21:57:15.440Z", "prices": [{"date": "2023-08-27T07:12:04.314Z", "price": 9247.81}, {"date": "2025-10-08T09:10:23.123Z", "price": 2685.71}]}, {"code": "<value>", "name": "<value>", "market_date": "2023-03-12T18:32:58.702Z", "prices": [{"date": "2023-04-17T12:08:11.345Z", "price": 8687.67}]}]}
+  get_forex_prices:
+    "":
+      parameters:
+        path:
+          code: "EUR"
+        query:
+          start_date: "2025-02-23"
+          end_date: "2025-03-02"
+          foreign_per_usd: true
+      responses:
+        "200":
+          application/json: {"data": {"code": "<value>", "name": "<value>", "market_date": "2023-09-25T00:30:20.633Z", "prices": []}}
+        "422": {}
+  get_features_tree:
+    speakeasy-default-get-features-tree:
+      responses:
+        "200":
+          application/json: {"type": {"key": [], "key1": [{"label": "<value>"}, {"label": "<value>"}, {"label": "<value>"}]}, "category": {"key": [{"label": "<value>"}], "key1": [], "key2": [{"label": "<value>"}]}, "region": {"key": [{"label": "<value>"}]}}
+  get_available_features:
+    "":
+      parameters:
+        query:
+          symbol: "ZC"
+      responses:
+        "200":
+          application/json: {"data": [{"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}, {"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}, {"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}]}
+        "422": {}
+  get_features_historical_values:
+    "":
+      parameters:
+        path:
+          feature_code: "vietnam_t2mean"
+        query:
+          start_date: "2025-02-02"
+          end_date: "2025-03-02"
+          add_strength_for_commodity: "ZC"
+      responses:
+        "200":
+          application/json: {"data": [{"feature_code": "<value>", "date": "2025-11-08", "value": 8931.87}, {"feature_code": "<value>", "date": "2025-09-06", "value": 2327.93}]}
+        "422": {}
+  get_transformed_feature_values:
+    "":
+      parameters:
+        path:
+          feature_code: "vietnam_t2mean"
+        query:
+          transform: "xyavg"
+          number_of_years: 5
+          window: 3
+          start_date: "2025-02-02"
+          end_date: "2025-03-02"
+      responses:
+        "200":
+          application/json: {"data": [{"xform_feature_code": "<value>", "date": "2024-09-16", "value": 8245.25}, {"xform_feature_code": "<value>", "date": "2023-09-11", "value": 8529.72}, {"xform_feature_code": "<value>", "date": "2025-01-28", "value": 7931.96}]}
+        "422": {}
+  get_weighted_index:
+    "":
+      parameters:
+        query:
+          weights: [0.5]
+          feature_codes: ["vietnam_t2mean"]
+          index_label: "user_defined_index"
+          start_date: "2025-02-02"
+          end_date: "2025-03-02"
+      responses:
+        "200":
+          application/json: {"data": []}
+        "422": {}
+  get_asset_class_index:
+    "":
+      parameters:
+        path:
+          asset_class_symbol: "OIL"
+        query:
+          methodology: "riskparity"
+          start_date: "2025-02-02"
+          end_date: "2025-03-02"
+      responses:
+        "200":
+          application/json: {"data": [{"asset_class": "<value>", "data": [{"date": "2025-10-15", "value": 9273.03}, {"date": "2025-08-05", "value": 290.69}]}]}
+        "422": {}
+  get_available_performance_metrics:
+    speakeasy-default-get-available-performance-metrics:
+      responses:
+        "200":
+          application/json: {"data": [{"metric": "<value>", "description": "ugh hm that hm instead except"}, {"metric": "<value>", "description": "worth nor bah at deafening absentmindedly how"}, {"metric": "<value>", "description": "napkin gnash worriedly zowie bowler apropos ick dimly pace"}]}
+  get_performance_metrics:
+    "":
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          metric: "hitrate"
+          horizon: 10
+          start_date: "2025-01-01"
+          end_date: "2025-03-02"
+          threshold_on_forecast: 0.04
+          threshold_on_actual: 0.02
+          use_run_date: false
+          sigma: 2
+      responses:
+        "200":
+          application/json: {"data": [{"metric": "<value>", "horizon": 839586, "value": 6348.62}, {"metric": "<value>", "horizon": 719466, "value": 1131.99}, {"metric": "<value>", "horizon": 669397, "value": 451.72}]}
+        "422": {}
+  get_available_supply_commodities:
+    speakeasy-default-get-available-supply-commodities:
+      responses:
+        "200":
+          application/json: {"data": [{"model": "Escalade", "symbol": "<value>", "commodity": "<value>", "countries": ["<value>", "<value>"]}, {"model": "Challenger", "symbol": "<value>", "commodity": "<value>", "countries": ["<value>", "<value>", "<value>"]}]}
+  get_supply:
+    "":
+      parameters:
+        path:
+          symbol: "KC"
+        query:
+          country_code: "BR"
+          start_date: "2024-03-02"
+          end_date: "2025-03-02"
+          get_feature_contributions: false
+          model: "v2_wholecountry_92to23_interval10_yesyoy_xgb"
+      responses:
+        "200":
+          application/json: {"data": []}
+        "422": {}
+examplesVersion: 1.0.0
+generatedTests: {}

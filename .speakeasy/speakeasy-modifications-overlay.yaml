@@ -1,0 +1,227 @@
+overlay: 1.0.0
+x-speakeasy-jsonpath: rfc9535
+info:
+  title: Speakeasy Modifications
+  version: 0.0.2
+  x-speakeasy-metadata:
+    after: ""
+    before: ""
+    type: speakeasy-modifications
+actions:
+  - target: $["paths"]["/v1/features/historical/{feature_code}"]["get"]
+    update:
+      x-speakeasy-group: features
+      x-speakeasy-name-override: get_historical_values
+    x-speakeasy-metadata:
+      after: sdk.features.get_historical_values()
+      before: sdk.<no_group>.get_features_historical_values()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/forecasts/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: futures
+      x-speakeasy-name-override: getForecasts
+    x-speakeasy-metadata:
+      after: sdk.futures.getForecasts()
+      before: sdk.<no_group>.get_futures_forecasts()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/forecasts/{symbol}/long_term_forecast"]["get"]
+    update:
+      x-speakeasy-group: futures
+    x-speakeasy-metadata:
+      after: sdk.futures.get_long_term_forecast()
+      before: sdk.<no_group>.get_long_term_forecast()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/features"]["get"]
+    update:
+      x-speakeasy-group: features
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.features.list()
+      before: sdk.<no_group>.get_available_features()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/ping"]["get"]
+    update:
+      x-speakeasy-group: system
+    x-speakeasy-metadata:
+      after: sdk.system.ping()
+      before: sdk.<no_group>.ping()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets"]["get"]
+    update:
+      x-speakeasy-group: assets
+      x-speakeasy-name-override: getCategories
+    x-speakeasy-metadata:
+      after: sdk.assets.getCategories()
+      before: sdk.<no_group>.get_available_asset_categories()
+      created_at: 1741017521844
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/features/transform/{feature_code}"]["get"]
+    update:
+      x-speakeasy-group: features
+      x-speakeasy-name-override: get_transformed_values
+    x-speakeasy-metadata:
+      after: sdk.features.get_transformed_values()
+      before: sdk.<no_group>.get_transformed_feature_values()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/models/performance/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: performance_metrics
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.performance_metrics.get()
+      before: sdk.<no_group>.get_performance_metrics()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/sector_index/{asset_class_symbol}"]["get"]
+    update:
+      x-speakeasy-group: sector_indices
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.sector_indices.get()
+      before: sdk.<no_group>.get_asset_class_index()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures"]["get"]
+    update:
+      x-speakeasy-group: futures
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.futures.list()
+      before: sdk.<no_group>.get_available_futures()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/calendars/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: futures
+      x-speakeasy-name-override: getCalendar
+    x-speakeasy-metadata:
+      after: sdk.futures.getCalendar()
+      before: sdk.<no_group>.get_asset_calendar()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/indicators/hedge/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: futures
+    x-speakeasy-metadata:
+      after: sdk.futures.get_hedge_indicator()
+      before: sdk.<no_group>.get_hedge_indicator()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/models/performance"]["get"]
+    update:
+      x-speakeasy-group: performance_metrics
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.performance_metrics.list()
+      before: sdk.<no_group>.get_available_performance_metrics()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/supply/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: supply
+      x-speakeasy-name-override: get
+    x-speakeasy-metadata:
+      after: sdk.supply.get()
+      before: sdk.<no_group>.get_supply()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/forex/{code}"]["get"]
+    update:
+      x-speakeasy-group: forex
+      x-speakeasy-name-override: get_prices
+    x-speakeasy-metadata:
+      after: sdk.forex.get_prices()
+      before: sdk.<no_group>.get_forex_prices()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/features/weighted_index/"]["get"]
+    update:
+      x-speakeasy-group: features
+      x-speakeasy-name-override: getWeightedIndex
+    x-speakeasy-metadata:
+      after: sdk.features.getWeightedIndex()
+      before: sdk.<no_group>.get_weighted_index()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/forex"]["get"]
+    update:
+      x-speakeasy-group: forex
+      x-speakeasy-name-override: list_prices
+    x-speakeasy-metadata:
+      after: sdk.forex.list_prices()
+      before: sdk.<no_group>.get_all_forex_prices()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/features_tree"]["get"]
+    update:
+      x-speakeasy-group: features
+      x-speakeasy-name-override: get_tree
+    x-speakeasy-metadata:
+      after: sdk.features.get_tree()
+      before: sdk.<no_group>.get_features_tree()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/indicators"]["get"]
+    update:
+      x-speakeasy-group: indicators
+      x-speakeasy-name-override: list
+    x-speakeasy-metadata:
+      after: sdk.indicators.list()
+      before: sdk.<no_group>.get_available_indicators()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/data"]["get"]
+    update:
+      x-speakeasy-group: data
+      x-speakeasy-name-override: getMetadata
+    x-speakeasy-metadata:
+      after: sdk.data.getMetadata()
+      before: sdk.<no_group>.get_data()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/supply"]["get"]
+    update:
+      x-speakeasy-group: supply
+      x-speakeasy-name-override: list_commodities
+    x-speakeasy-metadata:
+      after: sdk.supply.list_commodities()
+      before: sdk.<no_group>.get_available_supply_commodities()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name
+  - target: $["paths"]["/v1/assets/futures/prices/{symbol}"]["get"]
+    update:
+      x-speakeasy-group: futures
+      x-speakeasy-name-override: get_prices
+    x-speakeasy-metadata:
+      after: sdk.futures.get_prices()
+      before: sdk.<no_group>.get_futures_prices()
+      created_at: 1741017521845
+      reviewed_at: 1741017538753
+      type: method-name

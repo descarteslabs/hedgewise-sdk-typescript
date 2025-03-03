@@ -1,0 +1,28 @@
+speakeasyVersion: 1.508.1
+sources: {}
+targets:
+    hedgewise:
+        source: Hedgewise
+        codeSamplesNamespace: hedgewise-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:7bf559f12b0bec02259a6c5ad13d74bb667fab65153814619f0fd40214da92bc
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Hedgewise:
+            inputs:
+                - location: https://hedgewise.appsci-production.aws.descarteslabs.com/openapi.json
+            overlays:
+                - location: .speakeasy/speakeasy-modifications-overlay.yaml
+            registry:
+                location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise
+    targets:
+        hedgewise:
+            target: typescript
+            source: Hedgewise
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
