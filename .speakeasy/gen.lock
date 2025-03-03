@@ -5,10 +5,11 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.508.1
   generationVersion: 2.536.0
-  releaseVersion: 0.1.2
-  configChecksum: a92038fb2e9e333da580a6ecae353551
+  releaseVersion: 0.1.3
+  configChecksum: 7143bd26810547046c014781951bbaff
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
+  published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
