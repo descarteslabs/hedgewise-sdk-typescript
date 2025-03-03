@@ -13,8 +13,8 @@ let value: GetWeightedIndexRequest = {
     "vietnam_t2mean",
   ],
   indexLabel: "user_defined_index",
-  startDate: "2025-02-02",
-  endDate: "2025-03-02",
+  startDate: "2025-02-03",
+  endDate: "2025-03-03",
 };
 ```
 
@@ -25,5 +25,5 @@ let value: GetWeightedIndexRequest = {
 | `weights`                                                                  | *number*[]                                                                 | :heavy_check_mark:                                                         | The list of weights to apply on the features selection to create the index | 0.5                                                                        |
 | `featureCodes`                                                             | *string*[]                                                                 | :heavy_check_mark:                                                         | The list of features to include in the index                               | vietnam_t2mean                                                             |
 | `indexLabel`                                                               | *string*                                                                   | :heavy_check_mark:                                                         | user defined string used to name the weighted index                        | user_defined_index                                                         |
-| `startDate`                                                                | *string*                                                                   | :heavy_minus_sign:                                                         | Start of transformed feature data window (YYYY-MM-DD)                      | 2025-02-02                                                                 |
-| `endDate`                                                                  | *string*                                                                   | :heavy_minus_sign:                                                         | End of transformed feature data window (YYYY-MM-DD)                        | 2025-03-02                                                                 |
+| `startDate`                                                                | *string*                                                                   | :heavy_minus_sign:                                                         | Start of transformed feature data window (YYYY-MM-DD)                      | 2025-02-03                                                                 |
+| `endDate`                                                                  | *string*                                                                   | :heavy_minus_sign:                                                         | End of transformed feature data window (YYYY-MM-DD)                        | 2025-03-03                                                                 |
