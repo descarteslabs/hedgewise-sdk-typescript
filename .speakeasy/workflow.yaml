@@ -12,6 +12,9 @@ targets:
     hedgewise:
         target: typescript
         source: Hedgewise
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise-typescript-code-samples
