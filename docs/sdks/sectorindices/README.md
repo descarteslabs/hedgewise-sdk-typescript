@@ -24,8 +24,8 @@ async function run() {
   const result = await hedgewise.sectorIndices.get({
     assetClassSymbol: "OIL",
     methodology: "riskparity",
-    startDate: "2025-02-02",
-    endDate: "2025-03-02",
+    startDate: "2025-02-03",
+    endDate: "2025-03-03",
   });
 
   // Handle the result
@@ -53,8 +53,8 @@ async function run() {
   const res = await sectorIndicesGet(hedgewise, {
     assetClassSymbol: "OIL",
     methodology: "riskparity",
-    startDate: "2025-02-02",
-    endDate: "2025-03-02",
+    startDate: "2025-02-03",
+    endDate: "2025-03-03",
   });
 
   if (!res.ok) {
