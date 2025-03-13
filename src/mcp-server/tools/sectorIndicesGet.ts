@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$sectorIndicesGet: ToolDefinition<typeof args> = {
-  name: "sector-indices_get",
+  name: "sector-indices-get",
   description: `Get the proprietary value of the sector index requested
 
 Return the selected sector or asset class index historical values using a proprietary methodology and composition`,

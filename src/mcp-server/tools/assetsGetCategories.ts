@@ -6,7 +6,7 @@ import { assetsGetCategories } from "../../funcs/assetsGetCategories.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$assetsGetCategories: ToolDefinition = {
-  name: "assets_get-categories",
+  name: "assets-get-categories",
   description: `List available asset categories (e.g. Futures)
 
 Returns a list of all available asset categories, such as

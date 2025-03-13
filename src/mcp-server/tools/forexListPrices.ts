@@ -6,7 +6,7 @@ import { forexListPrices } from "../../funcs/forexListPrices.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$forexListPrices: ToolDefinition = {
-  name: "forex_list-prices",
+  name: "forex-list-prices",
   description: `Get most recent forex prices for all currencies
 
 Get most recent forex prices for all currencies`,

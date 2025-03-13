@@ -25,7 +25,7 @@ let value: GetHedgeIndicatorResponse = {
           name: "<value>",
           series: [
             {
-              date: "2025-02-17",
+              date: "2025-02-27",
               value: 2921.47,
             },
           ],

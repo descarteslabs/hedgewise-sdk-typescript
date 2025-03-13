@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$supplyGet: ToolDefinition<typeof args> = {
-  name: "supply_get",
+  name: "supply-get",
   description: `Get supply data for a commodity and country
 
 Returns historical and forecasted supply data for a given

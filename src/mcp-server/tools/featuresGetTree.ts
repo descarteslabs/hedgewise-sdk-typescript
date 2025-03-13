@@ -6,7 +6,7 @@ import { featuresGetTree } from "../../funcs/featuresGetTree.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$featuresGetTree: ToolDefinition = {
-  name: "features_get-tree",
+  name: "features-get-tree",
   description: `Provide the tree structure of the features faceting panel
 
 Provide the organization of a search tree over the features organization`,
