@@ -1,10 +1,10 @@
-speakeasyVersion: 1.517.2
+speakeasyVersion: 1.517.3
 sources: {}
 targets:
     hedgewise:
         source: Hedgewise
         codeSamplesNamespace: hedgewise-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:e54144aae934c4d4041e4bf324908bd236751d5ae1bc53a6c1f60d3b0e726e66
+        codeSamplesRevisionDigest: sha256:c9f7d7a2baad1e1a0b561a5124a7f3bd801736027b92a1953f1664013b586956
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
