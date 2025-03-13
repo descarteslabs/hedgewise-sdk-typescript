@@ -1,23 +1,23 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-    Hedgewise:
-        inputs:
-            - location: https://hedgewise.appsci-production.aws.descarteslabs.com/openapi.json
-        overlays:
-            - location: .speakeasy/speakeasy-modifications-overlay.yaml
-        registry:
-            location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise
+  Hedgewise:
+    inputs:
+      - location: https://hedgewise.appsci-production.aws.descarteslabs.com/openapi.json
+    overlays:
+      - location: .speakeasy/speakeasy-modifications-overlay.yaml
+    registry:
+      location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise
 targets:
-    hedgewise:
-        target: typescript
-        source: Hedgewise
-        publish:
-            npm:
-                token: $npm_token
-        codeSamples:
-            registry:
-                location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise-typescript-code-samples
-            labelOverride:
-                fixedValue: Typescript (SDK)
-            blocking: false
+  hedgewise:
+    target: typescript
+    source: hedgewise
+    publish:
+      npm:
+        token: $npm_token
+    codeSamples:
+      registry:
+        location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise-typescript-code-samples
+      labelOverride:
+        fixedValue: Typescript (SDK)
+      blocking: false
