@@ -4,7 +4,7 @@ targets:
     hedgewise:
         source: Hedgewise
         codeSamplesNamespace: hedgewise-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:c9f7d7a2baad1e1a0b561a5124a7f3bd801736027b92a1953f1664013b586956
+        codeSamplesRevisionDigest: sha256:3d628399fe2fb503c013a03cc012f43210b2d1b71bdf25740a4641d2eced63bc
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

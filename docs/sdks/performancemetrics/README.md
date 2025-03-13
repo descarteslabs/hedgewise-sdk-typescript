@@ -98,7 +98,7 @@ async function run() {
     metric: "hitrate",
     horizon: 10,
     startDate: "2025-01-01",
-    endDate: "2025-03-13",
+    endDate: "2025-03-12",
     thresholdOnForecast: 0.04,
     thresholdOnActual: 0.02,
   });
@@ -130,7 +130,7 @@ async function run() {
     metric: "hitrate",
     horizon: 10,
     startDate: "2025-01-01",
-    endDate: "2025-03-13",
+    endDate: "2025-03-12",
     thresholdOnForecast: 0.04,
     thresholdOnActual: 0.02,
   });
