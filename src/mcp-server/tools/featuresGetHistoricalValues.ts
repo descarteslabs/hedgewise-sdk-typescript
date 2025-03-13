@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$featuresGetHistoricalValues: ToolDefinition<typeof args> = {
-  name: "features_get-historical-values",
+  name: "features-get-historical-values",
   description: `Get historical values for a feature
 
 Returns historical values for a given feature code. The

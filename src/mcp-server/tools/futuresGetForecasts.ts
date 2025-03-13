@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$futuresGetForecasts: ToolDefinition<typeof args> = {
-  name: "futures_get-forecasts",
+  name: "futures-get-forecasts",
   description: `Get forecasts for a future
 
 Returns a list of all forecasts made for a given future

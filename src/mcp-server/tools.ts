@@ -94,9 +94,18 @@ export function createRegisterTool(
   server: McpServer,
   sdk: HedgewiseCore,
   allowedScopes: Set<MCPScope>,
+  allowedTools?: Set<string>,
 ): <A extends ZodRawShape | undefined>(tool: ToolDefinition<A>) => void {
   return <A extends ZodRawShape | undefined>(tool: ToolDefinition<A>): void => {
+    if (allowedTools && !allowedTools.has(tool.name)) {
+      return;
+    }
+
     const toolScopes = tool.scopes ?? [];
+    if (allowedScopes.size > 0 && toolScopes.length === 0) {
+      return;
+    }
+
     if (!toolScopes.every((s) => allowedScopes.has(s))) {
       return;
     }

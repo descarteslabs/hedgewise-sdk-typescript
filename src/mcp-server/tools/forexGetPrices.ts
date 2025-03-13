@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$forexGetPrices: ToolDefinition<typeof args> = {
-  name: "forex_get-prices",
+  name: "forex-get-prices",
   description: `Get forex data for one currency
 
 Returns forex price history for a given currency code.`,

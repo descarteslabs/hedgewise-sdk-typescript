@@ -6,7 +6,7 @@ import { dataGetMetadata } from "../../funcs/dataGetMetadata.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$dataGetMetadata: ToolDefinition = {
-  name: "data_get-metadata",
+  name: "data-get-metadata",
   description: `Get metadata and most recent prices
 
 Returns a list of all asset classes, assets, and currently

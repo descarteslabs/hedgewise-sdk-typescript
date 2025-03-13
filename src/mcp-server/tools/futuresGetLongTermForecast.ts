@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$futuresGetLongTermForecast: ToolDefinition<typeof args> = {
-  name: "futures_get-long-term-forecast",
+  name: "futures-get-long-term-forecast",
   description: `Get long-term forecast for a future
 
 Returns a list of booleans indicating whether the price of the given future is expected to increase over the next 12 months.`,

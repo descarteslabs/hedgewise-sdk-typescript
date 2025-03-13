@@ -6,7 +6,7 @@ import { performanceMetricsList } from "../../funcs/performanceMetricsList.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$performanceMetricsList: ToolDefinition = {
-  name: "performance-metrics_list",
+  name: "performance-metrics-list",
   description: `List available performance metrics and related models
 
 Returns the list of success data that can be requested to assess our forecasting models performance`,

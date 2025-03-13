@@ -6,7 +6,7 @@ import { systemPing } from "../../funcs/systemPing.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$systemPing: ToolDefinition = {
-  name: "system_ping",
+  name: "system-ping",
   description: `Ping`,
   tool: async (client, ctx) => {
     const [result, apiCall] = await systemPing(

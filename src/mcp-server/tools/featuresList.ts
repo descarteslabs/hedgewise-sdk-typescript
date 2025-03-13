@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$featuresList: ToolDefinition<typeof args> = {
-  name: "features_list",
+  name: "features-list",
   description: `List available features
 
 Returns the list of all available features that Hedgewise

@@ -5,6 +5,7 @@
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import express from "express";
+import { SDKOptions } from "../../../lib/config.js";
 import { LocalContext } from "../../cli.js";
 import {
   ConsoleLoggerLevel,
@@ -16,8 +17,10 @@ import { createMCPServer } from "../../server.js";
 interface StartCommandFlags {
   readonly transport: "stdio" | "sse";
   readonly port: number;
+  readonly tool?: string[];
   readonly scope?: MCPScope[];
   readonly "server-url": string;
+  readonly "server-index"?: SDKOptions["serverIdx"];
   readonly "log-level": ConsoleLoggerLevel;
   readonly env?: [string, string][];
 }
@@ -44,8 +47,10 @@ async function startStdio(flags: StartCommandFlags) {
   const transport = new StdioServerTransport();
   const server = createMCPServer({
     logger,
+    allowedTools: flags.tool,
     scopes: flags.scope,
     serverURL: flags["server-url"],
+    serverIdx: flags["server-index"],
   });
   await server.connect(transport);
 
@@ -62,8 +67,10 @@ async function startSSE(flags: StartCommandFlags) {
   const app = express();
   const mcpServer = createMCPServer({
     logger,
+    allowedTools: flags.tool,
     scopes: flags.scope,
     serverURL: flags["server-url"],
+    serverIdx: flags["server-index"],
   });
   let transport: SSEServerTransport | undefined;
   const controller = new AbortController();

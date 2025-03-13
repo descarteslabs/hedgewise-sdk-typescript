@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$featuresGetTransformedValues: ToolDefinition<typeof args> = {
-  name: "features_get-transformed-values",
+  name: "features-get-transformed-values",
   description:
     `Get the historical values for a feature transformed via the specified transformation
 

@@ -6,7 +6,7 @@ import { supplyListCommodities } from "../../funcs/supplyListCommodities.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$supplyListCommodities: ToolDefinition = {
-  name: "supply_list-commodities",
+  name: "supply-list-commodities",
   description: `List commodities with supply models
 
 Returns a list of all commodities that have supply models

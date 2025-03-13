@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$featuresGetWeightedIndex: ToolDefinition<typeof args> = {
-  name: "features_get-weighted-index",
+  name: "features-get-weighted-index",
   description:
     `Returns the values of a user-definable index by creating a linear combination of features
 

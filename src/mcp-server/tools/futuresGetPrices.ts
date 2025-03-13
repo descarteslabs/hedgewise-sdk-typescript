@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$futuresGetPrices: ToolDefinition<typeof args> = {
-  name: "futures_get-prices",
+  name: "futures-get-prices",
   description: `Get historical prices for a future
 
 Returns historical price data for a given future symbol.

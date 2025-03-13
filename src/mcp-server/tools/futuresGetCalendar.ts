@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$futuresGetCalendar: ToolDefinition<typeof args> = {
-  name: "futures_get-calendar",
+  name: "futures-get-calendar",
   description: `Get trading calendar for a future
 
 Returns a list of all trading days for a given future

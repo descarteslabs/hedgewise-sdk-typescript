@@ -6,7 +6,7 @@ import { futuresList } from "../../funcs/futuresList.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$futuresList: ToolDefinition = {
-  name: "futures_list",
+  name: "futures-list",
   description: `List all available futures
 
 Returns a list of all available future symbols that

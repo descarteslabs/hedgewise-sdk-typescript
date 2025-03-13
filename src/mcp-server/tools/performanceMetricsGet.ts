@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$performanceMetricsGet: ToolDefinition<typeof args> = {
-  name: "performance-metrics_get",
+  name: "performance-metrics-get",
   description:
     `Get performance related data metrics for a given futures price forecast model at a given horizon.
 

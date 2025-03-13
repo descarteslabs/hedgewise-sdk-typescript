@@ -11,7 +11,7 @@ const args = {
 };
 
 export const tool$futuresGetHedgeIndicator: ToolDefinition<typeof args> = {
-  name: "futures_get-hedge-indicator",
+  name: "futures-get-hedge-indicator",
   description: `Get hedge indicator for a future
 
 Returns a list of values indicating the likelihood that the

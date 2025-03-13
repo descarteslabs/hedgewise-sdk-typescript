@@ -6,7 +6,7 @@ import { indicatorsList } from "../../funcs/indicatorsList.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
 export const tool$indicatorsList: ToolDefinition = {
-  name: "indicators_list",
+  name: "indicators-list",
   description: `List available indicators
 
 Returns the list of all available market indicators that
