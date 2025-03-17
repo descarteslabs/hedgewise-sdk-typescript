@@ -97,6 +97,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "end_date": payload.end_date,
+    "freq": payload.freq,
     "methodology": payload.methodology,
     "start_date": payload.start_date,
   });

@@ -100,8 +100,8 @@ async function run() {
   const result = await hedgewise.supply.get({
     symbol: "KC",
     countryCode: "BR",
-    startDate: "2024-03-12",
-    endDate: "2025-03-12",
+    startDate: "2024-03-17",
+    endDate: "2025-03-17",
   });
 
   // Handle the result
@@ -129,8 +129,8 @@ async function run() {
   const res = await supplyGet(hedgewise, {
     symbol: "KC",
     countryCode: "BR",
-    startDate: "2024-03-12",
-    endDate: "2025-03-12",
+    startDate: "2024-03-17",
+    endDate: "2025-03-17",
   });
 
   if (!res.ok) {

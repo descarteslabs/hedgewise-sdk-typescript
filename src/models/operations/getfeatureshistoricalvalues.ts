@@ -25,6 +25,14 @@ export type GetFeaturesHistoricalValuesRequest = {
    * If a future symbol is provided and a model for that commodity exists, a signed strength indicator will be returned in addition to the feature value
    */
   addStrengthForCommodity?: string | null | undefined;
+  /**
+   * By default, time-series are returned using daily time frequency. Request resampled data using `weekly` or `monthly` as query parameter
+   */
+  freq?: string | null | undefined;
+  /**
+   * If a `weekly` or `monthly` frequency is requested, this parameter allows to control how the returned data is aggregated over each period. `mean` and `last` are supported
+   */
+  agg?: string | null | undefined;
 };
 
 /** @internal */
@@ -37,6 +45,8 @@ export const GetFeaturesHistoricalValuesRequest$inboundSchema: z.ZodType<
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
   add_strength_for_commodity: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
+  agg: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "feature_code": "featureCode",
@@ -52,6 +62,8 @@ export type GetFeaturesHistoricalValuesRequest$Outbound = {
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
   add_strength_for_commodity?: string | null | undefined;
+  freq?: string | null | undefined;
+  agg?: string | null | undefined;
 };
 
 /** @internal */
@@ -64,6 +76,8 @@ export const GetFeaturesHistoricalValuesRequest$outboundSchema: z.ZodType<
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
   addStrengthForCommodity: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
+  agg: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     featureCode: "feature_code",

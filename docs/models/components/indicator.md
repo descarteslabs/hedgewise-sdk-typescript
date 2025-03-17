@@ -9,7 +9,7 @@ let value: Indicator = {
   name: "<value>",
   series: [
     {
-      date: "2024-11-13",
+      date: "2024-11-17",
       value: 7851.53,
     },
   ],

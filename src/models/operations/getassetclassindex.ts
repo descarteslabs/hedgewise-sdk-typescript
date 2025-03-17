@@ -10,11 +10,11 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAssetClassIndexRequest = {
   /**
-   * A list of Asset Class (sector) identifier requested. ALL can be used to query all asset classes indices at the same time
+   * A list of Asset Class (sector) identifier requested. `ALL` can be used to query all asset classes indices at the same time
    */
   assetClassSymbol: string;
   /**
-   * The type of indexing methodology requested. Equal weight (equalweight) or risk-parity (riskparity) are supported
+   * The type of indexing methodology requested. Equal weight (`equalweight`) or risk-parity (`riskparity`) are supported
    */
   methodology: string;
   /**
@@ -25,6 +25,10 @@ export type GetAssetClassIndexRequest = {
    * End of index data window (YYYY-MM-DD)
    */
   endDate?: string | null | undefined;
+  /**
+   * By default, time-series are returned using daily time frequency. Request resampled data using `weekly` or `monthly` as query parameter
+   */
+  freq?: string | null | undefined;
 };
 
 /** @internal */
@@ -37,6 +41,7 @@ export const GetAssetClassIndexRequest$inboundSchema: z.ZodType<
   methodology: z.string(),
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "asset_class_symbol": "assetClassSymbol",
@@ -51,6 +56,7 @@ export type GetAssetClassIndexRequest$Outbound = {
   methodology: string;
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
+  freq?: string | null | undefined;
 };
 
 /** @internal */
@@ -63,6 +69,7 @@ export const GetAssetClassIndexRequest$outboundSchema: z.ZodType<
   methodology: z.string(),
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     assetClassSymbol: "asset_class_symbol",

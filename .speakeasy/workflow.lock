@@ -1,15 +1,15 @@
-speakeasyVersion: 1.517.3
+speakeasyVersion: 1.519.0
 sources: {}
 targets:
     hedgewise:
-        source: Hedgewise
+        source: hedgewise
         codeSamplesNamespace: hedgewise-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:3d628399fe2fb503c013a03cc012f43210b2d1b71bdf25740a4641d2eced63bc
+        codeSamplesRevisionDigest: sha256:af88917fa6027eb97389e4e44c3acc47ab3d135cd1e381bcb8b1e56818d106d4
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
-        Hedgewise:
+        hedgewise:
             inputs:
                 - location: https://hedgewise.appsci-production.aws.descarteslabs.com/openapi.json
             overlays:
@@ -19,7 +19,7 @@ workflow:
     targets:
         hedgewise:
             target: typescript
-            source: Hedgewise
+            source: hedgewise
             publish:
                 npm:
                     token: $npm_token

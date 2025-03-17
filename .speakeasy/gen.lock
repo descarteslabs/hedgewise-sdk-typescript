@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
 management:
-  docChecksum: c132639af292f3c74b50abae104e1799
+  docChecksum: 3cd18695cb125c39dc47a7e3459144c5
   docVersion: 1.0.0
-  speakeasyVersion: 1.517.3
-  generationVersion: 2.548.6
-  releaseVersion: 0.2.2
-  configChecksum: 1e0232f5cc37acab4b393012e7d8d5d9
+  speakeasyVersion: 1.519.0
+  generationVersion: 2.552.1
+  releaseVersion: 0.3.0
+  configChecksum: c33fdce50d716087f73036ffc26fffe1
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
   published: true
@@ -22,7 +22,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.4
     groups: 2.81.2
-    mcpServer: 0.7.0
+    mcpServer: 0.8.0
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -178,6 +178,7 @@ generatedFiles:
   - src/mcp-server/console-logger.ts
   - src/mcp-server/extensions.ts
   - src/mcp-server/mcp-server.ts
+  - src/mcp-server/prompts.ts
   - src/mcp-server/resources.ts
   - src/mcp-server/scopes.ts
   - src/mcp-server/server.ts
@@ -332,8 +333,8 @@ examples:
         path:
           symbol: "ZC"
         query:
-          start_date: "2025-03-05"
-          end_date: "2025-03-12"
+          start_date: "2025-03-10"
+          end_date: "2025-03-17"
       responses:
         "200":
           application/json: {"data": ["<value>", "<value>", "<value>"]}
@@ -344,8 +345,8 @@ examples:
         path:
           symbol: "ZC"
         query:
-          start_date: "2025-03-11"
-          end_date: "2025-03-11"
+          start_date: "2025-03-16"
+          end_date: "2025-03-16"
           interpolate: false
           estimate_uncertainty: false
           get_market_drivers: false
@@ -362,8 +363,8 @@ examples:
           symbol: "ZC"
         query:
           horizon: 12
-          start_date: "2025-02-12"
-          end_date: "2025-03-12"
+          start_date: "2025-02-17"
+          end_date: "2025-03-17"
           rollover_type: "hist_vol"
       responses:
         "200":
@@ -383,8 +384,8 @@ examples:
           contract: "2025H"
           hedge_horizon: 86
           lookback_days: 30
-          start_date: "2025-02-12"
-          end_date: "2025-03-11"
+          start_date: "2025-02-17"
+          end_date: "2025-03-16"
       responses:
         "200":
           application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}]}}
@@ -396,8 +397,8 @@ examples:
           symbol: "ZC"
         query:
           contract: "2025H"
-          start_date: "2025-03-11"
-          end_date: "2025-03-11"
+          start_date: "2025-03-16"
+          end_date: "2025-03-16"
           active_contracts_only: true
           rollover_method: "hist_vol"
           back_adjust: false
@@ -416,8 +417,8 @@ examples:
         path:
           code: "EUR"
         query:
-          start_date: "2025-03-05"
-          end_date: "2025-03-12"
+          start_date: "2025-03-10"
+          end_date: "2025-03-17"
           foreign_per_usd: true
       responses:
         "200":
@@ -443,9 +444,11 @@ examples:
         path:
           feature_code: "vietnam_t2mean"
         query:
-          start_date: "2025-02-12"
-          end_date: "2025-03-12"
-          add_strength_for_commodity: "ZC"
+          start_date: "2025-02-17"
+          end_date: "2025-03-17"
+          add_strength_for_commodity: "KC"
+          freq: "weekly"
+          agg: "mean"
       responses:
         "200":
           application/json: {"data": [{"feature_code": "<value>", "date": "2025-11-08", "value": 8931.87}, {"feature_code": "<value>", "date": "2025-09-06", "value": 2327.93}]}
@@ -459,8 +462,8 @@ examples:
           transform: "xyavg"
           number_of_years: 5
           window: 3
-          start_date: "2025-02-12"
-          end_date: "2025-03-12"
+          start_date: "2025-02-17"
+          end_date: "2025-03-17"
       responses:
         "200":
           application/json: {"data": [{"xform_feature_code": "<value>", "date": "2024-09-16", "value": 8245.25}, {"xform_feature_code": "<value>", "date": "2023-09-11", "value": 8529.72}, {"xform_feature_code": "<value>", "date": "2025-01-28", "value": 7931.96}]}
@@ -472,8 +475,8 @@ examples:
           weights: [0.5]
           feature_codes: ["vietnam_t2mean"]
           index_label: "user_defined_index"
-          start_date: "2025-02-12"
-          end_date: "2025-03-12"
+          start_date: "2025-02-17"
+          end_date: "2025-03-17"
       responses:
         "200":
           application/json: {"data": []}
@@ -482,11 +485,12 @@ examples:
     "":
       parameters:
         path:
-          asset_class_symbol: "OIL"
+          asset_class_symbol: "GRN, SFT, CUR, ENR, OIL, PRD"
         query:
           methodology: "riskparity"
-          start_date: "2025-02-12"
-          end_date: "2025-03-12"
+          start_date: "2025-02-17"
+          end_date: "2025-03-17"
+          freq: "weekly"
       responses:
         "200":
           application/json: {"data": [{"asset_class": "<value>", "data": [{"date": "2025-10-15", "value": 9273.03}, {"date": "2025-08-05", "value": 290.69}]}]}
@@ -505,7 +509,7 @@ examples:
           metric: "hitrate"
           horizon: 10
           start_date: "2025-01-01"
-          end_date: "2025-03-12"
+          end_date: "2025-03-17"
           threshold_on_forecast: 0.04
           threshold_on_actual: 0.02
           use_run_date: false
@@ -526,8 +530,8 @@ examples:
           symbol: "KC"
         query:
           country_code: "BR"
-          start_date: "2024-03-12"
-          end_date: "2025-03-12"
+          start_date: "2024-03-17"
+          end_date: "2025-03-17"
           get_feature_contributions: false
           model: "v2_wholecountry_92to23_interval10_yesyoy_xgb"
       responses:

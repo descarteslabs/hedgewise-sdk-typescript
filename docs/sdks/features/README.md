@@ -180,9 +180,11 @@ const hedgewise = new Hedgewise({
 async function run() {
   const result = await hedgewise.features.getHistoricalValues({
     featureCode: "vietnam_t2mean",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
-    addStrengthForCommodity: "ZC",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
+    addStrengthForCommodity: "KC",
+    freq: "weekly",
+    agg: "mean",
   });
 
   // Handle the result
@@ -209,9 +211,11 @@ const hedgewise = new HedgewiseCore({
 async function run() {
   const res = await featuresGetHistoricalValues(hedgewise, {
     featureCode: "vietnam_t2mean",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
-    addStrengthForCommodity: "ZC",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
+    addStrengthForCommodity: "KC",
+    freq: "weekly",
+    agg: "mean",
   });
 
   if (!res.ok) {
@@ -266,8 +270,8 @@ async function run() {
   const result = await hedgewise.features.getTransformedValues({
     featureCode: "vietnam_t2mean",
     transform: "xyavg",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
   });
 
   // Handle the result
@@ -295,8 +299,8 @@ async function run() {
   const res = await featuresGetTransformedValues(hedgewise, {
     featureCode: "vietnam_t2mean",
     transform: "xyavg",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
   });
 
   if (!res.ok) {
@@ -355,8 +359,8 @@ async function run() {
       "vietnam_t2mean",
     ],
     indexLabel: "user_defined_index",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
   });
 
   // Handle the result
@@ -389,8 +393,8 @@ async function run() {
       "vietnam_t2mean",
     ],
     indexLabel: "user_defined_index",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
   });
 
   if (!res.ok) {

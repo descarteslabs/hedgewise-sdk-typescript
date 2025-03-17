@@ -14,7 +14,7 @@ export type GetTransformedFeatureValuesRequest = {
    */
   featureCode: string;
   /**
-   * The type of transform requested. Currently supported are xyavg, rebase, zscore, yoy
+   * The type of transform requested. Currently supported are `xyavg`, `rebase`, `zscore`, `yoy`
    */
   transform: string;
   /**

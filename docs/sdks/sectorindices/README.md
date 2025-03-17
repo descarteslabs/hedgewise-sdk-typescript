@@ -22,10 +22,11 @@ const hedgewise = new Hedgewise({
 
 async function run() {
   const result = await hedgewise.sectorIndices.get({
-    assetClassSymbol: "OIL",
+    assetClassSymbol: "GRN, SFT, CUR, ENR, OIL, PRD",
     methodology: "riskparity",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
+    freq: "weekly",
   });
 
   // Handle the result
@@ -51,10 +52,11 @@ const hedgewise = new HedgewiseCore({
 
 async function run() {
   const res = await sectorIndicesGet(hedgewise, {
-    assetClassSymbol: "OIL",
+    assetClassSymbol: "GRN, SFT, CUR, ENR, OIL, PRD",
     methodology: "riskparity",
-    startDate: "2025-02-12",
-    endDate: "2025-03-12",
+    startDate: "2025-02-17",
+    endDate: "2025-03-17",
+    freq: "weekly",
   });
 
   if (!res.ok) {

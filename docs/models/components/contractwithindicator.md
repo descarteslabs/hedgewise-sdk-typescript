@@ -13,7 +13,7 @@ let value: ContractWithIndicator = {
     name: "<value>",
     series: [
       {
-        date: "2024-03-19",
+        date: "2024-03-23",
         value: 9295.3,
       },
     ],

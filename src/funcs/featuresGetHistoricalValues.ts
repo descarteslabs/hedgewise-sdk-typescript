@@ -100,7 +100,9 @@ async function $do(
 
   const query = encodeFormQuery({
     "add_strength_for_commodity": payload.add_strength_for_commodity,
+    "agg": payload.agg,
     "end_date": payload.end_date,
+    "freq": payload.freq,
     "start_date": payload.start_date,
   });
 
