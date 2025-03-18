@@ -354,8 +354,8 @@ async function run() {
   try {
     result = await hedgewise.futures.getCalendar({
       symbol: "ZC",
-      startDate: "2025-03-10",
-      endDate: "2025-03-17",
+      startDate: "2025-03-11",
+      endDate: "2025-03-18",
     });
 
     // Handle the result
