@@ -95,8 +95,8 @@ const hedgewise = new Hedgewise({
 async function run() {
   const result = await hedgewise.forex.getPrices({
     code: "EUR",
-    startDate: "2025-03-10",
-    endDate: "2025-03-17",
+    startDate: "2025-03-11",
+    endDate: "2025-03-18",
   });
 
   // Handle the result
@@ -123,8 +123,8 @@ const hedgewise = new HedgewiseCore({
 async function run() {
   const res = await forexGetPrices(hedgewise, {
     code: "EUR",
-    startDate: "2025-03-10",
-    endDate: "2025-03-17",
+    startDate: "2025-03-11",
+    endDate: "2025-03-18",
   });
 
   if (!res.ok) {

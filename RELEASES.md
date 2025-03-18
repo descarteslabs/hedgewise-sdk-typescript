@@ -47,3 +47,13 @@ Based on:
 - [typescript v0.3.3] .
 ### Releases
 - [NPM v0.3.3] https://www.npmjs.com/package/hedgewise/v/0.3.3 - .
+
+## 2025-03-18 15:50:07
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.519.0 (2.552.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.3.4] .
+### Releases
+- [NPM v0.3.4] https://www.npmjs.com/package/hedgewise/v/0.3.4 - .

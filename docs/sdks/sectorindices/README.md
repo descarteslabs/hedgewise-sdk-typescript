@@ -24,8 +24,8 @@ async function run() {
   const result = await hedgewise.sectorIndices.get({
     assetClassSymbol: "GRN, SFT, CUR, ENR, OIL, PRD",
     methodology: "riskparity",
-    startDate: "2025-02-17",
-    endDate: "2025-03-17",
+    startDate: "2025-02-18",
+    endDate: "2025-03-18",
     freq: "weekly",
   });
 
@@ -54,8 +54,8 @@ async function run() {
   const res = await sectorIndicesGet(hedgewise, {
     assetClassSymbol: "GRN, SFT, CUR, ENR, OIL, PRD",
     methodology: "riskparity",
-    startDate: "2025-02-17",
-    endDate: "2025-03-17",
+    startDate: "2025-02-18",
+    endDate: "2025-03-18",
     freq: "weekly",
   });
 
