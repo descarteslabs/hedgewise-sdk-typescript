@@ -1,5 +1,12 @@
 speakeasyVersion: 1.519.0
-sources: {}
+sources:
+    hedgewise:
+        inputs:
+            - location: https://hedgewise.appsci-production.aws.descarteslabs.com/openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
+        registry:
+            location: registry.speakeasyapi.dev/earthdaily/hedgewise/hedgewise
 targets:
     hedgewise:
         source: hedgewise
