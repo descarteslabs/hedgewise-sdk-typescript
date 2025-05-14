@@ -82,7 +82,7 @@ yarn add hedgewise zod
 This SDK is also an installable MCP server where the various SDK methods are
 exposed as tools that can be invoked by AI applications.
 
-> Node.js v20 or greater is required to run the MCP server.
+> Node.js v20 or greater is required to run the MCP server from npm.
 
 <details>
 <summary>Claude installation steps</summary>
@@ -110,16 +110,49 @@ Add the following server definition to your `claude_desktop_config.json` file:
 <details>
 <summary>Cursor installation steps</summary>
 
-Go to `Cursor Settings > Features > MCP Servers > Add new MCP server` and use the following settings:
+Create a `.cursor/mcp.json` file in your project root with the following content:
 
-- Name: Hedgewise
-- Type: `command`
-- Command:
-```sh
-npx -y --package hedgewise -- mcp start --server-url ... 
+```json
+{
+  "mcpServers": {
+    "Hedgewise": {
+      "command": "npx",
+      "args": [
+        "-y", "--package", "hedgewise",
+        "--",
+        "mcp", "start",
+        "--server-url", "..."
+      ]
+    }
+  }
+}
 ```
 
 </details>
+
+You can also run MCP servers as a standalone binary with no additional dependencies. You must pull these binaries from available Github releases:
+
+```bash
+curl -L -o mcp-server \
+    https://github.com/{org}/{repo}/releases/download/{tag}/mcp-server-bun-darwin-arm64 && \
+chmod +x mcp-server
+```
+
+If the repo is a private repo you must add your Github PAT to download a release `-H "Authorization: Bearer {GITHUB_PAT}"`.
+
+
+```json
+{
+  "mcpServers": {
+    "Todos": {
+      "command": "./DOWNLOAD/PATH/mcp-server",
+      "args": [
+        "start"
+      ]
+    }
+  }
+}
+```
 
 For a full list of server arguments, run:
 
@@ -147,7 +180,12 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.system.ping();
+  const result = await hedgewise.postFuturesForecasts({
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [],
+    },
+  });
 
   // Handle the result
   console.log(result);
@@ -194,6 +232,11 @@ run();
 * [getHedgeIndicator](docs/sdks/futures/README.md#gethedgeindicator) - Get hedge indicator for a future
 * [getPrices](docs/sdks/futures/README.md#getprices) - Get historical prices for a future
 
+### [Hedgewise SDK](docs/sdks/hedgewise/README.md)
+
+* [postFuturesForecasts](docs/sdks/hedgewise/README.md#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
+* [getFuturesForecastsModels](docs/sdks/hedgewise/README.md#getfuturesforecastsmodels) - Get Forecast Models for a future
+* [getModelOutput](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
 
 ### [indicators](docs/sdks/indicators/README.md)
 
@@ -250,9 +293,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`futuresGetLongTermForecast`](docs/sdks/futures/README.md#getlongtermforecast) - Get long-term forecast for a future
 - [`futuresGetPrices`](docs/sdks/futures/README.md#getprices) - Get historical prices for a future
 - [`futuresList`](docs/sdks/futures/README.md#list) - List all available futures
+- [`getFuturesForecastsModels`](docs/sdks/hedgewise/README.md#getfuturesforecastsmodels) - Get Forecast Models for a future
+- [`getModelOutput`](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
 - [`indicatorsList`](docs/sdks/indicators/README.md#list) - List available indicators
 - [`performanceMetricsGet`](docs/sdks/performancemetrics/README.md#get) - Get performance related data metrics for a given futures price forecast model at a given horizon.
 - [`performanceMetricsList`](docs/sdks/performancemetrics/README.md#list) - List available performance metrics and related models
+- [`postFuturesForecasts`](docs/sdks/hedgewise/README.md#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
 - [`sectorIndicesGet`](docs/sdks/sectorindices/README.md#get) - Get the proprietary value of the sector index requested
 - [`supplyGet`](docs/sdks/supply/README.md#get) - Get supply data for a commodity and country
 - [`supplyListCommodities`](docs/sdks/supply/README.md#listcommodities) - List commodities with supply models
@@ -275,7 +321,12 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.system.ping({
+  const result = await hedgewise.postFuturesForecasts({
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [],
+    },
+  }, {
     retries: {
       strategy: "backoff",
       backoff: {
@@ -315,7 +366,12 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.system.ping();
+  const result = await hedgewise.postFuturesForecasts({
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [],
+    },
+  });
 
   // Handle the result
   console.log(result);
@@ -329,7 +385,7 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `getCalendar` method may throw the following errors:
+Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `postFuturesForecasts` method may throw the following errors:
 
 | Error Type                 | Status Code | Content Type     |
 | -------------------------- | ----------- | ---------------- |
@@ -352,10 +408,11 @@ const hedgewise = new Hedgewise({
 async function run() {
   let result;
   try {
-    result = await hedgewise.futures.getCalendar({
+    result = await hedgewise.postFuturesForecasts({
       symbol: "ZC",
-      startDate: "2025-03-11",
-      endDate: "2025-03-18",
+      postAssetForecastsRequest: {
+        strategy: [],
+      },
     });
 
     // Handle the result

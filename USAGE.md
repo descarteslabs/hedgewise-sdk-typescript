@@ -7,7 +7,12 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.system.ping();
+  const result = await hedgewise.postFuturesForecasts({
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [],
+    },
+  });
 
   // Handle the result
   console.log(result);

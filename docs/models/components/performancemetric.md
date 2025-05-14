@@ -7,7 +7,7 @@ import { PerformanceMetric } from "hedgewise/models/components";
 
 let value: PerformanceMetric = {
   metric: "<value>",
-  description: "after horst vanadyl mmm ownership toward curly",
+  description: "impact catch hence upon",
 };
 ```
 

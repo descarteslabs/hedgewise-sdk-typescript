@@ -24,8 +24,8 @@ let value: AssetIndicatorData = {
         name: "<value>",
         series: [
           {
-            date: "2024-06-14",
-            value: 1002.94,
+            date: "2024-08-16",
+            value: 5804.47,
           },
         ],
       },

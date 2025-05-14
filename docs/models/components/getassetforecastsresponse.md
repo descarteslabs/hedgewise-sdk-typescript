@@ -23,30 +23,30 @@ let value: GetAssetForecastsResponse = {
         name: "<value>",
         forecasts: [
           {
-            model: "LeBaron",
-            forecastDate: new Date("2024-04-24T14:17:38.418Z"),
+            model: "Accord",
+            forecastDate: new Date("2025-09-30T12:59:21.883Z"),
             closePriceTrajectory: [
               {
-                date: new Date("2025-09-04T09:11:49.246Z"),
-                closePrice: 9636.63,
+                date: new Date("2024-01-23T13:21:24.341Z"),
+                closePrice: 6291.75,
               },
             ],
           },
         ],
         marketDrivers: [
           {
-            model: "El Camino",
-            forecastDate: new Date("2025-05-17T17:32:07.447Z"),
-            horizon: 528895,
+            model: "2",
+            forecastDate: new Date("2025-12-03T13:29:17.658Z"),
+            horizon: 585349,
             categories: [
               {
                 category: "<value>",
-                contribution: 5680.45,
+                contribution: 419.67,
                 drilldown: [
                   {
                     featureCode: "<value>",
-                    contribution: 9255.97,
-                    description: "the mismatch plagiarise",
+                    contribution: 4198.15,
+                    description: "vague frankly for or shakily distant",
                   },
                 ],
               },
@@ -55,11 +55,11 @@ let value: GetAssetForecastsResponse = {
         ],
         movingAverages: [
           {
-            horizon: 612096,
+            horizon: 202459,
             movingAverage: [
               {
-                date: new Date("2024-11-07T03:49:54.674Z"),
-                value: 9437.49,
+                date: new Date("2023-10-30T20:46:58.747Z"),
+                value: 1749.44,
               },
             ],
           },

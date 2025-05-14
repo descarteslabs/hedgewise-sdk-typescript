@@ -104,6 +104,7 @@ async function $do(
     "get_market_drivers": payload.get_market_drivers,
     "get_moving_averages": payload.get_moving_averages,
     "interpolate": payload.interpolate,
+    "model_name": payload.model_name,
     "price_collar_sigma": payload.price_collar_sigma,
     "start_date": payload.start_date,
   });

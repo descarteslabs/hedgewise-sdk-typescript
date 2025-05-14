@@ -19,10 +19,17 @@ import {
   LongTermForecast$Outbound,
   LongTermForecast$outboundSchema,
 } from "./longtermforecast.js";
+import {
+  MarketDriver,
+  MarketDriver$inboundSchema,
+  MarketDriver$Outbound,
+  MarketDriver$outboundSchema,
+} from "./marketdriver.js";
 
 export type AssetLongTermForecastData = {
   asset: Asset;
   longTermForecast: Array<LongTermForecast>;
+  marketDrivers: Array<MarketDriver> | null;
 };
 
 /** @internal */
@@ -33,9 +40,11 @@ export const AssetLongTermForecastData$inboundSchema: z.ZodType<
 > = z.object({
   asset: Asset$inboundSchema,
   long_term_forecast: z.array(LongTermForecast$inboundSchema),
+  market_drivers: z.nullable(z.array(MarketDriver$inboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     "long_term_forecast": "longTermForecast",
+    "market_drivers": "marketDrivers",
   });
 });
 
@@ -43,6 +52,7 @@ export const AssetLongTermForecastData$inboundSchema: z.ZodType<
 export type AssetLongTermForecastData$Outbound = {
   asset: Asset$Outbound;
   long_term_forecast: Array<LongTermForecast$Outbound>;
+  market_drivers: Array<MarketDriver$Outbound> | null;
 };
 
 /** @internal */
@@ -53,9 +63,11 @@ export const AssetLongTermForecastData$outboundSchema: z.ZodType<
 > = z.object({
   asset: Asset$outboundSchema,
   longTermForecast: z.array(LongTermForecast$outboundSchema),
+  marketDrivers: z.nullable(z.array(MarketDriver$outboundSchema)),
 }).transform((v) => {
   return remap$(v, {
     longTermForecast: "long_term_forecast",
+    marketDrivers: "market_drivers",
   });
 });
 

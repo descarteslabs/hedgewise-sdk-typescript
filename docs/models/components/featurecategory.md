@@ -7,12 +7,13 @@ import { FeatureCategory } from "hedgewise/models/components";
 
 let value: FeatureCategory = {
   category: "<value>",
-  contribution: 6214.79,
+  contribution: 3686.72,
   drilldown: [
     {
       featureCode: "<value>",
-      contribution: 5772.29,
-      description: "justly pfft oh delete",
+      contribution: 8067.41,
+      description:
+        "ameliorate task minor majestically colligate even smoothly righteously",
     },
   ],
 };

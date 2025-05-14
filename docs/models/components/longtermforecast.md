@@ -7,7 +7,7 @@ import { LongTermForecast } from "hedgewise/models/components";
 import { RFCDate } from "hedgewise/types";
 
 let value: LongTermForecast = {
-  date: new RFCDate("2024-10-02"),
+  date: new RFCDate("2023-03-19"),
   contract: "<value>",
   priceIncrease: false,
 };

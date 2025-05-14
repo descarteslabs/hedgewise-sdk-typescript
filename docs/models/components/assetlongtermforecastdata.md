@@ -18,9 +18,30 @@ let value: AssetLongTermForecastData = {
   },
   longTermForecast: [
     {
-      date: new RFCDate("2024-08-28"),
+      date: new RFCDate("2024-09-16"),
       contract: "<value>",
       priceIncrease: false,
+    },
+  ],
+  marketDrivers: [
+    {
+      model: "Grand Cherokee",
+      forecastDate: new Date("2023-07-07T19:03:49.429Z"),
+      horizon: 105057,
+      categories: [
+        {
+          category: "<value>",
+          contribution: 9428.14,
+          drilldown: [
+            {
+              featureCode: "<value>",
+              contribution: 5937.16,
+              description:
+                "vice eek pretty blah queasily once if outlying replicate disposer",
+            },
+          ],
+        },
+      ],
     },
   ],
 };
@@ -32,3 +53,4 @@ let value: AssetLongTermForecastData = {
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | `asset`                                                                      | [components.Asset](../../models/components/asset.md)                         | :heavy_check_mark:                                                           | N/A                                                                          |
 | `longTermForecast`                                                           | [components.LongTermForecast](../../models/components/longtermforecast.md)[] | :heavy_check_mark:                                                           | N/A                                                                          |
+| `marketDrivers`                                                              | [components.MarketDriver](../../models/components/marketdriver.md)[]         | :heavy_check_mark:                                                           | N/A                                                                          |

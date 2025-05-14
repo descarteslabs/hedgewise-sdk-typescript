@@ -6,8 +6,8 @@
 import { MovingAverageTick } from "hedgewise/models/components";
 
 let value: MovingAverageTick = {
-  date: new Date("2023-06-28T02:12:50.953Z"),
-  value: 6155.6,
+  date: new Date("2024-05-01T21:32:44.614Z"),
+  value: 2971.81,
 };
 ```
 

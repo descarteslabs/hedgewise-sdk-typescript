@@ -9,8 +9,8 @@ let value: Indicator = {
   name: "<value>",
   series: [
     {
-      date: "2024-11-18",
-      value: 7851.53,
+      date: "2025-02-19",
+      value: 2870.79,
     },
   ],
 };

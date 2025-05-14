@@ -102,8 +102,8 @@ const hedgewise = new Hedgewise({
 async function run() {
   const result = await hedgewise.futures.getCalendar({
     symbol: "ZC",
-    startDate: "2025-03-11",
-    endDate: "2025-03-18",
+    startDate: "2025-04-17",
+    endDate: "2025-04-25",
   });
 
   // Handle the result
@@ -130,8 +130,8 @@ const hedgewise = new HedgewiseCore({
 async function run() {
   const res = await futuresGetCalendar(hedgewise, {
     symbol: "ZC",
-    startDate: "2025-03-11",
-    endDate: "2025-03-18",
+    startDate: "2025-04-17",
+    endDate: "2025-04-25",
   });
 
   if (!res.ok) {
@@ -186,8 +186,8 @@ const hedgewise = new Hedgewise({
 async function run() {
   const result = await hedgewise.futures.getForecasts({
     symbol: "ZC",
-    startDate: "2025-03-17",
-    endDate: "2025-03-17",
+    startDate: "2025-04-24",
+    endDate: "2025-04-24",
   });
 
   // Handle the result
@@ -214,8 +214,8 @@ const hedgewise = new HedgewiseCore({
 async function run() {
   const res = await futuresGetForecasts(hedgewise, {
     symbol: "ZC",
-    startDate: "2025-03-17",
-    endDate: "2025-03-17",
+    startDate: "2025-04-24",
+    endDate: "2025-04-24",
   });
 
   if (!res.ok) {
@@ -268,8 +268,8 @@ async function run() {
   const result = await hedgewise.futures.getLongTermForecast({
     symbol: "ZC",
     horizon: 12,
-    startDate: "2025-02-18",
-    endDate: "2025-03-18",
+    startDate: "2025-03-24",
+    endDate: "2025-04-25",
     rolloverType: "hist_vol",
   });
 
@@ -298,8 +298,8 @@ async function run() {
   const res = await futuresGetLongTermForecast(hedgewise, {
     symbol: "ZC",
     horizon: 12,
-    startDate: "2025-02-18",
-    endDate: "2025-03-18",
+    startDate: "2025-03-24",
+    endDate: "2025-04-25",
     rolloverType: "hist_vol",
   });
 
@@ -359,8 +359,8 @@ async function run() {
     symbol: "ZC",
     contract: "2025H",
     hedgeHorizon: 86,
-    startDate: "2025-02-18",
-    endDate: "2025-03-17",
+    startDate: "2025-03-24",
+    endDate: "2025-04-24",
   });
 
   // Handle the result
@@ -389,8 +389,8 @@ async function run() {
     symbol: "ZC",
     contract: "2025H",
     hedgeHorizon: 86,
-    startDate: "2025-02-18",
-    endDate: "2025-03-17",
+    startDate: "2025-03-24",
+    endDate: "2025-04-24",
   });
 
   if (!res.ok) {
@@ -444,8 +444,8 @@ async function run() {
   const result = await hedgewise.futures.getPrices({
     symbol: "ZC",
     contract: "2025H",
-    startDate: "2025-03-17",
-    endDate: "2025-03-17",
+    startDate: "2025-04-24",
+    endDate: "2025-04-24",
   });
 
   // Handle the result
@@ -473,8 +473,8 @@ async function run() {
   const res = await futuresGetPrices(hedgewise, {
     symbol: "ZC",
     contract: "2025H",
-    startDate: "2025-03-17",
-    endDate: "2025-03-17",
+    startDate: "2025-04-24",
+    endDate: "2025-04-24",
   });
 
   if (!res.ok) {

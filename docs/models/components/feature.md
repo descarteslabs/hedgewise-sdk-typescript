@@ -29,3 +29,6 @@ let value: Feature = {
 | `unit`             | *string*           | :heavy_minus_sign: | N/A                |
 | `source`           | *string*           | :heavy_minus_sign: | N/A                |
 | `recentInfluence`  | *number*           | :heavy_minus_sign: | N/A                |
+| `frequency`        | *string*           | :heavy_minus_sign: | N/A                |
+| `phenologyStage`   | *string*[]         | :heavy_minus_sign: | N/A                |
+| `horizons`         | *string*[]         | :heavy_minus_sign: | N/A                |

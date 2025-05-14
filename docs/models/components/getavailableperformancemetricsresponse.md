@@ -9,7 +9,7 @@ let value: GetAvailablePerformanceMetricsResponse = {
   data: [
     {
       metric: "<value>",
-      description: "abaft knottily ethyl covenant jaggedly",
+      description: "where forsaken sorrowful bemuse how along aw royal stormy",
     },
   ],
 };

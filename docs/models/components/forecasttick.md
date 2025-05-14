@@ -6,8 +6,8 @@
 import { ForecastTick } from "hedgewise/models/components";
 
 let value: ForecastTick = {
-  date: new Date("2025-03-31T12:50:52.284Z"),
-  closePrice: 9037.2,
+  date: new Date("2025-05-19T09:15:54.345Z"),
+  closePrice: 6391.92,
 };
 ```
 

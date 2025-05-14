@@ -7,8 +7,8 @@ import { SectorIndexTick } from "hedgewise/models/components";
 import { RFCDate } from "hedgewise/types";
 
 let value: SectorIndexTick = {
-  date: new RFCDate("2025-09-20"),
-  value: 7740.48,
+  date: new RFCDate("2025-03-14"),
+  value: 4355.63,
 };
 ```
 

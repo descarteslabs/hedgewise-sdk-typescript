@@ -6,12 +6,12 @@
 import { Forecast } from "hedgewise/models/components";
 
 let value: Forecast = {
-  model: "Fiesta",
-  forecastDate: new Date("2024-01-25T18:02:14.843Z"),
+  model: "Camaro",
+  forecastDate: new Date("2024-05-02T17:42:05.194Z"),
   closePriceTrajectory: [
     {
-      date: new Date("2025-10-27T17:07:18.797Z"),
-      closePrice: 7653.26,
+      date: new Date("2024-01-11T07:07:58.389Z"),
+      closePrice: 3598.83,
     },
   ],
 };

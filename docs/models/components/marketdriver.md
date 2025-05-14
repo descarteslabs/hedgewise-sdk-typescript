@@ -6,18 +6,19 @@
 import { MarketDriver } from "hedgewise/models/components";
 
 let value: MarketDriver = {
-  model: "Alpine",
-  forecastDate: new Date("2025-07-18T10:00:30.471Z"),
-  horizon: 807319,
+  model: "1",
+  forecastDate: new Date("2024-10-06T04:38:41.451Z"),
+  horizon: 640545,
   categories: [
     {
       category: "<value>",
-      contribution: 5691.01,
+      contribution: 4333.94,
       drilldown: [
         {
           featureCode: "<value>",
-          contribution: 4071.83,
-          description: "advanced afterwards coliseum",
+          contribution: 694.97,
+          description:
+            "briefly pneumonia beneath mortar wetly hence netsuke likewise but",
         },
       ],
     },

@@ -6,8 +6,8 @@
 import { IndicatorTick } from "hedgewise/models/components";
 
 let value: IndicatorTick = {
-  date: "2024-06-29",
-  value: 5864.1,
+  date: "2024-11-09",
+  value: 5550.24,
 };
 ```
 

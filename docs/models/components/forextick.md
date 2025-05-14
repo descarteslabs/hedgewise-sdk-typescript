@@ -6,8 +6,8 @@
 import { ForexTick } from "hedgewise/models/components";
 
 let value: ForexTick = {
-  date: new Date("2023-01-15T12:10:56.303Z"),
-  price: 3472.33,
+  date: new Date("2023-08-29T21:26:47.383Z"),
+  price: 1762.17,
 };
 ```
 

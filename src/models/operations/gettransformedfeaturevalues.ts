@@ -33,6 +33,14 @@ export type GetTransformedFeatureValuesRequest = {
    * End of transformed feature data window (YYYY-MM-DD) - not relevant for yoy
    */
   endDate?: string | null | undefined;
+  /**
+   * By default, time-series are returned using daily time frequency. Request resampled data using `weekly` or `monthly` as query parameter
+   */
+  freq?: string | null | undefined;
+  /**
+   * If a `weekly` or `monthly` frequency is requested, this parameter allows to control how the returned data is aggregated over each period. `mean` and `last` are supported
+   */
+  agg?: string | null | undefined;
 };
 
 /** @internal */
@@ -47,6 +55,8 @@ export const GetTransformedFeatureValuesRequest$inboundSchema: z.ZodType<
   window: z.number().int().default(3),
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
+  agg: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "feature_code": "featureCode",
@@ -64,6 +74,8 @@ export type GetTransformedFeatureValuesRequest$Outbound = {
   window: number;
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
+  freq?: string | null | undefined;
+  agg?: string | null | undefined;
 };
 
 /** @internal */
@@ -78,6 +90,8 @@ export const GetTransformedFeatureValuesRequest$outboundSchema: z.ZodType<
   window: z.number().int().default(3),
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
+  freq: z.nullable(z.string()).optional(),
+  agg: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     featureCode: "feature_code",
