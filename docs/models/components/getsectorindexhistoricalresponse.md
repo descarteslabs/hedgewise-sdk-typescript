@@ -12,8 +12,8 @@ let value: GetSectorIndexHistoricalResponse = {
       assetClass: "<value>",
       data: [
         {
-          date: new RFCDate("2023-04-18"),
-          value: 8621.92,
+          date: new RFCDate("2024-03-30"),
+          value: 2388.39,
         },
       ],
     },

@@ -6,9 +6,9 @@
 import { Tick } from "hedgewise/models/components";
 
 let value: Tick = {
-  datetime: new Date("2024-08-24T11:59:25.466Z"),
-  volume: 715190,
-  openInterest: 602763,
+  datetime: new Date("2023-05-06T06:51:34.433Z"),
+  volume: 689974,
+  openInterest: 888987,
 };
 ```
 

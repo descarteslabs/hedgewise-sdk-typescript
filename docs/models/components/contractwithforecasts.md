@@ -11,30 +11,30 @@ let value: ContractWithForecasts = {
   name: "<value>",
   forecasts: [
     {
-      model: "ATS",
-      forecastDate: new Date("2024-09-23T05:41:47.829Z"),
+      model: "Alpine",
+      forecastDate: new Date("2023-02-21T22:47:27.989Z"),
       closePriceTrajectory: [
         {
-          date: new Date("2025-10-15T12:12:25.852Z"),
-          closePrice: 3185.69,
+          date: new Date("2023-05-07T14:57:53.812Z"),
+          closePrice: 6875.74,
         },
       ],
     },
   ],
   marketDrivers: [
     {
-      model: "Mercielago",
-      forecastDate: new Date("2023-05-25T10:48:39.501Z"),
-      horizon: 716327,
+      model: "Malibu",
+      forecastDate: new Date("2024-12-09T17:10:13.003Z"),
+      horizon: 779655,
       categories: [
         {
           category: "<value>",
-          contribution: 2894.06,
+          contribution: 322.66,
           drilldown: [
             {
               featureCode: "<value>",
-              contribution: 1831.91,
-              description: "oof failing other insignificant woot purse salty",
+              contribution: 6462.33,
+              description: "wrathful early tributary spice",
             },
           ],
         },
@@ -43,11 +43,11 @@ let value: ContractWithForecasts = {
   ],
   movingAverages: [
     {
-      horizon: 100226,
+      horizon: 156542,
       movingAverage: [
         {
-          date: new Date("2025-10-04T18:04:14.419Z"),
-          value: 7142.42,
+          date: new Date("2023-07-08T11:23:49.706Z"),
+          value: 5130.19,
         },
       ],
     },

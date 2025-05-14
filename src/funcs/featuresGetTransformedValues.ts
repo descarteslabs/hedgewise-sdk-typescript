@@ -98,7 +98,9 @@ async function $do(
   const path = pathToFunc("/v1/features/transform/{feature_code}")(pathParams);
 
   const query = encodeFormQuery({
+    "agg": payload.agg,
     "end_date": payload.end_date,
+    "freq": payload.freq,
     "number_of_years": payload.number_of_years,
     "start_date": payload.start_date,
     "transform": payload.transform,

@@ -22,30 +22,30 @@ let value: AssetForecastData = {
       name: "<value>",
       forecasts: [
         {
-          model: "Mercielago",
-          forecastDate: new Date("2024-01-30T00:29:44.940Z"),
+          model: "Jetta",
+          forecastDate: new Date("2024-05-10T19:18:06.055Z"),
           closePriceTrajectory: [
             {
-              date: new Date("2024-04-23T23:41:18.646Z"),
-              closePrice: 6976.31,
+              date: new Date("2024-07-08T08:05:25.881Z"),
+              closePrice: 803.16,
             },
           ],
         },
       ],
       marketDrivers: [
         {
-          model: "A4",
-          forecastDate: new Date("2024-12-31T18:37:54.059Z"),
-          horizon: 670638,
+          model: "Prius",
+          forecastDate: new Date("2025-06-22T03:17:54.743Z"),
+          horizon: 302071,
           categories: [
             {
               category: "<value>",
-              contribution: 2103.82,
+              contribution: 9362.92,
               drilldown: [
                 {
                   featureCode: "<value>",
-                  contribution: 1289.26,
-                  description: "deeply opposite because furiously unless",
+                  contribution: 6684,
+                  description: "antagonize alb what",
                 },
               ],
             },
@@ -54,11 +54,11 @@ let value: AssetForecastData = {
       ],
       movingAverages: [
         {
-          horizon: 566602,
+          horizon: 399654,
           movingAverage: [
             {
-              date: new Date("2023-10-18T20:48:18.611Z"),
-              value: 5232.48,
+              date: new Date("2023-11-22T17:30:44.773Z"),
+              value: 9181.57,
             },
           ],
         },

@@ -7,8 +7,8 @@ import { PerformanceMetricResult } from "hedgewise/models/components";
 
 let value: PerformanceMetricResult = {
   metric: "<value>",
-  horizon: 62713,
-  value: 4240.32,
+  horizon: 691543,
+  value: 5399.92,
 };
 ```
 

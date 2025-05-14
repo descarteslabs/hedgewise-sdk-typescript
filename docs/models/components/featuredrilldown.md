@@ -7,8 +7,8 @@ import { FeatureDrilldown } from "hedgewise/models/components";
 
 let value: FeatureDrilldown = {
   featureCode: "<value>",
-  contribution: 6630.78,
-  description: "prejudge cutover for clear-cut consequently",
+  contribution: 3954.02,
+  description: "jet astride baa aboard per needy instead taxicab",
 };
 ```
 

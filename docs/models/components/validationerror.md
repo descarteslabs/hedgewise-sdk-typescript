@@ -7,7 +7,7 @@ import { ValidationError } from "hedgewise/models/components";
 
 let value: ValidationError = {
   loc: [
-    "<value>",
+    598752,
   ],
   msg: "<value>",
   type: "<value>",

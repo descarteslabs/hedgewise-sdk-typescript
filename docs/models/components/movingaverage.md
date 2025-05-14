@@ -6,11 +6,11 @@
 import { MovingAverage } from "hedgewise/models/components";
 
 let value: MovingAverage = {
-  horizon: 998848,
+  horizon: 505204,
   movingAverage: [
     {
-      date: new Date("2023-06-13T19:05:17.540Z"),
-      value: 8681.26,
+      date: new Date("2024-06-19T14:24:51.674Z"),
+      value: 619.05,
     },
   ],
 };

@@ -6,7 +6,7 @@
 import { AvailableSupplyModels } from "hedgewise/models/components";
 
 let value: AvailableSupplyModels = {
-  model: "Roadster",
+  model: "911",
   symbol: "<value>",
   commodity: "<value>",
   countries: [

@@ -8,8 +8,8 @@ import { RFCDate } from "hedgewise/types";
 
 let value: FeatureHistoricalData = {
   featureCode: "<value>",
-  date: new RFCDate("2024-02-08"),
-  value: 1369,
+  date: new RFCDate("2023-05-06"),
+  value: 8475.16,
 };
 ```
 

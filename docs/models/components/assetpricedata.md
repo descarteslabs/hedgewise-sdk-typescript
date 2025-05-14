@@ -23,9 +23,9 @@ let value: AssetPriceData = {
       name: "<value>",
       ticks: [
         {
-          datetime: new Date("2025-08-18T15:35:38.302Z"),
-          volume: 338159,
-          openInterest: 961571,
+          datetime: new Date("2024-06-06T14:14:48.894Z"),
+          volume: 190172,
+          openInterest: 36068,
         },
       ],
     },

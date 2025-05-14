@@ -10,24 +10,23 @@ let value: GetSupplyResponse = {
     {
       symbol: "<value>",
       commodity: "<value>",
-      countryCode: "AQ",
-      country: "Uzbekistan",
-      date: new Date("2024-01-25T11:37:19.885Z"),
-      model: "Cruze",
-      forecastedSupply: 163.28,
-      reportedSupply: 1852.32,
+      countryCode: "RW",
+      country: "Montenegro",
+      date: new Date("2023-08-25T22:10:04.502Z"),
+      model: "V90",
+      forecastedSupply: 350.48,
+      reportedSupply: 435.19,
       reportingAgency: "<value>",
-      unit: "joule",
+      unit: "siemens",
       featureContributions: [
         {
           category: "<value>",
-          contribution: 9292.92,
+          contribution: 9775.21,
           drilldown: [
             {
               featureCode: "<value>",
-              contribution: 996.15,
-              description:
-                "abaft adrenalin that reluctantly printer innocently hence pish hyphenation trim",
+              contribution: 7314.38,
+              description: "until in enrich",
             },
           ],
         },

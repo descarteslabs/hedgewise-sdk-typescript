@@ -21,6 +21,9 @@ export type Feature = {
   unit?: string | null | undefined;
   source?: string | null | undefined;
   recentInfluence?: number | null | undefined;
+  frequency?: string | null | undefined;
+  phenologyStage?: Array<string> | null | undefined;
+  horizons?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -38,6 +41,9 @@ export const Feature$inboundSchema: z.ZodType<Feature, z.ZodTypeDef, unknown> =
     unit: z.nullable(z.string()).optional(),
     source: z.nullable(z.string()).optional(),
     recent_influence: z.nullable(z.number()).optional(),
+    frequency: z.nullable(z.string()).optional(),
+    phenology_stage: z.nullable(z.array(z.string())).optional(),
+    horizons: z.nullable(z.array(z.string())).optional(),
   }).transform((v) => {
     return remap$(v, {
       "feature_code": "featureCode",
@@ -46,6 +52,7 @@ export const Feature$inboundSchema: z.ZodType<Feature, z.ZodTypeDef, unknown> =
       "main_commodity": "mainCommodity",
       "statistic_type": "statisticType",
       "recent_influence": "recentInfluence",
+      "phenology_stage": "phenologyStage",
     });
   });
 
@@ -63,6 +70,9 @@ export type Feature$Outbound = {
   unit?: string | null | undefined;
   source?: string | null | undefined;
   recent_influence?: number | null | undefined;
+  frequency?: string | null | undefined;
+  phenology_stage?: Array<string> | null | undefined;
+  horizons?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -83,6 +93,9 @@ export const Feature$outboundSchema: z.ZodType<
   unit: z.nullable(z.string()).optional(),
   source: z.nullable(z.string()).optional(),
   recentInfluence: z.nullable(z.number()).optional(),
+  frequency: z.nullable(z.string()).optional(),
+  phenologyStage: z.nullable(z.array(z.string())).optional(),
+  horizons: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     featureCode: "feature_code",
@@ -91,6 +104,7 @@ export const Feature$outboundSchema: z.ZodType<
     mainCommodity: "main_commodity",
     statisticType: "statistic_type",
     recentInfluence: "recent_influence",
+    phenologyStage: "phenology_stage",
   });
 });
 

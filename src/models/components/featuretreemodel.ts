@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
@@ -17,6 +18,8 @@ export type FeatureTreeModel = {
   type: { [k: string]: Array<FeatureNode> };
   category: { [k: string]: Array<FeatureNode> };
   region: { [k: string]: Array<FeatureNode> };
+  dataFrequency: { [k: string]: Array<FeatureNode> };
+  phenologyStage: { [k: string]: Array<FeatureNode> };
 };
 
 /** @internal */
@@ -28,6 +31,13 @@ export const FeatureTreeModel$inboundSchema: z.ZodType<
   type: z.record(z.array(FeatureNode$inboundSchema)),
   category: z.record(z.array(FeatureNode$inboundSchema)),
   region: z.record(z.array(FeatureNode$inboundSchema)),
+  data_frequency: z.record(z.array(FeatureNode$inboundSchema)),
+  phenology_stage: z.record(z.array(FeatureNode$inboundSchema)),
+}).transform((v) => {
+  return remap$(v, {
+    "data_frequency": "dataFrequency",
+    "phenology_stage": "phenologyStage",
+  });
 });
 
 /** @internal */
@@ -35,6 +45,8 @@ export type FeatureTreeModel$Outbound = {
   type: { [k: string]: Array<FeatureNode$Outbound> };
   category: { [k: string]: Array<FeatureNode$Outbound> };
   region: { [k: string]: Array<FeatureNode$Outbound> };
+  data_frequency: { [k: string]: Array<FeatureNode$Outbound> };
+  phenology_stage: { [k: string]: Array<FeatureNode$Outbound> };
 };
 
 /** @internal */
@@ -46,6 +58,13 @@ export const FeatureTreeModel$outboundSchema: z.ZodType<
   type: z.record(z.array(FeatureNode$outboundSchema)),
   category: z.record(z.array(FeatureNode$outboundSchema)),
   region: z.record(z.array(FeatureNode$outboundSchema)),
+  dataFrequency: z.record(z.array(FeatureNode$outboundSchema)),
+  phenologyStage: z.record(z.array(FeatureNode$outboundSchema)),
+}).transform((v) => {
+  return remap$(v, {
+    dataFrequency: "data_frequency",
+    phenologyStage: "phenology_stage",
+  });
 });
 
 /**

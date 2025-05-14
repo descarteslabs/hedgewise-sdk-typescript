@@ -4,37 +4,12 @@
 
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
-import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-export const Status = {
-  Available: "available",
-} as const;
-export type Status = ClosedEnum<typeof Status>;
 
 export type PingResponse = {
   status?: "available" | undefined;
 };
-
-/** @internal */
-export const Status$inboundSchema: z.ZodNativeEnum<typeof Status> = z
-  .nativeEnum(Status);
-
-/** @internal */
-export const Status$outboundSchema: z.ZodNativeEnum<typeof Status> =
-  Status$inboundSchema;
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Status$ {
-  /** @deprecated use `Status$inboundSchema` instead. */
-  export const inboundSchema = Status$inboundSchema;
-  /** @deprecated use `Status$outboundSchema` instead. */
-  export const outboundSchema = Status$outboundSchema;
-}
 
 /** @internal */
 export const PingResponse$inboundSchema: z.ZodType<
@@ -56,7 +31,7 @@ export const PingResponse$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   PingResponse
 > = z.object({
-  status: z.literal("available").default("available"),
+  status: z.literal("available").default("available" as const),
 });
 
 /**

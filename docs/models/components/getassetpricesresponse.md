@@ -24,9 +24,9 @@ let value: GetAssetPricesResponse = {
         name: "<value>",
         ticks: [
           {
-            datetime: new Date("2023-03-12T02:16:45.552Z"),
-            volume: 485628,
-            openInterest: 977496,
+            datetime: new Date("2025-08-24T06:46:03.595Z"),
+            volume: 423620,
+            openInterest: 902108,
           },
         ],
       },

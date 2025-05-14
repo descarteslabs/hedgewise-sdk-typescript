@@ -11,7 +11,7 @@ import {
   createRegisterResource,
   createRegisterResourceTemplate,
 } from "./resources.js";
-import { MCPScope, mcpScopes } from "./scopes.js";
+import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$assetsGetCategories } from "./tools/assetsGetCategories.js";
 import { tool$dataGetMetadata } from "./tools/dataGetMetadata.js";
@@ -28,9 +28,12 @@ import { tool$futuresGetHedgeIndicator } from "./tools/futuresGetHedgeIndicator.
 import { tool$futuresGetLongTermForecast } from "./tools/futuresGetLongTermForecast.js";
 import { tool$futuresGetPrices } from "./tools/futuresGetPrices.js";
 import { tool$futuresList } from "./tools/futuresList.js";
+import { tool$getFuturesForecastsModels } from "./tools/getFuturesForecastsModels.js";
+import { tool$getModelOutput } from "./tools/getModelOutput.js";
 import { tool$indicatorsList } from "./tools/indicatorsList.js";
 import { tool$performanceMetricsGet } from "./tools/performanceMetricsGet.js";
 import { tool$performanceMetricsList } from "./tools/performanceMetricsList.js";
+import { tool$postFuturesForecasts } from "./tools/postFuturesForecasts.js";
 import { tool$sectorIndicesGet } from "./tools/sectorIndicesGet.js";
 import { tool$supplyGet } from "./tools/supplyGet.js";
 import { tool$supplyListCommodities } from "./tools/supplyListCommodities.js";
@@ -45,7 +48,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Hedgewise",
-    version: "0.3.4",
+    version: "0.4.0",
   });
 
   const client = new HedgewiseCore({
@@ -53,7 +56,7 @@ export function createMCPServer(deps: {
     serverIdx: deps.serverIdx,
   });
 
-  const scopes = new Set(deps.scopes ?? mcpScopes);
+  const scopes = new Set(deps.scopes);
 
   const allowedTools = deps.allowedTools && new Set(deps.allowedTools);
   const tool = createRegisterTool(
@@ -74,6 +77,9 @@ export function createMCPServer(deps: {
   const register = { tool, resource, resourceTemplate, prompt };
   void register; // suppress unused warnings
 
+  tool(tool$postFuturesForecasts);
+  tool(tool$getFuturesForecastsModels);
+  tool(tool$getModelOutput);
   tool(tool$systemPing);
   tool(tool$dataGetMetadata);
   tool(tool$assetsGetCategories);

@@ -55,6 +55,10 @@ export type GetFuturesForecastsRequest = {
    * Apply an empirical price collar to the forecasts. This regulates the forecast when it suggests implausibly large price changes. A smaller number results in a more aggressive collar. Must be a positive number.
    */
   priceCollarSigma?: number | undefined;
+  /**
+   * Select a specific data model to use when generating a forecast for a future symbol.
+   */
+  modelName?: string | null | undefined;
 };
 
 /** @internal */
@@ -71,6 +75,7 @@ export const GetFuturesForecastsRequest$inboundSchema: z.ZodType<
   get_market_drivers: z.boolean().default(false),
   get_moving_averages: z.boolean().default(false),
   price_collar_sigma: z.number().default(0),
+  model_name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -79,6 +84,7 @@ export const GetFuturesForecastsRequest$inboundSchema: z.ZodType<
     "get_market_drivers": "getMarketDrivers",
     "get_moving_averages": "getMovingAverages",
     "price_collar_sigma": "priceCollarSigma",
+    "model_name": "modelName",
   });
 });
 
@@ -92,6 +98,7 @@ export type GetFuturesForecastsRequest$Outbound = {
   get_market_drivers: boolean;
   get_moving_averages: boolean;
   price_collar_sigma: number;
+  model_name?: string | null | undefined;
 };
 
 /** @internal */
@@ -108,6 +115,7 @@ export const GetFuturesForecastsRequest$outboundSchema: z.ZodType<
   getMarketDrivers: z.boolean().default(false),
   getMovingAverages: z.boolean().default(false),
   priceCollarSigma: z.number().default(0),
+  modelName: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",
@@ -116,6 +124,7 @@ export const GetFuturesForecastsRequest$outboundSchema: z.ZodType<
     getMarketDrivers: "get_market_drivers",
     getMovingAverages: "get_moving_averages",
     priceCollarSigma: "price_collar_sigma",
+    modelName: "model_name",
   });
 });
 

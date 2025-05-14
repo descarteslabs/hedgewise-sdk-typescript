@@ -9,8 +9,8 @@ let value: GetPerformanceMetricsResponse = {
   data: [
     {
       metric: "<value>",
-      horizon: 628899,
-      value: 3984.34,
+      horizon: 438400,
+      value: 7218.68,
     },
   ],
 };

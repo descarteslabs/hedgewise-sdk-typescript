@@ -8,23 +8,23 @@ import { SupplyData } from "hedgewise/models/components";
 let value: SupplyData = {
   symbol: "<value>",
   commodity: "<value>",
-  countryCode: "UZ",
-  country: "Saint Helena",
-  date: new Date("2025-02-05T17:37:20.583Z"),
-  model: "XC90",
-  forecastedSupply: 9944.01,
-  reportedSupply: 4518.22,
+  countryCode: "SZ",
+  country: "Chile",
+  date: new Date("2023-09-03T09:45:25.687Z"),
+  model: "A4",
+  forecastedSupply: 8703.64,
+  reportedSupply: 771.03,
   reportingAgency: "<value>",
-  unit: "mole",
+  unit: "weber",
   featureContributions: [
     {
       category: "<value>",
-      contribution: 2927.94,
+      contribution: 3038.56,
       drilldown: [
         {
           featureCode: "<value>",
-          contribution: 1523.54,
-          description: "egg keenly grave incidentally righteously gastropod",
+          contribution: 9653.97,
+          description: "cautiously what wherever",
         },
       ],
     },

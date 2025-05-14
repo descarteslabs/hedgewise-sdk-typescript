@@ -8,11 +8,11 @@ import { ForexData } from "hedgewise/models/components";
 let value: ForexData = {
   code: "<value>",
   name: "<value>",
-  marketDate: new Date("2023-11-18T03:36:20.029Z"),
+  marketDate: new Date("2023-04-01T10:57:43.186Z"),
   prices: [
     {
-      date: new Date("2025-07-19T10:36:40.605Z"),
-      price: 6178.77,
+      date: new Date("2025-12-24T07:57:45.241Z"),
+      price: 5449.11,
     },
   ],
 };

@@ -97,8 +97,8 @@ async function run() {
     symbol: "ZC",
     metric: "hitrate",
     horizon: 10,
-    startDate: "2025-01-01",
-    endDate: "2025-03-18",
+    startDate: "2025-01-02",
+    endDate: "2025-04-25",
     thresholdOnForecast: 0.04,
     thresholdOnActual: 0.02,
   });
@@ -129,8 +129,8 @@ async function run() {
     symbol: "ZC",
     metric: "hitrate",
     horizon: 10,
-    startDate: "2025-01-01",
-    endDate: "2025-03-18",
+    startDate: "2025-01-02",
+    endDate: "2025-04-25",
     thresholdOnForecast: 0.04,
     thresholdOnActual: 0.02,
   });

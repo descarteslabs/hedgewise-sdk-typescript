@@ -10,8 +10,8 @@ let value: GetFeatureHistoricalResponse = {
   data: [
     {
       featureCode: "<value>",
-      date: new RFCDate("2024-06-29"),
-      value: 6394.73,
+      date: new RFCDate("2023-12-27"),
+      value: 6083.43,
     },
   ],
 };

@@ -20,7 +20,7 @@ specific category of applications.
 
 ```typescript
 import { HedgewiseCore } from "hedgewise/core.js";
-import { systemPing } from "hedgewise/funcs/systemPing.js";
+import { postFuturesForecasts } from "hedgewise/funcs/postFuturesForecasts.js";
 import { SDKValidationError } from "hedgewise/models/errors/sdkvalidationerror.js";
 
 // Use `HedgewiseCore` for best tree-shaking performance.
@@ -30,7 +30,12 @@ const hedgewise = new HedgewiseCore({
 });
 
 async function run() {
-  const res = await systemPing(hedgewise);
+  const res = await postFuturesForecasts(hedgewise, {
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [],
+    },
+  });
 
   switch (true) {
     case res.ok:

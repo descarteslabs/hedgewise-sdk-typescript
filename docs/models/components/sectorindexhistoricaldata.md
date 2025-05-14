@@ -10,8 +10,8 @@ let value: SectorIndexHistoricalData = {
   assetClass: "<value>",
   data: [
     {
-      date: new RFCDate("2025-12-02"),
-      value: 9608.35,
+      date: new RFCDate("2025-06-18"),
+      value: 3473.16,
     },
   ],
 };

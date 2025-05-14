@@ -10,8 +10,8 @@ let value: GetTransformedFeatureResponse = {
   data: [
     {
       xformFeatureCode: "<value>",
-      date: new RFCDate("2025-06-20"),
-      value: 1898.48,
+      date: new RFCDate("2025-10-28"),
+      value: 9774.14,
     },
   ],
 };
