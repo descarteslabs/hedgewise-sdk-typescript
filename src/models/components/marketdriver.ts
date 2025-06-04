@@ -17,6 +17,7 @@ import {
 export type MarketDriver = {
   model: string;
   forecastDate: Date;
+  targetDateContract: string;
   horizon: number;
   categories: Array<FeatureCategory>;
 };
@@ -31,11 +32,13 @@ export const MarketDriver$inboundSchema: z.ZodType<
   forecast_date: z.string().datetime({ offset: true }).transform(v =>
     new Date(v)
   ),
+  target_date_contract: z.string(),
   horizon: z.number().int(),
   categories: z.array(FeatureCategory$inboundSchema),
 }).transform((v) => {
   return remap$(v, {
     "forecast_date": "forecastDate",
+    "target_date_contract": "targetDateContract",
   });
 });
 
@@ -43,6 +46,7 @@ export const MarketDriver$inboundSchema: z.ZodType<
 export type MarketDriver$Outbound = {
   model: string;
   forecast_date: string;
+  target_date_contract: string;
   horizon: number;
   categories: Array<FeatureCategory$Outbound>;
 };
@@ -55,11 +59,13 @@ export const MarketDriver$outboundSchema: z.ZodType<
 > = z.object({
   model: z.string(),
   forecastDate: z.date().transform(v => v.toISOString()),
+  targetDateContract: z.string(),
   horizon: z.number().int(),
   categories: z.array(FeatureCategory$outboundSchema),
 }).transform((v) => {
   return remap$(v, {
     forecastDate: "forecast_date",
+    targetDateContract: "target_date_contract",
   });
 });
 

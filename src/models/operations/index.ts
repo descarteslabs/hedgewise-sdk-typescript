@@ -15,6 +15,7 @@ export * from "./getlongtermforecast.js";
 export * from "./getmodeloutput.js";
 export * from "./getperformancemetrics.js";
 export * from "./getsupply.js";
+export * from "./getsupplyphenology.js";
 export * from "./gettransformedfeaturevalues.js";
 export * from "./getweightedindex.js";
 export * from "./postfuturesforecasts.js";

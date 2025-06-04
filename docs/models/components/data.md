@@ -19,17 +19,11 @@ let value: Data = {
       assetClassSymbol: "<value>",
       name: "<value>",
       sku: "<value>",
-      code: "<value>",
+      code: null,
       priceFile: "<value>",
     },
   ],
-  contracts: [
-    {
-      assetSymbol: "<value>",
-      symbol: "<value>",
-      name: "<value>",
-    },
-  ],
+  contracts: [],
 };
 ```
 

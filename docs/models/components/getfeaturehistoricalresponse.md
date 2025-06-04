@@ -4,16 +4,9 @@
 
 ```typescript
 import { GetFeatureHistoricalResponse } from "hedgewise/models/components";
-import { RFCDate } from "hedgewise/types";
 
 let value: GetFeatureHistoricalResponse = {
-  data: [
-    {
-      featureCode: "<value>",
-      date: new RFCDate("2023-12-27"),
-      value: 6083.43,
-    },
-  ],
+  data: [],
 };
 ```
 

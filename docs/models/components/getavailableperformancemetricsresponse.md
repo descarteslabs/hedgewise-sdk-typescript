@@ -9,7 +9,7 @@ let value: GetAvailablePerformanceMetricsResponse = {
   data: [
     {
       metric: "<value>",
-      description: "where forsaken sorrowful bemuse how along aw royal stormy",
+      description: "wedding information lumpy",
     },
   ],
 };

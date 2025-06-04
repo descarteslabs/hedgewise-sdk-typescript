@@ -15,7 +15,7 @@ let value: GetAvailableFuturesResponse = {
       sku: "<value>",
       code: "<value>",
       priceFile: "<value>",
-      hasForecast: false,
+      hasForecast: true,
     },
   ],
 };

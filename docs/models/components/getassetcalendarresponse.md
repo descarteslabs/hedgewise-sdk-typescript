@@ -6,9 +6,7 @@
 import { GetAssetCalendarResponse } from "hedgewise/models/components";
 
 let value: GetAssetCalendarResponse = {
-  data: [
-    "<value>",
-  ],
+  data: [],
 };
 ```
 

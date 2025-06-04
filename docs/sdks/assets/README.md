@@ -19,12 +19,12 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.assets.getCategories();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -43,19 +43,17 @@ import { assetsGetCategories } from "hedgewise/funcs/assetsGetCategories.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await assetsGetCategories(hedgewise);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("assetsGetCategories failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

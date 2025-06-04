@@ -21,43 +21,33 @@ specific category of applications.
 ```typescript
 import { HedgewiseCore } from "hedgewise/core.js";
 import { postFuturesForecasts } from "hedgewise/funcs/postFuturesForecasts.js";
-import { SDKValidationError } from "hedgewise/models/errors/sdkvalidationerror.js";
 
 // Use `HedgewiseCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await postFuturesForecasts(hedgewise, {
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
-
-  switch (true) {
-    case res.ok:
-      // The success case will be handled outside of the switch block
-      break;
-    case res.error instanceof SDKValidationError:
-      // Pretty-print validation errors.
-      return console.log(res.error.pretty());
-    case res.error instanceof Error:
-      return console.log(res.error);
-    default:
-      // TypeScript's type checking will fail on the following line if the above
-      // cases were not exhaustive.
-      res.error satisfies never;
-      throw new Error("Assertion failed: expected error checks to be exhaustive: " + res.error);
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("postFuturesForecasts failed:", res.error);
   }
-
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

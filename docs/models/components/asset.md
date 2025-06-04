@@ -10,7 +10,7 @@ let value: Asset = {
   type: "<value>",
   assetClassSymbol: "<value>",
   name: "<value>",
-  sku: "<value>",
+  sku: null,
   code: "<value>",
   priceFile: "<value>",
 };

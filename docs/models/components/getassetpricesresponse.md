@@ -22,13 +22,7 @@ let value: GetAssetPricesResponse = {
         assetSymbol: "<value>",
         symbol: "<value>",
         name: "<value>",
-        ticks: [
-          {
-            datetime: new Date("2025-08-24T06:46:03.595Z"),
-            volume: 423620,
-            openInterest: 902108,
-          },
-        ],
+        ticks: [],
       },
     ],
   },

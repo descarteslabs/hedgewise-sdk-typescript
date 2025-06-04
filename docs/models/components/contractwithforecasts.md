@@ -9,45 +9,15 @@ let value: ContractWithForecasts = {
   assetSymbol: "<value>",
   symbol: "<value>",
   name: "<value>",
-  forecasts: [
-    {
-      model: "Alpine",
-      forecastDate: new Date("2023-02-21T22:47:27.989Z"),
-      closePriceTrajectory: [
-        {
-          date: new Date("2023-05-07T14:57:53.812Z"),
-          closePrice: 6875.74,
-        },
-      ],
-    },
-  ],
-  marketDrivers: [
-    {
-      model: "Malibu",
-      forecastDate: new Date("2024-12-09T17:10:13.003Z"),
-      horizon: 779655,
-      categories: [
-        {
-          category: "<value>",
-          contribution: 322.66,
-          drilldown: [
-            {
-              featureCode: "<value>",
-              contribution: 6462.33,
-              description: "wrathful early tributary spice",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  forecasts: [],
+  marketDrivers: null,
   movingAverages: [
     {
-      horizon: 156542,
+      horizon: 650817,
       movingAverage: [
         {
-          date: new Date("2023-07-08T11:23:49.706Z"),
-          value: 5130.19,
+          date: new Date("2025-05-04T12:02:08.109Z"),
+          value: 322.66,
         },
       ],
     },

@@ -4,13 +4,14 @@
 
 ```typescript
 import { Indicator } from "hedgewise/models/components";
+import { RFCDate } from "hedgewise/types";
 
 let value: Indicator = {
   name: "<value>",
   series: [
     {
-      date: "2025-02-19",
-      value: 2870.79,
+      date: new RFCDate("2023-11-11"),
+      value: 9266.2,
     },
   ],
 };

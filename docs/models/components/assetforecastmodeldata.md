@@ -11,7 +11,8 @@ let value: AssetForecastModelData = {
   startDate: new RFCDate("2024-04-08"),
   endDate: new RFCDate("2024-01-12"),
   horizons: [
-    670211,
+    847232,
+    433786,
   ],
 };
 ```

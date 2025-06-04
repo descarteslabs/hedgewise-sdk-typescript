@@ -7,20 +7,6 @@ import { PostFuturesForecastsRequest } from "hedgewise/models/operations";
 
 let value: PostFuturesForecastsRequest = {
   symbol: "ZC",
-  postAssetForecastsRequest: {
-    strategy: [
-      {
-        startDate: "2025-04-24",
-        endDate: "2025-04-24",
-        trajectory: [
-          {
-            model: "Land Cruiser",
-            horizon: "<value>",
-          },
-        ],
-      },
-    ],
-  },
 };
 ```
 

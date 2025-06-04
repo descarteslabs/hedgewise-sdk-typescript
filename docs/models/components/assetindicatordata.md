@@ -15,22 +15,7 @@ let value: AssetIndicatorData = {
     code: "<value>",
     priceFile: "<value>",
   },
-  contracts: [
-    {
-      assetSymbol: "<value>",
-      symbol: "<value>",
-      name: "<value>",
-      indicator: {
-        name: "<value>",
-        series: [
-          {
-            date: "2024-08-16",
-            value: 5804.47,
-          },
-        ],
-      },
-    },
-  ],
+  contracts: [],
 };
 ```
 

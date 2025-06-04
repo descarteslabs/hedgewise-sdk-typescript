@@ -19,14 +19,8 @@ let value: SupplyData = {
   featureContributions: [
     {
       category: "<value>",
-      contribution: 3038.56,
-      drilldown: [
-        {
-          featureCode: "<value>",
-          contribution: 9653.97,
-          description: "cautiously what wherever",
-        },
-      ],
+      contribution: 620.35,
+      drilldown: [],
     },
   ],
 };

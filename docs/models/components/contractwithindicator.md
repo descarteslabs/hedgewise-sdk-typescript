@@ -11,12 +11,7 @@ let value: ContractWithIndicator = {
   name: "<value>",
   indicator: {
     name: "<value>",
-    series: [
-      {
-        date: "2024-07-23",
-        value: 3748.61,
-      },
-    ],
+    series: [],
   },
 };
 ```

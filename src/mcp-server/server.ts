@@ -30,6 +30,7 @@ import { tool$futuresGetPrices } from "./tools/futuresGetPrices.js";
 import { tool$futuresList } from "./tools/futuresList.js";
 import { tool$getFuturesForecastsModels } from "./tools/getFuturesForecastsModels.js";
 import { tool$getModelOutput } from "./tools/getModelOutput.js";
+import { tool$getSupplyPhenology } from "./tools/getSupplyPhenology.js";
 import { tool$indicatorsList } from "./tools/indicatorsList.js";
 import { tool$performanceMetricsGet } from "./tools/performanceMetricsGet.js";
 import { tool$performanceMetricsList } from "./tools/performanceMetricsList.js";
@@ -44,14 +45,16 @@ export function createMCPServer(deps: {
   allowedTools?: string[] | undefined;
   scopes?: MCPScope[] | undefined;
   serverURL: string;
+  bearerAuth?: SDKOptions["bearerAuth"] | undefined;
   serverIdx?: SDKOptions["serverIdx"] | undefined;
 }) {
   const server = new McpServer({
     name: "Hedgewise",
-    version: "0.4.0",
+    version: "0.5.0",
   });
 
   const client = new HedgewiseCore({
+    bearerAuth: deps.bearerAuth,
     serverURL: deps.serverURL,
     serverIdx: deps.serverIdx,
   });
@@ -80,6 +83,7 @@ export function createMCPServer(deps: {
   tool(tool$postFuturesForecasts);
   tool(tool$getFuturesForecastsModels);
   tool(tool$getModelOutput);
+  tool(tool$getSupplyPhenology);
   tool(tool$systemPing);
   tool(tool$dataGetMetadata);
   tool(tool$assetsGetCategories);

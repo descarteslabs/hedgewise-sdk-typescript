@@ -11,8 +11,8 @@ let value: ForexData = {
   marketDate: new Date("2023-04-01T10:57:43.186Z"),
   prices: [
     {
-      date: new Date("2025-12-24T07:57:45.241Z"),
-      price: 5449.11,
+      date: new Date("2024-08-20T05:19:48.526Z"),
+      price: 7728.42,
     },
   ],
 };

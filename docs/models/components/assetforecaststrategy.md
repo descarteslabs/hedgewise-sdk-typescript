@@ -10,8 +10,8 @@ let value: AssetForecastStrategy = {
   endDate: "2025-04-24",
   trajectory: [
     {
-      model: "Grand Caravan",
-      horizon: 671471,
+      model: "Escalade",
+      horizon: "<value>",
     },
   ],
 };

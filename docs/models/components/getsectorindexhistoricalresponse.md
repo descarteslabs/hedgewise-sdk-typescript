@@ -4,20 +4,9 @@
 
 ```typescript
 import { GetSectorIndexHistoricalResponse } from "hedgewise/models/components";
-import { RFCDate } from "hedgewise/types";
 
 let value: GetSectorIndexHistoricalResponse = {
-  data: [
-    {
-      assetClass: "<value>",
-      data: [
-        {
-          date: new RFCDate("2024-03-30"),
-          value: 2388.39,
-        },
-      ],
-    },
-  ],
+  data: [],
 };
 ```
 

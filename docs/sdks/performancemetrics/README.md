@@ -19,12 +19,12 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.performanceMetrics.list();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -43,19 +43,17 @@ import { performanceMetricsList } from "hedgewise/funcs/performanceMetricsList.j
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await performanceMetricsList(hedgewise);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("performanceMetricsList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -90,6 +88,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -99,11 +98,11 @@ async function run() {
     horizon: 10,
     startDate: "2025-01-02",
     endDate: "2025-04-25",
-    thresholdOnForecast: 0.04,
-    thresholdOnActual: 0.02,
+    thresholdOnForecast: 0,
+    thresholdOnActual: 0,
+    sigma: 2,
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -122,6 +121,7 @@ import { performanceMetricsGet } from "hedgewise/funcs/performanceMetricsGet.js"
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -131,18 +131,16 @@ async function run() {
     horizon: 10,
     startDate: "2025-01-02",
     endDate: "2025-04-25",
-    thresholdOnForecast: 0.04,
-    thresholdOnActual: 0.02,
+    thresholdOnForecast: 0,
+    thresholdOnActual: 0,
+    sigma: 2,
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("performanceMetricsGet failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

@@ -16,20 +16,7 @@ let value: AssetPriceData = {
     priceFile: "<value>",
   },
   frontMonth: "<value>",
-  contracts: [
-    {
-      assetSymbol: "<value>",
-      symbol: "<value>",
-      name: "<value>",
-      ticks: [
-        {
-          datetime: new Date("2024-06-06T14:14:48.894Z"),
-          volume: 190172,
-          openInterest: 36068,
-        },
-      ],
-    },
-  ],
+  contracts: [],
 };
 ```
 

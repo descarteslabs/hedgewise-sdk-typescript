@@ -12,7 +12,7 @@ let value: PostAssetForecastsRequest = {
       endDate: "2025-04-24",
       trajectory: [
         {
-          model: "V90",
+          model: "Escalade",
           horizon: "<value>",
         },
       ],

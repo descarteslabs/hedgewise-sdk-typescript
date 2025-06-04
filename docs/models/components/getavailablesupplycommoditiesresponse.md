@@ -6,16 +6,7 @@
 import { GetAvailableSupplyCommoditiesResponse } from "hedgewise/models/components";
 
 let value: GetAvailableSupplyCommoditiesResponse = {
-  data: [
-    {
-      model: "911",
-      symbol: "<value>",
-      commodity: "<value>",
-      countries: [
-        "<value>",
-      ],
-    },
-  ],
+  data: [],
 };
 ```
 

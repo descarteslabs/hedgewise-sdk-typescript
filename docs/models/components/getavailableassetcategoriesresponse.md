@@ -7,7 +7,8 @@ import { GetAvailableAssetCategoriesResponse } from "hedgewise/models/components
 
 let value: GetAvailableAssetCategoriesResponse = {
   data: [
-    "<value>",
+    "<value 1>",
+    "<value 2>",
   ],
 };
 ```

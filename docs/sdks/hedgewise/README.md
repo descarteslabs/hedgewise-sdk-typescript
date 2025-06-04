@@ -2,13 +2,14 @@
 
 ## Overview
 
-Access to Hedgewise data provided by Descartes Labs.
+Access to Hedgewise data provided by EarthDaily.
 
 ### Available Operations
 
 * [postFuturesForecasts](#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
 * [getFuturesForecastsModels](#getfuturesforecastsmodels) - Get Forecast Models for a future
 * [getModelOutput](#getmodeloutput) - Get the output of a model for a given symbol
+* [getSupplyPhenology](#getsupplyphenology) - Get phenology stages information for a crop and country and or region
 
 ## postFuturesForecasts
 
@@ -24,17 +25,23 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.postFuturesForecasts({
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -53,24 +60,28 @@ import { postFuturesForecasts } from "hedgewise/funcs/postFuturesForecasts.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await postFuturesForecasts(hedgewise, {
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("postFuturesForecasts failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -107,6 +118,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -114,7 +126,6 @@ async function run() {
     symbol: "ZC",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -133,21 +144,19 @@ import { getFuturesForecastsModels } from "hedgewise/funcs/getFuturesForecastsMo
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await getFuturesForecastsModels(hedgewise, {
     symbol: "ZC",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getFuturesForecastsModels failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -184,17 +193,17 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.getModelOutput({
-    symbol: "ZC",
-    model: "v1",
+    symbol: "KC",
+    model: "coffee_arabica_v1_3",
     startDate: "2025-04-24",
     endDate: "2025-04-24",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -213,24 +222,22 @@ import { getModelOutput } from "hedgewise/funcs/getModelOutput.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await getModelOutput(hedgewise, {
-    symbol: "ZC",
-    model: "v1",
+    symbol: "KC",
+    model: "coffee_arabica_v1_3",
     startDate: "2025-04-24",
     endDate: "2025-04-24",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getModelOutput failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -248,6 +255,83 @@ run();
 ### Response
 
 **Promise\<[components.GetModelOutputResponse](../../models/components/getmodeloutputresponse.md)\>**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## getSupplyPhenology
+
+Returns the month day of the beginning and end of phenology stages for a given crop and region
+
+### Example Usage
+
+```typescript
+import { Hedgewise } from "hedgewise";
+
+const hedgewise = new Hedgewise({
+  serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await hedgewise.getSupplyPhenology({
+    symbol: "KC",
+    countryRegion: "brazil",
+  });
+
+  console.log(result);
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { HedgewiseCore } from "hedgewise/core.js";
+import { getSupplyPhenology } from "hedgewise/funcs/getSupplyPhenology.js";
+
+// Use `HedgewiseCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const hedgewise = new HedgewiseCore({
+  serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
+});
+
+async function run() {
+  const res = await getSupplyPhenology(hedgewise, {
+    symbol: "KC",
+    countryRegion: "brazil",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("getSupplyPhenology failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetSupplyPhenologyRequest](../../models/operations/getsupplyphenologyrequest.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<[components.GetSupplyPhenologyResponse](../../models/components/getsupplyphenologyresponse.md)\>**
 
 ### Errors
 

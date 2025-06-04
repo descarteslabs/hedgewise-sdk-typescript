@@ -4,6 +4,7 @@
 
 import { getFuturesForecastsModels } from "../funcs/getFuturesForecastsModels.js";
 import { getModelOutput } from "../funcs/getModelOutput.js";
+import { getSupplyPhenology } from "../funcs/getSupplyPhenology.js";
 import { postFuturesForecasts } from "../funcs/postFuturesForecasts.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
@@ -119,6 +120,23 @@ export class Hedgewise extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.GetModelOutputResponse> {
     return unwrapAsync(getModelOutput(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Get phenology stages information for a crop and country and or region
+   *
+   * @remarks
+   * Returns the month day of the beginning and end of phenology stages for a given crop and region
+   */
+  async getSupplyPhenology(
+    request: operations.GetSupplyPhenologyRequest,
+    options?: RequestOptions,
+  ): Promise<components.GetSupplyPhenologyResponse> {
+    return unwrapAsync(getSupplyPhenology(
       this,
       request,
       options,

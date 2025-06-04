@@ -24,12 +24,12 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.futures.list();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -48,19 +48,17 @@ import { futuresList } from "hedgewise/funcs/futuresList.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await futuresList(hedgewise);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresList failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -97,6 +95,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -106,7 +105,6 @@ async function run() {
     endDate: "2025-04-25",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -125,6 +123,7 @@ import { futuresGetCalendar } from "hedgewise/funcs/futuresGetCalendar.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -133,15 +132,12 @@ async function run() {
     startDate: "2025-04-17",
     endDate: "2025-04-25",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresGetCalendar failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -181,6 +177,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -190,7 +187,6 @@ async function run() {
     endDate: "2025-04-24",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -209,6 +205,7 @@ import { futuresGetForecasts } from "hedgewise/funcs/futuresGetForecasts.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -217,15 +214,12 @@ async function run() {
     startDate: "2025-04-24",
     endDate: "2025-04-24",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresGetForecasts failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -262,6 +256,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -273,7 +268,6 @@ async function run() {
     rolloverType: "hist_vol",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -292,6 +286,7 @@ import { futuresGetLongTermForecast } from "hedgewise/funcs/futuresGetLongTermFo
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -302,15 +297,12 @@ async function run() {
     endDate: "2025-04-25",
     rolloverType: "hist_vol",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresGetLongTermForecast failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -352,6 +344,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -363,7 +356,6 @@ async function run() {
     endDate: "2025-04-24",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -382,6 +374,7 @@ import { futuresGetHedgeIndicator } from "hedgewise/funcs/futuresGetHedgeIndicat
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -392,15 +385,12 @@ async function run() {
     startDate: "2025-03-24",
     endDate: "2025-04-24",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresGetHedgeIndicator failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -438,6 +428,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -448,7 +439,6 @@ async function run() {
     endDate: "2025-04-24",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -467,6 +457,7 @@ import { futuresGetPrices } from "hedgewise/funcs/futuresGetPrices.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -476,15 +467,12 @@ async function run() {
     startDate: "2025-04-24",
     endDate: "2025-04-24",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("futuresGetPrices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
