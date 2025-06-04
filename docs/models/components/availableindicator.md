@@ -7,17 +7,7 @@ import { AvailableIndicator } from "hedgewise/models/components";
 
 let value: AvailableIndicator = {
   name: "<value>",
-  assets: [
-    {
-      symbol: "<value>",
-      type: "<value>",
-      assetClassSymbol: "<value>",
-      name: "<value>",
-      sku: "<value>",
-      code: "<value>",
-      priceFile: "<value>",
-    },
-  ],
+  assets: [],
 };
 ```
 

@@ -10,7 +10,7 @@ let value: AvailableSupplyModels = {
   symbol: "<value>",
   commodity: "<value>",
   countries: [
-    "<value>",
+    "<value 1>",
   ],
 };
 ```

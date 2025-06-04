@@ -7,23 +7,8 @@ import { GetDataResponse } from "hedgewise/models/components";
 
 let value: GetDataResponse = {
   data: {
-    assetClasses: [
-      {
-        symbol: "<value>",
-        name: "<value>",
-      },
-    ],
-    assets: [
-      {
-        symbol: "<value>",
-        type: "<value>",
-        assetClassSymbol: "<value>",
-        name: "<value>",
-        sku: "<value>",
-        code: "<value>",
-        priceFile: "<value>",
-      },
-    ],
+    assetClasses: [],
+    assets: [],
     contracts: [
       {
         assetSymbol: "<value>",

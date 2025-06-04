@@ -19,12 +19,12 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.forex.listPrices();
 
-  // Handle the result
   console.log(result);
 }
 
@@ -43,19 +43,17 @@ import { forexListPrices } from "hedgewise/funcs/forexListPrices.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const res = await forexListPrices(hedgewise);
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("forexListPrices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();
@@ -90,6 +88,7 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -99,7 +98,6 @@ async function run() {
     endDate: "2025-04-25",
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -118,6 +116,7 @@ import { forexGetPrices } from "hedgewise/funcs/forexGetPrices.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -126,15 +125,12 @@ async function run() {
     startDate: "2025-04-17",
     endDate: "2025-04-25",
   });
-
-  if (!res.ok) {
-    throw res.error;
+  if (res.ok) {
+    const { value: result } = res;
+    console.log(result);
+  } else {
+    console.log("forexGetPrices failed:", res.error);
   }
-
-  const { value: result } = res;
-
-  // Handle the result
-  console.log(result);
 }
 
 run();

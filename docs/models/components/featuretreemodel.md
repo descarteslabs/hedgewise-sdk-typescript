@@ -7,19 +7,10 @@ import { FeatureTreeModel } from "hedgewise/models/components";
 
 let value: FeatureTreeModel = {
   type: {
-    "key": [
-      {
-        label: "<value>",
-      },
-    ],
+    "key": [],
+    "key1": [],
   },
-  category: {
-    "key": [
-      {
-        label: "<value>",
-      },
-    ],
-  },
+  category: {},
   region: {
     "key": [
       {
@@ -27,13 +18,7 @@ let value: FeatureTreeModel = {
       },
     ],
   },
-  dataFrequency: {
-    "key": [
-      {
-        label: "<value>",
-      },
-    ],
-  },
+  dataFrequency: {},
   phenologyStage: {
     "key": [
       {

@@ -6,13 +6,7 @@
 import { GetPerformanceMetricsResponse } from "hedgewise/models/components";
 
 let value: GetPerformanceMetricsResponse = {
-  data: [
-    {
-      metric: "<value>",
-      horizon: 438400,
-      value: 7218.68,
-    },
-  ],
+  data: [],
 };
 ```
 

@@ -7,7 +7,7 @@ import { GetWeightedIndexRequest } from "hedgewise/models/operations";
 
 let value: GetWeightedIndexRequest = {
   weights: [
-    2,
+    0.5,
   ],
   featureCodes: [
     "vietnam_t2mean",

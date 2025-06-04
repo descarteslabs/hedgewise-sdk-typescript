@@ -18,32 +18,12 @@ let value: AssetLongTermForecastData = {
   },
   longTermForecast: [
     {
-      date: new RFCDate("2024-09-16"),
+      date: new RFCDate("2024-02-17"),
       contract: "<value>",
-      priceIncrease: false,
+      priceIncrease: true,
     },
   ],
-  marketDrivers: [
-    {
-      model: "Grand Cherokee",
-      forecastDate: new Date("2023-07-07T19:03:49.429Z"),
-      horizon: 105057,
-      categories: [
-        {
-          category: "<value>",
-          contribution: 9428.14,
-          drilldown: [
-            {
-              featureCode: "<value>",
-              contribution: 5937.16,
-              description:
-                "vice eek pretty blah queasily once if outlying replicate disposer",
-            },
-          ],
-        },
-      ],
-    },
-  ],
+  marketDrivers: [],
 };
 ```
 

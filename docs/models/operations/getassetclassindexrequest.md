@@ -6,11 +6,11 @@
 import { GetAssetClassIndexRequest } from "hedgewise/models/operations";
 
 let value: GetAssetClassIndexRequest = {
-  assetClassSymbol: "ENR",
+  assetClassSymbol: "GRN",
   methodology: "riskparity",
   startDate: "2025-03-24",
   endDate: "2025-04-25",
-  freq: "monthly",
+  freq: "weekly",
 };
 ```
 

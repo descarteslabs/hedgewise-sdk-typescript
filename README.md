@@ -19,7 +19,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 
 Hedgewise: Hedgewise API
 
-Access to Hedgewise data provided by Descartes Labs.
+Access to Hedgewise data provided by EarthDaily.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -29,6 +29,7 @@ Access to Hedgewise data provided by Descartes Labs.
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
+  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -98,7 +99,8 @@ Add the following server definition to your `claude_desktop_config.json` file:
         "-y", "--package", "hedgewise",
         "--",
         "mcp", "start",
-        "--server-url", "..."
+        "--server-url", "...",
+        "--bearer-auth", "..."
       ]
     }
   }
@@ -121,7 +123,8 @@ Create a `.cursor/mcp.json` file in your project root with the following content
         "-y", "--package", "hedgewise",
         "--",
         "mcp", "start",
-        "--server-url", "..."
+        "--server-url", "...",
+        "--bearer-auth", "..."
       ]
     }
   }
@@ -177,17 +180,23 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.postFuturesForecasts({
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -195,6 +204,48 @@ run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
+
+<!-- Start Authentication [security] -->
+## Authentication
+
+### Per-Client Security Schemes
+
+This SDK supports the following security scheme globally:
+
+| Name         | Type | Scheme      | Environment Variable    |
+| ------------ | ---- | ----------- | ----------------------- |
+| `bearerAuth` | http | HTTP Bearer | `HEDGEWISE_BEARER_AUTH` |
+
+To authenticate with the API the `bearerAuth` parameter must be set when initializing the SDK client instance. For example:
+```typescript
+import { Hedgewise } from "hedgewise";
+
+const hedgewise = new Hedgewise({
+  serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
+});
+
+async function run() {
+  const result = await hedgewise.postFuturesForecasts({
+    symbol: "ZC",
+    postAssetForecastsRequest: {
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
+    },
+  });
+
+  console.log(result);
+}
+
+run();
+
+```
+<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -237,6 +288,7 @@ run();
 * [postFuturesForecasts](docs/sdks/hedgewise/README.md#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
 * [getFuturesForecastsModels](docs/sdks/hedgewise/README.md#getfuturesforecastsmodels) - Get Forecast Models for a future
 * [getModelOutput](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
+* [getSupplyPhenology](docs/sdks/hedgewise/README.md#getsupplyphenology) - Get phenology stages information for a crop and country and or region
 
 ### [indicators](docs/sdks/indicators/README.md)
 
@@ -295,6 +347,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`futuresList`](docs/sdks/futures/README.md#list) - List all available futures
 - [`getFuturesForecastsModels`](docs/sdks/hedgewise/README.md#getfuturesforecastsmodels) - Get Forecast Models for a future
 - [`getModelOutput`](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
+- [`getSupplyPhenology`](docs/sdks/hedgewise/README.md#getsupplyphenology) - Get phenology stages information for a crop and country and or region
 - [`indicatorsList`](docs/sdks/indicators/README.md#list) - List available indicators
 - [`performanceMetricsGet`](docs/sdks/performancemetrics/README.md#get) - Get performance related data metrics for a given futures price forecast model at a given horizon.
 - [`performanceMetricsList`](docs/sdks/performancemetrics/README.md#list) - List available performance metrics and related models
@@ -318,13 +371,20 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.postFuturesForecasts({
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   }, {
     retries: {
@@ -339,7 +399,6 @@ async function run() {
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -363,17 +422,23 @@ const hedgewise = new Hedgewise({
     },
     retryConnectionErrors: false,
   },
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.postFuturesForecasts({
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 
@@ -385,57 +450,57 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Some methods specify known errors which can be thrown. All the known errors are enumerated in the `models/errors/errors.ts` module. The known errors for a method are documented under the *Errors* tables in SDK docs. For example, the `postFuturesForecasts` method may throw the following errors:
+This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
 
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| errors.HTTPValidationError | 422         | application/json |
-| errors.APIError            | 4XX, 5XX    | \*/\*            |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.name`        | `string`   | Error class name eg `APIError`                                                          |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
+| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
-If the method throws an error and it is not captured by the known errors, it will default to throwing a `APIError`.
-
+### Example
 ```typescript
 import { Hedgewise } from "hedgewise";
-import {
-  HTTPValidationError,
-  SDKValidationError,
-} from "hedgewise/models/errors";
+import * as errors from "hedgewise/models/errors";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
-  let result;
   try {
-    result = await hedgewise.postFuturesForecasts({
+    const result = await hedgewise.postFuturesForecasts({
       symbol: "ZC",
       postAssetForecastsRequest: {
-        strategy: [],
+        strategy: [
+          {
+            startDate: "2025-04-24",
+            endDate: "2025-04-24",
+            trajectory: [],
+          },
+        ],
       },
     });
 
-    // Handle the result
     console.log(result);
-  } catch (err) {
-    switch (true) {
-      // The server response does not match the expected SDK schema
-      case (err instanceof SDKValidationError): {
-        // Pretty-print will provide a human-readable multi-line error message
-        console.error(err.pretty());
-        // Raw value may also be inspected
-        console.error(err.rawValue);
-        return;
-      }
-      case (err instanceof HTTPValidationError): {
-        // Handle err.data$: HTTPValidationErrorData
-        console.error(err);
-        return;
-      }
-      default: {
-        // Other errors such as network errors, see HTTPClientErrors for more details
-        throw err;
-      }
+  } catch (error) {
+    // Depending on the method different errors may be thrown
+    if (error instanceof errors.HTTPValidationError) {
+      console.log(error.message);
+      console.log(error.data$.detail); // ValidationError[]
+    }
+
+    // Fallback error class, if no other more specific error class is matched
+    if (error instanceof errors.APIError) {
+      console.log(error.message);
+      console.log(error.statusCode);
+      console.log(error.body);
+      console.log(error.rawResponse.headers);
     }
   }
 }
@@ -444,17 +509,20 @@ run();
 
 ```
 
-Validation errors can also occur when either method arguments or data returned from the server do not match the expected format. The `SDKValidationError` that is thrown as a result will capture the raw value that failed validation in an attribute called `rawValue`. Additionally, a `pretty()` method is available on this error that can be used to log a nicely formatted multi-line string since validation errors can list many issues and the plain error string may be difficult read when debugging.
+### Error Classes
+* `APIError`: The fallback error class, if no other more specific error class is matched.
+* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+* Network errors:
+    * `ConnectionError`: HTTP client was unable to make a request to a server.
+    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
+    * `RequestAbortedError`: HTTP request was aborted by the client.
+    * `InvalidRequestError`: Any input used to create a request is invalid.
+    * `UnexpectedClientError`: Unrecognised or unexpected error.
+* Less common errors, applicable to a subset of methods:
+    * [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. Applicable to 17 of 26 methods.*
 
-In some rare cases, the SDK can fail to get a response from the server or even make the request due to unexpected circumstances such as network conditions. These types of errors are captured in the `models/errors/httpclienterrors.ts` module:
 
-| HTTP Client Error                                    | Description                                          |
-| ---------------------------------------------------- | ---------------------------------------------------- |
-| RequestAbortedError                                  | HTTP request was aborted by the client               |
-| RequestTimeoutError                                  | HTTP request timed out due to an AbortSignal signal  |
-| ConnectionError                                      | HTTP client was unable to make a request to a server |
-| InvalidRequestError                                  | Any input used to create a request is invalid        |
-| UnexpectedClientError                                | Unrecognised or unexpected error                     |
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Custom HTTP Client [http-client] -->

@@ -10,6 +10,7 @@ import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type ForecastTick = {
   date: Date;
+  targetDateContract: string;
   closePrice: number;
   lowerBound1Sigma?: number | null | undefined;
   upperBound1Sigma?: number | null | undefined;
@@ -27,6 +28,7 @@ export const ForecastTick$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   date: z.string().datetime({ offset: true }).transform(v => new Date(v)),
+  target_date_contract: z.string(),
   close_price: z.number(),
   lower_bound_1_sigma: z.nullable(z.number()).optional(),
   upper_bound_1_sigma: z.nullable(z.number()).optional(),
@@ -37,6 +39,7 @@ export const ForecastTick$inboundSchema: z.ZodType<
   interpolated: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "target_date_contract": "targetDateContract",
     "close_price": "closePrice",
     "lower_bound_1_sigma": "lowerBound1Sigma",
     "upper_bound_1_sigma": "upperBound1Sigma",
@@ -50,6 +53,7 @@ export const ForecastTick$inboundSchema: z.ZodType<
 /** @internal */
 export type ForecastTick$Outbound = {
   date: string;
+  target_date_contract: string;
   close_price: number;
   lower_bound_1_sigma?: number | null | undefined;
   upper_bound_1_sigma?: number | null | undefined;
@@ -67,6 +71,7 @@ export const ForecastTick$outboundSchema: z.ZodType<
   ForecastTick
 > = z.object({
   date: z.date().transform(v => v.toISOString()),
+  targetDateContract: z.string(),
   closePrice: z.number(),
   lowerBound1Sigma: z.nullable(z.number()).optional(),
   upperBound1Sigma: z.nullable(z.number()).optional(),
@@ -77,6 +82,7 @@ export const ForecastTick$outboundSchema: z.ZodType<
   interpolated: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
+    targetDateContract: "target_date_contract",
     closePrice: "close_price",
     lowerBound1Sigma: "lower_bound_1_sigma",
     upperBound1Sigma: "upper_bound_1_sigma",

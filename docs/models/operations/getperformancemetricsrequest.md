@@ -8,11 +8,12 @@ import { GetPerformanceMetricsRequest } from "hedgewise/models/operations";
 let value: GetPerformanceMetricsRequest = {
   symbol: "ZC",
   metric: "hitrate",
-  horizon: 44,
+  horizon: 5,
   startDate: "2025-01-02",
   endDate: "2025-04-25",
   thresholdOnForecast: 0,
   thresholdOnActual: 0,
+  sigma: 1,
 };
 ```
 

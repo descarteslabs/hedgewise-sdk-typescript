@@ -6,7 +6,7 @@
 import { GetLongTermForecastRequest } from "hedgewise/models/operations";
 
 let value: GetLongTermForecastRequest = {
-  symbol: "RC",
+  symbol: "ZC",
   horizon: 12,
   startDate: "2025-03-24",
   endDate: "2025-04-25",

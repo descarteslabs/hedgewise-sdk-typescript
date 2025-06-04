@@ -11,9 +11,8 @@ let value: FeatureCategory = {
   drilldown: [
     {
       featureCode: "<value>",
-      contribution: 8067.41,
-      description:
-        "ameliorate task minor majestically colligate even smoothly righteously",
+      contribution: 3498.28,
+      description: "fast gladly drat annex",
     },
   ],
 };

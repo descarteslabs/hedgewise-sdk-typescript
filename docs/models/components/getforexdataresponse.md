@@ -10,12 +10,7 @@ let value: GetForexDataResponse = {
     code: "<value>",
     name: "<value>",
     marketDate: new Date("2025-01-10T18:45:53.608Z"),
-    prices: [
-      {
-        date: new Date("2023-12-28T02:19:57.452Z"),
-        price: 2910.67,
-      },
-    ],
+    prices: [],
   },
 };
 ```

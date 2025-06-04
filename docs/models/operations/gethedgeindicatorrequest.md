@@ -8,7 +8,7 @@ import { GetHedgeIndicatorRequest } from "hedgewise/models/operations";
 let value: GetHedgeIndicatorRequest = {
   symbol: "ZC",
   contract: "2025H",
-  hedgeHorizon: 10,
+  hedgeHorizon: 5,
   startDate: "2025-03-24",
   endDate: "2025-04-24",
 };

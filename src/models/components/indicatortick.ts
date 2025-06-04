@@ -5,10 +5,11 @@
 import * as z from "zod";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type IndicatorTick = {
-  date: string;
+  date: RFCDate;
   value: number;
 };
 
@@ -18,7 +19,7 @@ export const IndicatorTick$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  date: z.string(),
+  date: z.string().transform(v => new RFCDate(v)),
   value: z.number(),
 });
 
@@ -34,7 +35,7 @@ export const IndicatorTick$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   IndicatorTick
 > = z.object({
-  date: z.string(),
+  date: z.instanceof(RFCDate).transform(v => v.toString()),
   value: z.number(),
 });
 

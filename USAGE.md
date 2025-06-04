@@ -4,17 +4,23 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
+  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
   const result = await hedgewise.postFuturesForecasts({
     symbol: "ZC",
     postAssetForecastsRequest: {
-      strategy: [],
+      strategy: [
+        {
+          startDate: "2025-04-24",
+          endDate: "2025-04-24",
+          trajectory: [],
+        },
+      ],
     },
   });
 
-  // Handle the result
   console.log(result);
 }
 

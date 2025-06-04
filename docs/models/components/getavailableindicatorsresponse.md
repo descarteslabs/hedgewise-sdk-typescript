@@ -6,22 +6,7 @@
 import { GetAvailableIndicatorsResponse } from "hedgewise/models/components";
 
 let value: GetAvailableIndicatorsResponse = {
-  data: [
-    {
-      name: "<value>",
-      assets: [
-        {
-          symbol: "<value>",
-          type: "<value>",
-          assetClassSymbol: "<value>",
-          name: "<value>",
-          sku: "<value>",
-          code: "<value>",
-          priceFile: "<value>",
-        },
-      ],
-    },
-  ],
+  data: [],
 };
 ```
 

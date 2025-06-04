@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
 management:
-  docChecksum: a56d476efbe9ff23d86a646d9acc1793
+  docChecksum: 643252603efa62a81809b4d515319abd
   docVersion: 1.0.0
-  speakeasyVersion: 1.544.0
-  generationVersion: 2.599.0
-  releaseVersion: 0.4.0
-  configChecksum: a9e9fbf74bc6d295513e5accfaf6cfd9
+  speakeasyVersion: 1.555.2
+  generationVersion: 2.620.2
+  releaseVersion: 0.5.0
+  configChecksum: f858982894eb70cbac6c8ceff1bcd528
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
   published: true
@@ -14,11 +14,13 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.11
-    core: 3.21.7
+    core: 3.21.10
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.1.2
+    globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
+    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
     mcpServer: 0.9.2
@@ -26,7 +28,7 @@ features:
     nullables: 0.1.1
     responseFormat: 0.2.3
     retries: 2.83.0
-    sdkHooks: 0.2.0
+    sdkHooks: 0.3.0
     unions: 2.85.8
 generatedFiles:
   - .devcontainer/README.md
@@ -85,6 +87,7 @@ generatedFiles:
   - docs/models/components/getmodeloutputresponse.md
   - docs/models/components/getperformancemetricsresponse.md
   - docs/models/components/getsectorindexhistoricalresponse.md
+  - docs/models/components/getsupplyphenologyresponse.md
   - docs/models/components/getsupplyresponse.md
   - docs/models/components/gettransformedfeatureresponse.md
   - docs/models/components/horizon.md
@@ -98,11 +101,13 @@ generatedFiles:
   - docs/models/components/movingaveragetick.md
   - docs/models/components/performancemetric.md
   - docs/models/components/performancemetricresult.md
+  - docs/models/components/phenologydata.md
   - docs/models/components/pingresponse.md
   - docs/models/components/postassetforecastsrequest.md
   - docs/models/components/postassetforecastsresponse.md
   - docs/models/components/sectorindexhistoricaldata.md
   - docs/models/components/sectorindextick.md
+  - docs/models/components/security.md
   - docs/models/components/supplydata.md
   - docs/models/components/tick.md
   - docs/models/components/validationerror.md
@@ -119,6 +124,7 @@ generatedFiles:
   - docs/models/operations/getlongtermforecastrequest.md
   - docs/models/operations/getmodeloutputrequest.md
   - docs/models/operations/getperformancemetricsrequest.md
+  - docs/models/operations/getsupplyphenologyrequest.md
   - docs/models/operations/getsupplyrequest.md
   - docs/models/operations/gettransformedfeaturevaluesrequest.md
   - docs/models/operations/getweightedindexrequest.md
@@ -156,6 +162,7 @@ generatedFiles:
   - src/funcs/futuresList.ts
   - src/funcs/getFuturesForecastsModels.ts
   - src/funcs/getModelOutput.ts
+  - src/funcs/getSupplyPhenology.ts
   - src/funcs/indicatorsList.ts
   - src/funcs/performanceMetricsGet.ts
   - src/funcs/performanceMetricsList.ts
@@ -214,6 +221,7 @@ generatedFiles:
   - src/mcp-server/tools/futuresList.ts
   - src/mcp-server/tools/getFuturesForecastsModels.ts
   - src/mcp-server/tools/getModelOutput.ts
+  - src/mcp-server/tools/getSupplyPhenology.ts
   - src/mcp-server/tools/indicatorsList.ts
   - src/mcp-server/tools/performanceMetricsGet.ts
   - src/mcp-server/tools/performanceMetricsList.ts
@@ -269,6 +277,7 @@ generatedFiles:
   - src/models/components/getmodeloutputresponse.ts
   - src/models/components/getperformancemetricsresponse.ts
   - src/models/components/getsectorindexhistoricalresponse.ts
+  - src/models/components/getsupplyphenologyresponse.ts
   - src/models/components/getsupplyresponse.ts
   - src/models/components/gettransformedfeatureresponse.ts
   - src/models/components/index.ts
@@ -281,11 +290,13 @@ generatedFiles:
   - src/models/components/movingaveragetick.ts
   - src/models/components/performancemetric.ts
   - src/models/components/performancemetricresult.ts
+  - src/models/components/phenologydata.ts
   - src/models/components/pingresponse.ts
   - src/models/components/postassetforecastsrequest.ts
   - src/models/components/postassetforecastsresponse.ts
   - src/models/components/sectorindexhistoricaldata.ts
   - src/models/components/sectorindextick.ts
+  - src/models/components/security.ts
   - src/models/components/supplydata.ts
   - src/models/components/tick.ts
   - src/models/components/validationerror.ts
@@ -307,6 +318,7 @@ generatedFiles:
   - src/models/operations/getmodeloutput.ts
   - src/models/operations/getperformancemetrics.ts
   - src/models/operations/getsupply.ts
+  - src/models/operations/getsupplyphenology.ts
   - src/models/operations/gettransformedfeaturevalues.ts
   - src/models/operations/getweightedindex.ts
   - src/models/operations/index.ts
@@ -340,11 +352,12 @@ examples:
         path:
           symbol: "ZC"
       requestBody:
-        application/json: {"strategy": []}
+        application/json: {"strategy": [{"start_date": "2025-04-24", "end_date": "2025-04-24", "trajectory": [], "price_collar_sigma": 0, "estimate_uncertainty": false, "interpolate": false, "get_market_drivers": false, "get_moving_averages": false}]}
       responses:
         "200":
-          application/json: {"data": [{"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "F-150", "forecast_date": "2023-07-23T05:49:53.737Z", "close_price_trajectory": [{"date": "2024-01-30T03:24:37.179Z", "close_price": 7313.04}]}, {"model": "911", "forecast_date": "2025-08-01T13:40:41.284Z", "close_price_trajectory": [{"date": "2024-12-03T08:58:09.351Z", "close_price": 4313.47}, {"date": "2023-06-27T10:03:59.710Z", "close_price": 3381.07}, {"date": "2025-12-26T15:28:28.686Z", "close_price": 9045.49}]}, {"model": "ATS", "forecast_date": "2024-05-06T06:52:17.436Z", "close_price_trajectory": [{"date": "2023-08-07T03:44:05.563Z", "close_price": 8416.21}]}], "market_drivers": [], "moving_averages": [{"horizon": 131801, "moving_average": [{"date": "2023-04-25T08:54:47.114Z", "value": 6581.39}, {"date": "2025-01-20T16:51:17.635Z", "value": 1575.03}]}, {"horizon": 725701, "moving_average": [{"date": "2024-04-29T23:29:06.759Z", "value": 5613.99}, {"date": "2024-07-18T17:32:22.578Z", "value": 2391.99}, {"date": "2025-06-06T10:11:11.635Z", "value": 2770.13}]}]}]}, {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "El Camino", "forecast_date": "2025-09-23T18:08:30.381Z", "close_price_trajectory": [{"date": "2025-03-29T06:15:56.587Z", "close_price": 6956.02}]}, {"model": "Grand Caravan", "forecast_date": "2025-10-15T14:47:33.139Z", "close_price_trajectory": [{"date": "2025-03-25T15:47:22.837Z", "close_price": 9965.02}, {"date": "2024-06-05T00:23:42.346Z", "close_price": 3224.92}, {"date": "2025-01-12T19:18:55.618Z", "close_price": 8863.75}]}], "market_drivers": [{"model": "2", "forecast_date": "2023-04-21T11:09:08.850Z", "horizon": 848328, "categories": []}, {"model": "Mustang", "forecast_date": "2025-11-11T21:28:26.569Z", "horizon": 694200, "categories": [{"category": "<value>", "contribution": 4557.9, "drilldown": [{"feature_code": "<value>", "contribution": 7251.82, "description": "quickly investigate tightly"}, {"feature_code": "<value>", "contribution": 5172.27, "description": "intently chilly optimal rigidly heavily these candid navigate kit swiftly"}, {"feature_code": "<value>", "contribution": 2545.68, "description": "because solace actually smog"}]}, {"category": "<value>", "contribution": 6709.16, "drilldown": [{"feature_code": "<value>", "contribution": 3670.96, "description": "oof before clonk serve what always inquisitively train"}, {"feature_code": "<value>", "contribution": 115.14, "description": "likewise orderly rosy breakable supposing moral forearm why lifestyle"}]}]}], "moving_averages": [{"horizon": 701981, "moving_average": [{"date": "2023-02-06T20:21:08.762Z", "value": 5541.43}]}]}]}, {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "Roadster", "forecast_date": "2024-02-22T13:16:52.640Z", "close_price_trajectory": []}, {"model": "911", "forecast_date": "2023-01-03T05:55:39.810Z", "close_price_trajectory": [{"date": "2023-03-16T21:22:51.923Z", "close_price": 9681.91}, {"date": "2024-09-23T17:08:07.811Z", "close_price": 7570.94}]}], "market_drivers": [], "moving_averages": [{"horizon": 50135, "moving_average": [{"date": "2025-12-22T15:18:34.722Z", "value": 5472.14}, {"date": "2025-06-13T23:26:09.383Z", "value": 1492.42}, {"date": "2025-10-09T00:15:39.867Z", "value": 4884.05}]}, {"horizon": 815812, "moving_average": [{"date": "2025-03-31T02:51:43.222Z", "value": 9077.89}, {"date": "2023-05-07T08:41:56.522Z", "value": 1541.45}, {"date": "2024-09-30T10:01:36.148Z", "value": 9594.39}]}]}]}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": []}]}
+        "422":
+          application/json: {}
   get_futures_forecasts_models:
     "":
       parameters:
@@ -354,41 +367,54 @@ examples:
           details: false
       responses:
         "200":
-          application/json: {"data": [{"model_name": "<value>", "start_date": "2024-08-01", "end_date": "2023-11-04", "horizons": []}, {"model_name": "<value>", "start_date": "2024-11-07", "end_date": "2024-10-19", "horizons": []}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"model_name": "<value>", "start_date": "2023-05-22", "end_date": "2024-02-06", "horizons": [450803]}]}
+        "422":
+          application/json: {}
   get_model_output:
     "":
       parameters:
         path:
-          symbol: "ZC"
+          symbol: "KC"
         query:
-          model: "v1"
+          model: "coffee_arabica_v1_3"
           start_date: "2025-04-24"
           end_date: "2025-04-24"
       responses:
         "200":
-          application/json: {"data": [{"commodity": "<value>", "date": "2023-04-18T21:07:55.141Z", "run_date": "2023-05-24T22:02:28.926Z", "horizon": 236442, "contract": "<value>", "run_date_price": 5753.33, "realized_price": 2521.18, "forecast": 8996.39, "forecast_error": 4004.41, "forecast_error_percent": 7928.16}, {"commodity": "<value>", "date": "2024-01-31T02:34:52.875Z", "run_date": "2025-12-05T02:16:55.348Z", "horizon": 567378, "contract": "<value>", "run_date_price": 5107.28, "realized_price": 11.18, "forecast": 7429.48, "forecast_error": 7187.33, "forecast_error_percent": 2747.17}, {"commodity": "<value>", "date": "2023-09-04T04:37:31.729Z", "run_date": "2024-03-04T07:13:23.915Z", "horizon": 312189, "contract": "<value>", "run_date_price": 5065.07, "realized_price": 6250.18, "forecast": 1380.54, "forecast_error": 4886.29, "forecast_error_percent": 1826.87}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"commodity": "<value>", "date": "2025-04-17T17:48:01.443Z", "run_date": "2024-06-09T00:02:53.378Z", "horizon": 570538, "contract": "<value>", "run_date_price": 1189.63, "realized_price": 7846.55, "forecast": 9984.71, "forecast_error": 910, "forecast_error_percent": 8459.98}]}
+        "422":
+          application/json: {}
+  get_supply_phenology:
+    "":
+      parameters:
+        query:
+          symbol: "KC"
+          country_region: "brazil"
+      responses:
+        "200":
+          application/json: {"success": true, "data": [{"location": "<value>", "crop": "<value>", "phenology_phase": "<value>", "start": "2024-04-16", "end": "2024-07-27"}]}
+        "422":
+          application/json: {}
   ping:
     speakeasy-default-ping:
       responses:
         "200":
-          application/json: {}
+          application/json: {"status": "available"}
   get_data:
     speakeasy-default-get-data:
       responses:
         "200":
-          application/json: {"data": {"asset_classes": [{"symbol": "<value>", "name": "<value>"}, {"symbol": "<value>", "name": "<value>"}, {"symbol": "<value>", "name": "<value>"}], "assets": [], "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>"}]}}
+          application/json: {"success": true, "data": {"asset_classes": [], "assets": [], "contracts": []}}
   get_available_asset_categories:
     speakeasy-default-get-available-asset-categories:
       responses:
         "200":
-          application/json: {"data": ["<value>", "<value>", "<value>"]}
+          application/json: {"success": true, "data": ["<value 1>", "<value 2>", "<value 3>"]}
   get_available_futures:
     speakeasy-default-get-available-futures:
       responses:
         "200":
-          application/json: {"data": [{"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>", "has_forecast": false}, {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>", "has_forecast": false}, {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>", "has_forecast": true}]}
+          application/json: {"success": true, "data": []}
   get_asset_calendar:
     "":
       parameters:
@@ -399,8 +425,9 @@ examples:
           end_date: "2025-04-25"
       responses:
         "200":
-          application/json: {"data": []}
-        "422": {}
+          application/json: {"success": true, "data": ["<value 1>", "<value 2>", "<value 3>"]}
+        "422":
+          application/json: {}
   get_futures_forecasts:
     "":
       parameters:
@@ -416,8 +443,9 @@ examples:
           price_collar_sigma: 0
       responses:
         "200":
-          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "Prius", "forecast_date": "2024-01-23T11:27:08.174Z", "close_price_trajectory": []}, {"model": "Fortwo", "forecast_date": "2024-03-13T20:57:19.234Z", "close_price_trajectory": [{"date": "2024-07-19T23:09:23.128Z", "close_price": 5626.81}]}, {"model": "Escalade", "forecast_date": "2023-07-26T23:54:38.371Z", "close_price_trajectory": [{"date": "2025-07-05T02:12:58.751Z", "close_price": 7445.74}]}], "market_drivers": [{"model": "CTS", "forecast_date": "2024-02-07T00:01:45.783Z", "horizon": 546002, "categories": [{"category": "<value>", "contribution": 9739.99, "drilldown": []}, {"category": "<value>", "contribution": 8039.12, "drilldown": []}]}, {"model": "Camry", "forecast_date": "2024-03-04T22:05:57.358Z", "horizon": 931356, "categories": [{"category": "<value>", "contribution": 201.57, "drilldown": [{"feature_code": "<value>", "contribution": 7365.01, "description": "antique worthwhile if efface dapper"}, {"feature_code": "<value>", "contribution": 3589.64, "description": "when majestically gloss phrase seagull phooey"}]}, {"category": "<value>", "contribution": 1663.41, "drilldown": []}, {"category": "<value>", "contribution": 2430.89, "drilldown": []}]}], "moving_averages": [{"horizon": 331134, "moving_average": [{"date": "2023-07-15T03:45:46.995Z", "value": 5716.71}, {"date": "2025-02-26T10:49:30.516Z", "value": 7799.9}, {"date": "2023-11-26T22:33:21.051Z", "value": 9952.57}]}, {"horizon": 640316, "moving_average": [{"date": "2024-06-21T12:07:46.690Z", "value": 5753.1}]}, {"horizon": 219824, "moving_average": [{"date": "2024-12-13T12:23:23.484Z", "value": 4172.13}, {"date": "2025-07-16T21:47:23.657Z", "value": 1872.04}, {"date": "2023-03-15T04:29:14.929Z", "value": 2909.17}]}]}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [], "market_drivers": [], "moving_averages": [{"horizon": 119100, "moving_average": [{"date": "2024-01-01T23:45:31.706Z", "value": 3672.24}, {"date": "2025-02-15T11:41:16.749Z", "value": 584.32}, {"date": "2024-06-06T20:17:47.532Z", "value": 5268.47}]}]}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "Expedition", "forecast_date": "2023-06-26T06:24:31.158Z", "close_price_trajectory": [{"date": "2023-08-08T19:05:05.594Z", "close_price": 4194.89}, {"date": "2023-03-16T01:43:53.318Z", "close_price": 9066.44}]}], "market_drivers": [{"model": "Fortwo", "forecast_date": "2024-01-14T05:41:03.777Z", "horizon": 400376, "categories": [{"category": "<value>", "contribution": 8911.25, "drilldown": [{"feature_code": "<value>", "contribution": 8825.67, "description": "against key amongst agile oh indeed sans beneath"}, {"feature_code": "<value>", "contribution": 6639.21, "description": "antique meh which catalog hoarse"}]}, {"category": "<value>", "contribution": 3075.09, "drilldown": [{"feature_code": "<value>", "contribution": 2102.25, "description": "though apud brr grizzled"}]}]}, {"model": "Explorer", "forecast_date": "2024-07-26T15:10:34.858Z", "horizon": 155098, "categories": [{"category": "<value>", "contribution": 3190.94, "drilldown": [{"feature_code": "<value>", "contribution": 1783.66, "description": "neighboring instead over yet paltry rudely madly regulate"}]}, {"category": "<value>", "contribution": 7148.57, "drilldown": []}]}], "moving_averages": [{"horizon": 449311, "moving_average": [{"date": "2025-03-06T22:02:51.168Z", "value": 581.28}, {"date": "2024-06-30T21:37:13.735Z", "value": 1021.06}, {"date": "2024-05-06T21:34:26.237Z", "value": 5660.41}]}, {"horizon": 861347, "moving_average": []}, {"horizon": 337611, "moving_average": [{"date": "2025-07-05T19:19:50.300Z", "value": 6394.18}]}]}]}}
-        "422": {}
+          application/json: {"success": true, "data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [], "market_drivers": [], "moving_averages": [{"horizon": 689884, "moving_average": []}]}]}}
+        "422":
+          application/json: {}
   get_long_term_forecast:
     "":
       parameters:
@@ -430,8 +458,9 @@ examples:
           rollover_type: "hist_vol"
       responses:
         "200":
-          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "long_term_forecast": [], "market_drivers": []}}
-        "422": {}
+          application/json: {"success": true, "data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "long_term_forecast": [{"date": "2023-04-10", "contract": "<value>", "price_increase": false}], "market_drivers": [{"model": "XC90", "forecast_date": "2023-05-02T06:39:02.688Z", "target_date_contract": "<value>", "horizon": 522499, "categories": [{"category": "<value>", "contribution": 5098.01, "drilldown": [{"feature_code": "<value>", "contribution": 2310.95, "description": "adrenalin despite flawed"}]}]}]}}
+        "422":
+          application/json: {}
   get_hedge_indicator:
     "":
       parameters:
@@ -445,8 +474,9 @@ examples:
           end_date: "2025-04-24"
       responses:
         "200":
-          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}, {"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}]}}
-        "422": {}
+          application/json: {"success": true, "data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": null, "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}]}}
+        "422":
+          application/json: {}
   get_futures_prices:
     "":
       parameters:
@@ -461,18 +491,19 @@ examples:
           back_adjust: false
       responses:
         "200":
-          application/json: {"data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "front_month": "<value>", "contracts": []}}
-        "422": {}
+          application/json: {"success": true, "data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, "front_month": "<value>", "contracts": []}}
+        "422":
+          application/json: {}
   get_available_indicators:
     speakeasy-default-get-available-indicators:
       responses:
         "200":
-          application/json: {"data": [{"name": "<value>", "assets": [{"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}]}, {"name": "<value>", "assets": [{"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}, {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": "<value>", "code": "<value>", "price_file": "<value>"}]}, {"name": "<value>", "assets": []}]}
+          application/json: {"success": true, "data": []}
   get_all_forex_prices:
     speakeasy-default-get-all-forex-prices:
       responses:
         "200":
-          application/json: {"data": [{"code": "<value>", "name": "<value>", "market_date": "2025-06-13T12:04:00.219Z", "prices": [{"date": "2024-01-07T11:47:30.728Z", "price": 4722.94}, {"date": "2023-06-07T00:51:14.728Z", "price": 5487.87}]}, {"code": "<value>", "name": "<value>", "market_date": "2025-12-19T00:23:53.477Z", "prices": [{"date": "2023-01-11T23:04:34.318Z", "price": 3553.43}]}]}
+          application/json: {"success": true, "data": [{"code": "<value>", "name": "<value>", "market_date": "2024-04-07T10:23:47.826Z", "prices": []}]}
   get_forex_prices:
     "":
       parameters:
@@ -484,13 +515,14 @@ examples:
           foreign_per_usd: true
       responses:
         "200":
-          application/json: {"data": {"code": "<value>", "name": "<value>", "market_date": "2023-05-01T21:53:35.082Z", "prices": [{"date": "2025-06-07T01:55:08.189Z", "price": 4748.78}]}}
-        "422": {}
+          application/json: {"success": true, "data": {"code": "<value>", "name": "<value>", "market_date": "2025-01-15T15:33:55.746Z", "prices": []}}
+        "422":
+          application/json: {}
   get_features_tree:
     speakeasy-default-get-features-tree:
       responses:
         "200":
-          application/json: {"type": {"key": []}, "category": {"key": [{"label": "<value>"}], "key1": []}, "region": {}, "data_frequency": {}, "phenology_stage": {"key": []}}
+          application/json: {"type": {"key": [], "key1": [{"label": "<value>"}]}, "category": {"key": [{"label": "<value>"}], "key1": [], "key2": []}, "region": {"key": [{"label": "<value>"}], "key1": [], "key2": []}, "data_frequency": {"key": [], "key1": []}, "phenology_stage": {}}
   get_available_features:
     "":
       parameters:
@@ -498,8 +530,9 @@ examples:
           symbol: "ZC"
       responses:
         "200":
-          application/json: {"data": [{"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}, {"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}, {"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}]}
+        "422":
+          application/json: {}
   get_features_historical_values:
     "":
       parameters:
@@ -513,8 +546,9 @@ examples:
           agg: "mean"
       responses:
         "200":
-          application/json: {"data": [{"feature_code": "<value>", "date": "2024-09-03", "value": 604.29}, {"feature_code": "<value>", "date": "2023-02-12", "value": 8862.39}, {"feature_code": "<value>", "date": "2025-03-11", "value": 1020.59}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"feature_code": "<value>", "date": "2023-08-15", "value": 5448.92}]}
+        "422":
+          application/json: {}
   get_transformed_feature_values:
     "":
       parameters:
@@ -523,15 +557,16 @@ examples:
         query:
           transform: "xyavg"
           number_of_years: 5
-          window: 3
+          window: 20
           start_date: "2025-03-24"
           end_date: "2025-04-25"
           freq: "weekly"
           agg: "mean"
       responses:
         "200":
-          application/json: {"data": [{"xform_feature_code": "<value>", "date": "2024-01-11", "value": 4188.53}]}
-        "422": {}
+          application/json: {"success": true, "data": []}
+        "422":
+          application/json: {}
   get_weighted_index:
     "":
       parameters:
@@ -543,8 +578,9 @@ examples:
           end_date: "2025-04-25"
       responses:
         "200":
-          application/json: {"data": [{"xform_feature_code": "<value>", "date": "2023-02-11", "value": 1838.18}, {"xform_feature_code": "<value>", "date": "2023-01-03", "value": 8208.7}]}
-        "422": {}
+          application/json: {"success": true, "data": []}
+        "422":
+          application/json: {}
   get_asset_class_index:
     "":
       parameters:
@@ -557,13 +593,14 @@ examples:
           freq: "weekly"
       responses:
         "200":
-          application/json: {"data": [{"asset_class": "<value>", "data": [{"date": "2024-08-19", "value": 5212.35}, {"date": "2025-11-29", "value": 4580.49}]}, {"asset_class": "<value>", "data": [{"date": "2023-10-16", "value": 2134.57}]}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"asset_class": "<value>", "data": []}]}
+        "422":
+          application/json: {}
   get_available_performance_metrics:
     speakeasy-default-get-available-performance-metrics:
       responses:
         "200":
-          application/json: {"data": [{"metric": "<value>", "description": "yuck accountability pish likewise excepting unimpressively quickly"}, {"metric": "<value>", "description": "worth reluctantly wound accompanist ajar though kindheartedly nor fooey a"}, {"metric": "<value>", "description": "yippee stigmatize minor oh what steeple"}]}
+          application/json: {"success": true, "data": []}
   get_performance_metrics:
     "":
       parameters:
@@ -574,19 +611,20 @@ examples:
           horizon: 10
           start_date: "2025-01-02"
           end_date: "2025-04-25"
-          threshold_on_forecast: 0.04
-          threshold_on_actual: 0.02
+          threshold_on_forecast: 0
+          threshold_on_actual: 0
           use_run_date: false
           sigma: 2
       responses:
         "200":
-          application/json: {"data": [{"metric": "<value>", "horizon": 521235, "value": 9699.61}, {"metric": "<value>", "horizon": 458049, "value": 4508.24}]}
-        "422": {}
+          application/json: {"success": true, "data": [{"metric": "<value>", "horizon": 12011, "value": 1242.77}]}
+        "422":
+          application/json: {}
   get_available_supply_commodities:
     speakeasy-default-get-available-supply-commodities:
       responses:
         "200":
-          application/json: {"data": [{"model": "Countach", "symbol": "<value>", "commodity": "<value>", "countries": []}]}
+          application/json: {"success": true, "data": [{"model": "Prius", "symbol": "<value>", "commodity": "<value>", "countries": []}]}
   get_supply:
     "":
       parameters:
@@ -600,7 +638,8 @@ examples:
           model: "v2_wholecountry_92to23_interval10_yesyoy_xgb"
       responses:
         "200":
-          application/json: {"data": [{"symbol": "<value>", "commodity": "<value>", "country_code": "ME", "country": "Maldives", "date": "2024-07-25T06:33:15.810Z", "model": "XC90", "forecasted_supply": 4580.49, "reported_supply": 4508.24, "reporting_agency": "<value>", "unit": "radian", "feature_contributions": []}, {"symbol": "<value>", "commodity": "<value>", "country_code": "UY", "country": "Israel", "date": "2025-05-28T07:17:57.134Z", "model": "A8", "forecasted_supply": 2199.56, "reported_supply": 3134.64, "reporting_agency": "<value>", "unit": "mole", "feature_contributions": [{"category": "<value>", "contribution": 8058.76, "drilldown": [{"feature_code": "<value>", "contribution": 7465.85, "description": "however willfully toward guilt shinny vaguely ick"}]}, {"category": "<value>", "contribution": 4866.69, "drilldown": []}]}]}
-        "422": {}
-examplesVersion: 1.0.1
+          application/json: {"success": true, "data": [{"symbol": "<value>", "commodity": "<value>", "country_code": "AI", "country": "Kazakhstan", "date": "2023-02-26T07:00:51.532Z", "model": "Mercielago", "forecasted_supply": 8305.46, "reported_supply": 7225.01, "reporting_agency": "<value>", "unit": "candela", "feature_contributions": []}]}
+        "422":
+          application/json: {}
+examplesVersion: 1.0.2
 generatedTests: {}

@@ -11,9 +11,9 @@ let value: ContractWithPriceTicks = {
   name: "<value>",
   ticks: [
     {
-      datetime: new Date("2025-04-26T09:47:46.796Z"),
-      volume: 133847,
-      openInterest: 535515,
+      datetime: new Date("2023-05-27T16:43:28.807Z"),
+      volume: 535515,
+      openInterest: 780588,
     },
   ],
 };
