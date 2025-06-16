@@ -261,6 +261,10 @@ run();
 
 * [getMetadata](docs/sdks/data/README.md#getmetadata) - Get metadata and most recent prices
 
+### [datasets](docs/sdks/datasets/README.md)
+
+* [getDatasets](docs/sdks/datasets/README.md#getdatasets) - Get a list of all premium and standard datasets
+
 ### [features](docs/sdks/features/README.md)
 
 * [getTree](docs/sdks/features/README.md#gettree) - Provide the tree structure of the features faceting panel
@@ -289,6 +293,7 @@ run();
 * [getFuturesForecastsModels](docs/sdks/hedgewise/README.md#getfuturesforecastsmodels) - Get Forecast Models for a future
 * [getModelOutput](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
 * [getSupplyPhenology](docs/sdks/hedgewise/README.md#getsupplyphenology) - Get phenology stages information for a crop and country and or region
+* [userRegistration](docs/sdks/hedgewise/README.md#userregistration) - Register a user and generate an API Key
 
 ### [indicators](docs/sdks/indicators/README.md)
 
@@ -332,6 +337,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 - [`assetsGetCategories`](docs/sdks/assets/README.md#getcategories) - List available asset categories (e.g. Futures)
 - [`dataGetMetadata`](docs/sdks/data/README.md#getmetadata) - Get metadata and most recent prices
+- [`datasetsGetDatasets`](docs/sdks/datasets/README.md#getdatasets) - Get a list of all premium and standard datasets
 - [`featuresGetHistoricalValues`](docs/sdks/features/README.md#gethistoricalvalues) - Get historical values for a feature
 - [`featuresGetTransformedValues`](docs/sdks/features/README.md#gettransformedvalues) - Get the historical values for a feature transformed via the specified transformation
 - [`featuresGetTree`](docs/sdks/features/README.md#gettree) - Provide the tree structure of the features faceting panel
@@ -356,6 +362,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`supplyGet`](docs/sdks/supply/README.md#get) - Get supply data for a commodity and country
 - [`supplyListCommodities`](docs/sdks/supply/README.md#listcommodities) - List commodities with supply models
 - [`systemPing`](docs/sdks/system/README.md#ping) - Ping
+- [`userRegistration`](docs/sdks/hedgewise/README.md#userregistration) - Register a user and generate an API Key
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -450,16 +457,15 @@ run();
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-This table shows properties which are common on error classes. For full details see [error classes](#error-classes).
+[`HedgewiseError`](./src/models/errors/hedgewiseerror.ts) is the base class for all HTTP error responses. It has the following properties:
 
 | Property            | Type       | Description                                                                             |
 | ------------------- | ---------- | --------------------------------------------------------------------------------------- |
-| `error.name`        | `string`   | Error class name eg `APIError`                                                          |
 | `error.message`     | `string`   | Error message                                                                           |
-| `error.statusCode`  | `number`   | HTTP status code eg `404`                                                               |
-| `error.contentType` | `string`   | HTTP content type eg `application/json`                                                 |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
 | `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
-| `error.rawResponse` | `Response` | Raw HTTP response. Access to headers and more.                                          |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
 | `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
@@ -489,18 +495,17 @@ async function run() {
 
     console.log(result);
   } catch (error) {
-    // Depending on the method different errors may be thrown
-    if (error instanceof errors.HTTPValidationError) {
-      console.log(error.message);
-      console.log(error.data$.detail); // ValidationError[]
-    }
-
-    // Fallback error class, if no other more specific error class is matched
-    if (error instanceof errors.APIError) {
+    // The base class for HTTP error responses
+    if (error instanceof errors.HedgewiseError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
-      console.log(error.rawResponse.headers);
+      console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.HTTPValidationError) {
+        console.log(error.data$.detail); // ValidationError[]
+      }
     }
   }
 }
@@ -510,17 +515,26 @@ run();
 ```
 
 ### Error Classes
-* `APIError`: The fallback error class, if no other more specific error class is matched.
-* `SDKValidationError`: Type mismatch between the data returned from the server and the structure expected by the SDK. This can also be thrown for invalid method arguments. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
-* Network errors:
-    * `ConnectionError`: HTTP client was unable to make a request to a server.
-    * `RequestTimeoutError`: HTTP request timed out due to an AbortSignal signal.
-    * `RequestAbortedError`: HTTP request was aborted by the client.
-    * `InvalidRequestError`: Any input used to create a request is invalid.
-    * `UnexpectedClientError`: Unrecognised or unexpected error.
-* Less common errors, applicable to a subset of methods:
-    * [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. Applicable to 17 of 26 methods.*
+**Primary error:**
+* [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts): The base class for HTTP error responses.
 
+<details><summary>Less common errors (7)</summary>
+
+<br />
+
+**Network errors:**
+* [`ConnectionError`](./src/models/errors/httpclienterrors.ts): HTTP client was unable to make a request to a server.
+* [`RequestTimeoutError`](./src/models/errors/httpclienterrors.ts): HTTP request timed out due to an AbortSignal signal.
+* [`RequestAbortedError`](./src/models/errors/httpclienterrors.ts): HTTP request was aborted by the client.
+* [`InvalidRequestError`](./src/models/errors/httpclienterrors.ts): Any input used to create a request is invalid.
+* [`UnexpectedClientError`](./src/models/errors/httpclienterrors.ts): Unrecognised or unexpected error.
+
+
+**Inherit from [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts)**:
+* [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. Applicable to 18 of 28 methods.*
+* [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
+
+</details>
 
 \* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->

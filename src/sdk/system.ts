@@ -4,7 +4,6 @@
 
 import { systemPing } from "../funcs/systemPing.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
-import * as components from "../models/components/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class System extends ClientSDK {
@@ -13,7 +12,7 @@ export class System extends ClientSDK {
    */
   async ping(
     options?: RequestOptions,
-  ): Promise<components.PingResponse> {
+  ): Promise<any> {
     return unwrapAsync(systemPing(
       this,
       options,

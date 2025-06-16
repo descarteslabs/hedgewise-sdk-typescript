@@ -15,6 +15,7 @@ import { MCPScope } from "./scopes.js";
 import { createRegisterTool } from "./tools.js";
 import { tool$assetsGetCategories } from "./tools/assetsGetCategories.js";
 import { tool$dataGetMetadata } from "./tools/dataGetMetadata.js";
+import { tool$datasetsGetDatasets } from "./tools/datasetsGetDatasets.js";
 import { tool$featuresGetHistoricalValues } from "./tools/featuresGetHistoricalValues.js";
 import { tool$featuresGetTransformedValues } from "./tools/featuresGetTransformedValues.js";
 import { tool$featuresGetTree } from "./tools/featuresGetTree.js";
@@ -39,6 +40,7 @@ import { tool$sectorIndicesGet } from "./tools/sectorIndicesGet.js";
 import { tool$supplyGet } from "./tools/supplyGet.js";
 import { tool$supplyListCommodities } from "./tools/supplyListCommodities.js";
 import { tool$systemPing } from "./tools/systemPing.js";
+import { tool$userRegistration } from "./tools/userRegistration.js";
 
 export function createMCPServer(deps: {
   logger: ConsoleLogger;
@@ -50,7 +52,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Hedgewise",
-    version: "0.5.0",
+    version: "0.6.0",
   });
 
   const client = new HedgewiseCore({
@@ -84,6 +86,7 @@ export function createMCPServer(deps: {
   tool(tool$getFuturesForecastsModels);
   tool(tool$getModelOutput);
   tool(tool$getSupplyPhenology);
+  tool(tool$userRegistration);
   tool(tool$systemPing);
   tool(tool$dataGetMetadata);
   tool(tool$assetsGetCategories);
@@ -106,6 +109,7 @@ export function createMCPServer(deps: {
   tool(tool$performanceMetricsGet);
   tool(tool$supplyListCommodities);
   tool(tool$supplyGet);
+  tool(tool$datasetsGetDatasets);
 
   return server;
 }

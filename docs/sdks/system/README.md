@@ -68,7 +68,7 @@ run();
 
 ### Response
 
-**Promise\<[components.PingResponse](../../models/components/pingresponse.md)\>**
+**Promise\<[any](../../models/.md)\>**
 
 ### Errors
 

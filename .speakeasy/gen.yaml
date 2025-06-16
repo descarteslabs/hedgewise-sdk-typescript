@@ -20,13 +20,14 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 typescript:
-  version: 0.5.0
+  version: 0.6.0
   additionalDependencies:
     dependencies: {}
     devDependencies: {}
     peerDependencies: {}
   additionalPackageJSON: {}
   author: Speakeasy
+  baseErrorName: HedgewiseError
   clientServerStatusCodesAsErrors: true
   defaultErrorName: APIError
   enableCustomCodeRegions: false

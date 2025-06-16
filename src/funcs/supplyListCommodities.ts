@@ -9,7 +9,7 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
-import { APIError } from "../models/errors/apierror.js";
+import { HedgewiseError } from "../models/errors/hedgewiseerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -17,6 +17,7 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
@@ -35,13 +36,14 @@ export function supplyListCommodities(
 ): APIPromise<
   Result<
     components.GetAvailableSupplyCommoditiesResponse,
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | HedgewiseError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -57,13 +59,14 @@ async function $do(
   [
     Result<
       components.GetAvailableSupplyCommoditiesResponse,
-      | APIError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | HedgewiseError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -120,18 +123,19 @@ async function $do(
 
   const [result] = await M.match<
     components.GetAvailableSupplyCommoditiesResponse,
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | HedgewiseError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(200, components.GetAvailableSupplyCommoditiesResponse$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response);
+  )(response, req);
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

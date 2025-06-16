@@ -34,7 +34,7 @@ export class Features extends ClientSDK {
    * @remarks
    * Returns the list of all available features that Hedgewise
    *         tracks or produces. Some of these are used to produce our price and
-   *         commodity production forecasts.
+   *         commodity production forecasts. The returned features can be filtered by futures contract symbol they can relate or by the dataset they belong to.
    */
   async list(
     request: operations.GetAvailableFeaturesRequest,

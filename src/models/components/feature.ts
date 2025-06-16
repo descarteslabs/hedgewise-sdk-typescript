@@ -24,6 +24,7 @@ export type Feature = {
   frequency?: string | null | undefined;
   phenologyStage?: Array<string> | null | undefined;
   horizons?: Array<string> | null | undefined;
+  datasets?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -44,6 +45,7 @@ export const Feature$inboundSchema: z.ZodType<Feature, z.ZodTypeDef, unknown> =
     frequency: z.nullable(z.string()).optional(),
     phenology_stage: z.nullable(z.array(z.string())).optional(),
     horizons: z.nullable(z.array(z.string())).optional(),
+    datasets: z.nullable(z.array(z.string())).optional(),
   }).transform((v) => {
     return remap$(v, {
       "feature_code": "featureCode",
@@ -73,6 +75,7 @@ export type Feature$Outbound = {
   frequency?: string | null | undefined;
   phenology_stage?: Array<string> | null | undefined;
   horizons?: Array<string> | null | undefined;
+  datasets?: Array<string> | null | undefined;
 };
 
 /** @internal */
@@ -96,6 +99,7 @@ export const Feature$outboundSchema: z.ZodType<
   frequency: z.nullable(z.string()).optional(),
   phenologyStage: z.nullable(z.array(z.string())).optional(),
   horizons: z.nullable(z.array(z.string())).optional(),
+  datasets: z.nullable(z.array(z.string())).optional(),
 }).transform((v) => {
   return remap$(v, {
     featureCode: "feature_code",

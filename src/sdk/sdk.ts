@@ -6,12 +6,14 @@ import { getFuturesForecastsModels } from "../funcs/getFuturesForecastsModels.js
 import { getModelOutput } from "../funcs/getModelOutput.js";
 import { getSupplyPhenology } from "../funcs/getSupplyPhenology.js";
 import { postFuturesForecasts } from "../funcs/postFuturesForecasts.js";
+import { userRegistration } from "../funcs/userRegistration.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 import { Assets } from "./assets.js";
 import { Data } from "./data.js";
+import { Datasets } from "./datasets.js";
 import { Features } from "./features.js";
 import { Forex } from "./forex.js";
 import { Futures } from "./futures.js";
@@ -70,6 +72,11 @@ export class Hedgewise extends ClientSDK {
   private _supply?: Supply;
   get supply(): Supply {
     return (this._supply ??= new Supply(this._options));
+  }
+
+  private _datasets?: Datasets;
+  get datasets(): Datasets {
+    return (this._datasets ??= new Datasets(this._options));
   }
 
   /**
@@ -137,6 +144,23 @@ export class Hedgewise extends ClientSDK {
     options?: RequestOptions,
   ): Promise<components.GetSupplyPhenologyResponse> {
     return unwrapAsync(getSupplyPhenology(
+      this,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Register a user and generate an API Key
+   *
+   * @remarks
+   * Registers a user in Hedgewise and provides an API key
+   */
+  async userRegistration(
+    request: components.UserRegistration,
+    options?: RequestOptions,
+  ): Promise<components.GetUserRegistrationReponse> {
+    return unwrapAsync(userRegistration(
       this,
       request,
       options,

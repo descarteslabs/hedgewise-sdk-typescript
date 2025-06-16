@@ -236,7 +236,7 @@ run();
 
 ### Response
 
-**Promise\<[components.GetAssetForecastsResponse](../../models/components/getassetforecastsresponse.md)\>**
+**Promise\<[operations.ResponseGetFuturesForecasts](../../models/operations/responsegetfuturesforecasts.md)\>**
 
 ### Errors
 
