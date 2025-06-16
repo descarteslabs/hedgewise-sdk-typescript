@@ -6,6 +6,7 @@ import * as z from "zod";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import * as components from "../components/index.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetFuturesForecastsRequest = {
@@ -60,6 +61,13 @@ export type GetFuturesForecastsRequest = {
    */
   modelName?: string | null | undefined;
 };
+
+/**
+ * Successful Response
+ */
+export type ResponseGetFuturesForecasts =
+  | components.GetAssetForecastsResponse
+  | components.GetAssetForecastsSmallResponse;
 
 /** @internal */
 export const GetFuturesForecastsRequest$inboundSchema: z.ZodType<
@@ -156,5 +164,63 @@ export function getFuturesForecastsRequestFromJSON(
     jsonString,
     (x) => GetFuturesForecastsRequest$inboundSchema.parse(JSON.parse(x)),
     `Failed to parse 'GetFuturesForecastsRequest' from JSON`,
+  );
+}
+
+/** @internal */
+export const ResponseGetFuturesForecasts$inboundSchema: z.ZodType<
+  ResponseGetFuturesForecasts,
+  z.ZodTypeDef,
+  unknown
+> = z.union([
+  components.GetAssetForecastsResponse$inboundSchema,
+  components.GetAssetForecastsSmallResponse$inboundSchema,
+]);
+
+/** @internal */
+export type ResponseGetFuturesForecasts$Outbound =
+  | components.GetAssetForecastsResponse$Outbound
+  | components.GetAssetForecastsSmallResponse$Outbound;
+
+/** @internal */
+export const ResponseGetFuturesForecasts$outboundSchema: z.ZodType<
+  ResponseGetFuturesForecasts$Outbound,
+  z.ZodTypeDef,
+  ResponseGetFuturesForecasts
+> = z.union([
+  components.GetAssetForecastsResponse$outboundSchema,
+  components.GetAssetForecastsSmallResponse$outboundSchema,
+]);
+
+/**
+ * @internal
+ * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
+ */
+export namespace ResponseGetFuturesForecasts$ {
+  /** @deprecated use `ResponseGetFuturesForecasts$inboundSchema` instead. */
+  export const inboundSchema = ResponseGetFuturesForecasts$inboundSchema;
+  /** @deprecated use `ResponseGetFuturesForecasts$outboundSchema` instead. */
+  export const outboundSchema = ResponseGetFuturesForecasts$outboundSchema;
+  /** @deprecated use `ResponseGetFuturesForecasts$Outbound` instead. */
+  export type Outbound = ResponseGetFuturesForecasts$Outbound;
+}
+
+export function responseGetFuturesForecastsToJSON(
+  responseGetFuturesForecasts: ResponseGetFuturesForecasts,
+): string {
+  return JSON.stringify(
+    ResponseGetFuturesForecasts$outboundSchema.parse(
+      responseGetFuturesForecasts,
+    ),
+  );
+}
+
+export function responseGetFuturesForecastsFromJSON(
+  jsonString: string,
+): SafeParseResult<ResponseGetFuturesForecasts, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ResponseGetFuturesForecasts$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ResponseGetFuturesForecasts' from JSON`,
   );
 }

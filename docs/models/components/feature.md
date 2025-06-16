@@ -32,3 +32,4 @@ let value: Feature = {
 | `frequency`        | *string*           | :heavy_minus_sign: | N/A                |
 | `phenologyStage`   | *string*[]         | :heavy_minus_sign: | N/A                |
 | `horizons`         | *string*[]         | :heavy_minus_sign: | N/A                |
+| `datasets`         | *string*[]         | :heavy_minus_sign: | N/A                |

@@ -3,15 +3,20 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type GetAvailableFeaturesRequest = {
   /**
-   * Future symbol
+   * Futures contract symbol
    */
   symbol?: string | null | undefined;
+  /**
+   * Dataset key to which the features
+   */
+  datasetKey?: string | null | undefined;
 };
 
 /** @internal */
@@ -21,11 +26,17 @@ export const GetAvailableFeaturesRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   symbol: z.nullable(z.string()).optional(),
+  dataset_key: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "dataset_key": "datasetKey",
+  });
 });
 
 /** @internal */
 export type GetAvailableFeaturesRequest$Outbound = {
   symbol?: string | null | undefined;
+  dataset_key?: string | null | undefined;
 };
 
 /** @internal */
@@ -35,6 +46,11 @@ export const GetAvailableFeaturesRequest$outboundSchema: z.ZodType<
   GetAvailableFeaturesRequest
 > = z.object({
   symbol: z.nullable(z.string()).optional(),
+  datasetKey: z.nullable(z.string()).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    datasetKey: "dataset_key",
+  });
 });
 
 /**

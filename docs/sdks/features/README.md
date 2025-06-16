@@ -84,7 +84,7 @@ run();
 
 Returns the list of all available features that Hedgewise
         tracks or produces. Some of these are used to produce our price and
-        commodity production forecasts.
+        commodity production forecasts. The returned features can be filtered by futures contract symbol they can relate or by the dataset they belong to.
 
 ### Example Usage
 
@@ -99,6 +99,7 @@ const hedgewise = new Hedgewise({
 async function run() {
   const result = await hedgewise.features.list({
     symbol: "ZC",
+    datasetKey: "technical_macro_v1_2025",
   });
 
   console.log(result);
@@ -125,6 +126,7 @@ const hedgewise = new HedgewiseCore({
 async function run() {
   const res = await featuresList(hedgewise, {
     symbol: "ZC",
+    datasetKey: "technical_macro_v1_2025",
   });
   if (res.ok) {
     const { value: result } = res;

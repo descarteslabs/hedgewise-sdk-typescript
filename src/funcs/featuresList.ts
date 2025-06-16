@@ -11,7 +11,7 @@ import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
 import * as components from "../models/components/index.js";
-import { APIError } from "../models/errors/apierror.js";
+import { HedgewiseError } from "../models/errors/hedgewiseerror.js";
 import {
   ConnectionError,
   InvalidRequestError,
@@ -20,6 +20,7 @@ import {
   UnexpectedClientError,
 } from "../models/errors/httpclienterrors.js";
 import * as errors from "../models/errors/index.js";
+import { ResponseValidationError } from "../models/errors/responsevalidationerror.js";
 import { SDKValidationError } from "../models/errors/sdkvalidationerror.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
@@ -31,7 +32,7 @@ import { Result } from "../types/fp.js";
  * @remarks
  * Returns the list of all available features that Hedgewise
  *         tracks or produces. Some of these are used to produce our price and
- *         commodity production forecasts.
+ *         commodity production forecasts. The returned features can be filtered by futures contract symbol they can relate or by the dataset they belong to.
  */
 export function featuresList(
   client: HedgewiseCore,
@@ -41,13 +42,14 @@ export function featuresList(
   Result<
     components.GetAvailableFeaturesResponse,
     | errors.HTTPValidationError
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | HedgewiseError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -66,13 +68,14 @@ async function $do(
     Result<
       components.GetAvailableFeaturesResponse,
       | errors.HTTPValidationError
-      | APIError
-      | SDKValidationError
-      | UnexpectedClientError
-      | InvalidRequestError
+      | HedgewiseError
+      | ResponseValidationError
+      | ConnectionError
       | RequestAbortedError
       | RequestTimeoutError
-      | ConnectionError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -92,6 +95,7 @@ async function $do(
   const path = pathToFunc("/v1/features")();
 
   const query = encodeFormQuery({
+    "dataset_key": payload.dataset_key,
     "symbol": payload.symbol,
   });
 
@@ -152,19 +156,20 @@ async function $do(
   const [result] = await M.match<
     components.GetAvailableFeaturesResponse,
     | errors.HTTPValidationError
-    | APIError
-    | SDKValidationError
-    | UnexpectedClientError
-    | InvalidRequestError
+    | HedgewiseError
+    | ResponseValidationError
+    | ConnectionError
     | RequestAbortedError
     | RequestTimeoutError
-    | ConnectionError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >(
     M.json(200, components.GetAvailableFeaturesResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, { extraFields: responseFields });
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

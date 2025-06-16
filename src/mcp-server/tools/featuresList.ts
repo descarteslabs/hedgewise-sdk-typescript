@@ -16,7 +16,7 @@ export const tool$featuresList: ToolDefinition<typeof args> = {
 
 Returns the list of all available features that Hedgewise
         tracks or produces. Some of these are used to produce our price and
-        commodity production forecasts.`,
+        commodity production forecasts. The returned features can be filtered by futures contract symbol they can relate or by the dataset they belong to.`,
   args,
   tool: async (client, args, ctx) => {
     const [result, apiCall] = await featuresList(
