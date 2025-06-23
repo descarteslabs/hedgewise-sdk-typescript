@@ -518,7 +518,7 @@ run();
 **Primary error:**
 * [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts): The base class for HTTP error responses.
 
-<details><summary>Less common errors (7)</summary>
+<details><summary>Less common errors (8)</summary>
 
 <br />
 
@@ -532,6 +532,7 @@ run();
 
 **Inherit from [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts)**:
 * [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. Applicable to 18 of 28 methods.*
+* [`GetUserRegistrationReponseError`](docs/models/errors/getuserregistrationreponseerror.md): Successful Response. Status code `401`. Applicable to 1 of 28 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

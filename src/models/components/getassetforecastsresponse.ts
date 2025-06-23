@@ -24,7 +24,7 @@ export const GetAssetForecastsResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  success: z.literal(true).optional(),
+  success: z.literal(true).default(true).optional(),
   data: AssetForecastData$inboundSchema,
 });
 

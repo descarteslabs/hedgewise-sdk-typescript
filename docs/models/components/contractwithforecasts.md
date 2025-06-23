@@ -13,11 +13,11 @@ let value: ContractWithForecasts = {
   marketDrivers: null,
   movingAverages: [
     {
-      horizon: 650817,
+      horizon: 800625,
       movingAverage: [
         {
-          date: new Date("2025-05-04T12:02:08.109Z"),
-          value: 322.66,
+          date: new Date("2023-06-05T16:32:52.994Z"),
+          value: 1452.04,
         },
       ],
     },

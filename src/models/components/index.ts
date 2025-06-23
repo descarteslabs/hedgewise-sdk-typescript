@@ -60,7 +60,6 @@ export * from "./getsectorindexhistoricalresponse.js";
 export * from "./getsupplyphenologyresponse.js";
 export * from "./getsupplyresponse.js";
 export * from "./gettransformedfeatureresponse.js";
-export * from "./getuserregistrationreponse.js";
 export * from "./indicator.js";
 export * from "./indicatortick.js";
 export * from "./longtermforecast.js";

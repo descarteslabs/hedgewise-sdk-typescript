@@ -18,7 +18,7 @@ export const GetAvailableAssetCategoriesResponse$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  success: z.literal(true).optional(),
+  success: z.literal(true).default(true).optional(),
   data: z.array(z.string()),
 });
 
