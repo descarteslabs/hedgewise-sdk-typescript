@@ -159,7 +159,7 @@ export class Hedgewise extends ClientSDK {
   async userRegistration(
     request: components.UserRegistration,
     options?: RequestOptions,
-  ): Promise<components.GetUserRegistrationReponse> {
+  ): Promise<void> {
     return unwrapAsync(userRegistration(
       this,
       request,

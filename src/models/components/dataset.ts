@@ -15,6 +15,8 @@ import {
 
 export type Dataset = {
   id?: string | undefined;
+  createdAt?: Date | null | undefined;
+  updatedAt?: Date | null | undefined;
   key: string;
   name?: string | undefined;
   description?: string | undefined;
@@ -22,8 +24,6 @@ export type Dataset = {
    * Enum for dataset types.
    */
   type?: DatasetType | undefined;
-  createdAt?: Date | null | undefined;
-  updatedAt?: Date | null | undefined;
   publisherName?: string | undefined;
   publisherId?: string | null | undefined;
   startDate?: Date | null | undefined;
@@ -35,16 +35,16 @@ export type Dataset = {
 export const Dataset$inboundSchema: z.ZodType<Dataset, z.ZodTypeDef, unknown> =
   z.object({
     id: z.string().optional(),
-    key: z.string(),
-    name: z.string().optional(),
-    description: z.string().optional(),
-    type: DatasetType$inboundSchema.optional(),
     created_at: z.nullable(
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ).optional(),
     updated_at: z.nullable(
       z.string().datetime({ offset: true }).transform(v => new Date(v)),
     ).optional(),
+    key: z.string(),
+    name: z.string().optional(),
+    description: z.string().optional(),
+    type: DatasetType$inboundSchema.optional(),
     publisher_name: z.string().optional(),
     publisher_id: z.nullable(z.string()).optional(),
     start_date: z.nullable(
@@ -68,12 +68,12 @@ export const Dataset$inboundSchema: z.ZodType<Dataset, z.ZodTypeDef, unknown> =
 /** @internal */
 export type Dataset$Outbound = {
   id?: string | undefined;
+  created_at?: string | null | undefined;
+  updated_at?: string | null | undefined;
   key: string;
   name?: string | undefined;
   description?: string | undefined;
   type?: string | undefined;
-  created_at?: string | null | undefined;
-  updated_at?: string | null | undefined;
   publisher_name?: string | undefined;
   publisher_id?: string | null | undefined;
   start_date?: string | null | undefined;
@@ -88,12 +88,12 @@ export const Dataset$outboundSchema: z.ZodType<
   Dataset
 > = z.object({
   id: z.string().optional(),
+  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
+  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   key: z.string(),
   name: z.string().optional(),
   description: z.string().optional(),
   type: DatasetType$outboundSchema.optional(),
-  createdAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
-  updatedAt: z.nullable(z.date().transform(v => v.toISOString())).optional(),
   publisherName: z.string().optional(),
   publisherId: z.nullable(z.string()).optional(),
   startDate: z.nullable(z.date().transform(v => v.toISOString())).optional(),

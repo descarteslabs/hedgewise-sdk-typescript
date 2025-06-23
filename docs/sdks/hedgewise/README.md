@@ -356,11 +356,14 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.userRegistration({
+  await hedgewise.userRegistration({
+    firstName: "Marquise",
+    lastName: "Larkin",
+    companyName: "Hoppe - Leannon",
     emailAddress: "Terrill.Harris@hotmail.com",
   });
 
-  console.log(result);
+
 }
 
 run();
@@ -383,11 +386,14 @@ const hedgewise = new HedgewiseCore({
 
 async function run() {
   const res = await userRegistration(hedgewise, {
+    firstName: "Marquise",
+    lastName: "Larkin",
+    companyName: "Hoppe - Leannon",
     emailAddress: "Terrill.Harris@hotmail.com",
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    
   } else {
     console.log("userRegistration failed:", res.error);
   }
@@ -407,11 +413,12 @@ run();
 
 ### Response
 
-**Promise\<[components.GetUserRegistrationReponse](../../models/components/getuserregistrationreponse.md)\>**
+**Promise\<void\>**
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                             | Status Code                            | Content Type                           |
+| -------------------------------------- | -------------------------------------- | -------------------------------------- |
+| errors.GetUserRegistrationReponseError | 401                                    | application/json                       |
+| errors.HTTPValidationError             | 422                                    | application/json                       |
+| errors.APIError                        | 4XX, 5XX                               | \*/\*                                  |

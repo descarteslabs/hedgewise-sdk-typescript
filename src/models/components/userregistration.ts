@@ -9,6 +9,9 @@ import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 
 export type UserRegistration = {
+  firstName: string;
+  lastName: string;
+  companyName: string;
   emailAddress: string;
 };
 
@@ -18,15 +21,24 @@ export const UserRegistration$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  first_name: z.string(),
+  last_name: z.string(),
+  company_name: z.string(),
   email_address: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    "first_name": "firstName",
+    "last_name": "lastName",
+    "company_name": "companyName",
     "email_address": "emailAddress",
   });
 });
 
 /** @internal */
 export type UserRegistration$Outbound = {
+  first_name: string;
+  last_name: string;
+  company_name: string;
   email_address: string;
 };
 
@@ -36,9 +48,15 @@ export const UserRegistration$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   UserRegistration
 > = z.object({
+  firstName: z.string(),
+  lastName: z.string(),
+  companyName: z.string(),
   emailAddress: z.string(),
 }).transform((v) => {
   return remap$(v, {
+    firstName: "first_name",
+    lastName: "last_name",
+    companyName: "company_name",
     emailAddress: "email_address",
   });
 });

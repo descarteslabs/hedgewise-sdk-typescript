@@ -6,7 +6,10 @@
 import { UserRegistration } from "hedgewise/models/components";
 
 let value: UserRegistration = {
-  emailAddress: "Lorenz19@gmail.com",
+  firstName: "Devin",
+  lastName: "Jerde",
+  companyName: "Rath, Dickinson and Ward",
+  emailAddress: "Luna.Weissnat@gmail.com",
 };
 ```
 
@@ -14,4 +17,7 @@ let value: UserRegistration = {
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
+| `firstName`        | *string*           | :heavy_check_mark: | N/A                |
+| `lastName`         | *string*           | :heavy_check_mark: | N/A                |
+| `companyName`      | *string*           | :heavy_check_mark: | N/A                |
 | `emailAddress`     | *string*           | :heavy_check_mark: | N/A                |

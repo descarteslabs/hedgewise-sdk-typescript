@@ -30,8 +30,6 @@ Registers a user in Hedgewise and provides an API key`,
       };
     }
 
-    const value = result.value;
-
-    return formatResult(value, apiCall);
+    return formatResult(void 0, apiCall);
   },
 };

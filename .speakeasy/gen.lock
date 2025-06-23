@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
 management:
-  docChecksum: 4fe38927e02f36f98e54699c4ea805af
+  docChecksum: b16c323cb4a6d77ae52e4372781f5877
   docVersion: 1.0.0
-  speakeasyVersion: 1.563.1
-  generationVersion: 2.629.1
-  releaseVersion: 0.6.0
-  configChecksum: c93ce2e6474889f57b532557d481ac16
+  speakeasyVersion: 1.568.0
+  generationVersion: 2.632.2
+  releaseVersion: 0.6.1
+  configChecksum: 9ed7a7bdaba68774ac88861bdb121c5a
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
   published: true
 features:
   typescript:
     additionalDependencies: 0.1.0
-    constsAndDefaults: 0.1.11
+    constsAndDefaults: 0.1.12
     core: 3.21.11
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
@@ -30,7 +30,7 @@ features:
     responseFormat: 0.2.3
     retries: 2.83.0
     sdkHooks: 0.3.0
-    unions: 2.85.9
+    unions: 2.85.11
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -61,6 +61,7 @@ generatedFiles:
   - docs/models/components/data.md
   - docs/models/components/dataset.md
   - docs/models/components/datasettype.md
+  - docs/models/components/dataunion.md
   - docs/models/components/feature.md
   - docs/models/components/featurecategory.md
   - docs/models/components/featuredrilldown.md
@@ -99,7 +100,6 @@ generatedFiles:
   - docs/models/components/getsupplyphenologyresponse.md
   - docs/models/components/getsupplyresponse.md
   - docs/models/components/gettransformedfeatureresponse.md
-  - docs/models/components/getuserregistrationreponse.md
   - docs/models/components/horizon.md
   - docs/models/components/indicator.md
   - docs/models/components/indicatortick.md
@@ -121,6 +121,7 @@ generatedFiles:
   - docs/models/components/tick.md
   - docs/models/components/userregistration.md
   - docs/models/components/validationerror.md
+  - docs/models/errors/getuserregistrationreponseerror.md
   - docs/models/errors/httpvalidationerror.md
   - docs/models/operations/getassetcalendarrequest.md
   - docs/models/operations/getassetclassindexrequest.md
@@ -304,7 +305,6 @@ generatedFiles:
   - src/models/components/getsupplyphenologyresponse.ts
   - src/models/components/getsupplyresponse.ts
   - src/models/components/gettransformedfeatureresponse.ts
-  - src/models/components/getuserregistrationreponse.ts
   - src/models/components/index.ts
   - src/models/components/indicator.ts
   - src/models/components/indicatortick.ts
@@ -326,6 +326,7 @@ generatedFiles:
   - src/models/components/userregistration.ts
   - src/models/components/validationerror.ts
   - src/models/errors/apierror.ts
+  - src/models/errors/getuserregistrationreponseerror.ts
   - src/models/errors/hedgewiseerror.ts
   - src/models/errors/httpclienterrors.ts
   - src/models/errors/httpvalidationerror.ts
@@ -906,12 +907,14 @@ examples:
   user_registration:
     speakeasy-default-user-registration:
       requestBody:
-        application/json: {"email_address": "Terrill.Harris@hotmail.com"}
+        application/json: {"first_name": "Marquise", "last_name": "Larkin", "company_name": "Hoppe - Leannon", "email_address": "Terrill.Harris@hotmail.com"}
       responses:
         "200":
           application/json: {"success": true, "data": {"key": "<value>"}}
         "422":
           application/json: {}
+        "401":
+          application/json: {"success": true, "data": "<value>"}
   get_datasets:
     speakeasy-default-get-datasets:
       responses:
