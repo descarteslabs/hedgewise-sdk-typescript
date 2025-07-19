@@ -98,8 +98,33 @@ const hedgewise = new Hedgewise({
 
 async function run() {
   const result = await hedgewise.features.list({
-    symbol: "ZC",
-    datasetKey: "technical_macro_v1_2025",
+    symbols: [
+      "ZC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 761472,
+    offset: 958645,
+    search: "coffee",
   });
 
   console.log(result);
@@ -125,8 +150,33 @@ const hedgewise = new HedgewiseCore({
 
 async function run() {
   const res = await featuresList(hedgewise, {
-    symbol: "ZC",
-    datasetKey: "technical_macro_v1_2025",
+    symbols: [
+      "ZC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 761472,
+    offset: 958645,
+    search: "coffee",
   });
   if (res.ok) {
     const { value: result } = res;

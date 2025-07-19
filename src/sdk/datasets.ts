@@ -5,6 +5,7 @@
 import { datasetsGetDatasets } from "../funcs/datasetsGetDatasets.js";
 import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as components from "../models/components/index.js";
+import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
 
 export class Datasets extends ClientSDK {
@@ -15,10 +16,12 @@ export class Datasets extends ClientSDK {
    * Returns a list of all datasets. Datasets are collections of features grouped by interest, relevance, commodity, and/or asset class.
    */
   async getDatasets(
+    request: operations.GetDatasetsRequest,
     options?: RequestOptions,
   ): Promise<components.GetDatasetsResponse> {
     return unwrapAsync(datasetsGetDatasets(
       this,
+      request,
       options,
     ));
   }

@@ -8,15 +8,23 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ForecastTrajectory,
+  ForecastTrajectory$inboundSchema,
+  ForecastTrajectory$Outbound,
+  ForecastTrajectory$outboundSchema,
+} from "./forecasttrajectory.js";
 
 export type AssetForecastModelData = {
   modelName: string;
   startDate: RFCDate;
   endDate: RFCDate;
   horizons: Array<number>;
+  native: boolean;
   targetType?: string | null | undefined;
   rollingMeanWindows?: Array<number> | null | undefined;
   features?: Array<string> | null | undefined;
+  strategy?: Array<ForecastTrajectory> | null | undefined;
 };
 
 /** @internal */
@@ -29,9 +37,11 @@ export const AssetForecastModelData$inboundSchema: z.ZodType<
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
   horizons: z.array(z.number().int()),
+  native: z.boolean(),
   target_type: z.nullable(z.string()).optional(),
   rolling_mean_windows: z.nullable(z.array(z.number().int())).optional(),
   features: z.nullable(z.array(z.string())).optional(),
+  strategy: z.nullable(z.array(ForecastTrajectory$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     "model_name": "modelName",
@@ -48,9 +58,11 @@ export type AssetForecastModelData$Outbound = {
   start_date: string;
   end_date: string;
   horizons: Array<number>;
+  native: boolean;
   target_type?: string | null | undefined;
   rolling_mean_windows?: Array<number> | null | undefined;
   features?: Array<string> | null | undefined;
+  strategy?: Array<ForecastTrajectory$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -63,9 +75,11 @@ export const AssetForecastModelData$outboundSchema: z.ZodType<
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
   horizons: z.array(z.number().int()),
+  native: z.boolean(),
   targetType: z.nullable(z.string()).optional(),
   rollingMeanWindows: z.nullable(z.array(z.number().int())).optional(),
   features: z.nullable(z.array(z.string())).optional(),
+  strategy: z.nullable(z.array(ForecastTrajectory$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
     modelName: "model_name",

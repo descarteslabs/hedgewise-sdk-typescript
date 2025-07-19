@@ -4,16 +4,18 @@
 
 ```typescript
 import { ForecastTrajectory } from "hedgewise/models/components";
+import { RFCDate } from "hedgewise/types";
 
 let value: ForecastTrajectory = {
-  model: "Civic",
-  horizon: "<value>",
+  trajectory: [],
+  startDate: new RFCDate("2024-08-29"),
 };
 ```
 
 ## Fields
 
-| Field                                      | Type                                       | Required                                   | Description                                |
-| ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ |
-| `model`                                    | *string*                                   | :heavy_check_mark:                         | Specific model to use for forecast window. |
-| `horizon`                                  | *components.Horizon*                       | :heavy_check_mark:                         | Number of days to forecast.                |
+| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `trajectory`                                                                                   | [components.ForecastTrajectoryElement](../../models/components/forecasttrajectoryelement.md)[] | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `startDate`                                                                                    | [RFCDate](../../types/rfcdate.md)                                                              | :heavy_check_mark:                                                                             | N/A                                                                                            |
+| `endDate`                                                                                      | [RFCDate](../../types/rfcdate.md)                                                              | :heavy_minus_sign:                                                                             | N/A                                                                                            |
