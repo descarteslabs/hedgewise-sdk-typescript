@@ -1,4 +1,4 @@
-# DataUnion
+# GetStrategyForecastResponseData
 
 
 ## Supported Types

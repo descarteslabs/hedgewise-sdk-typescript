@@ -14,17 +14,20 @@ let value: AssetForecastModelData = {
     847232,
     433786,
   ],
+  native: false,
 };
 ```
 
 ## Fields
 
-| Field                             | Type                              | Required                          | Description                       |
-| --------------------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
-| `modelName`                       | *string*                          | :heavy_check_mark:                | N/A                               |
-| `startDate`                       | [RFCDate](../../types/rfcdate.md) | :heavy_check_mark:                | N/A                               |
-| `endDate`                         | [RFCDate](../../types/rfcdate.md) | :heavy_check_mark:                | N/A                               |
-| `horizons`                        | *number*[]                        | :heavy_check_mark:                | N/A                               |
-| `targetType`                      | *string*                          | :heavy_minus_sign:                | N/A                               |
-| `rollingMeanWindows`              | *number*[]                        | :heavy_minus_sign:                | N/A                               |
-| `features`                        | *string*[]                        | :heavy_minus_sign:                | N/A                               |
+| Field                                                                            | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `modelName`                                                                      | *string*                                                                         | :heavy_check_mark:                                                               | N/A                                                                              |
+| `startDate`                                                                      | [RFCDate](../../types/rfcdate.md)                                                | :heavy_check_mark:                                                               | N/A                                                                              |
+| `endDate`                                                                        | [RFCDate](../../types/rfcdate.md)                                                | :heavy_check_mark:                                                               | N/A                                                                              |
+| `horizons`                                                                       | *number*[]                                                                       | :heavy_check_mark:                                                               | N/A                                                                              |
+| `native`                                                                         | *boolean*                                                                        | :heavy_check_mark:                                                               | N/A                                                                              |
+| `targetType`                                                                     | *string*                                                                         | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `rollingMeanWindows`                                                             | *number*[]                                                                       | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `features`                                                                       | *string*[]                                                                       | :heavy_minus_sign:                                                               | N/A                                                                              |
+| `strategy`                                                                       | [components.ForecastTrajectory](../../models/components/forecasttrajectory.md)[] | :heavy_minus_sign:                                                               | N/A                                                                              |

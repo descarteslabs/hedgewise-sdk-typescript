@@ -12,11 +12,51 @@ export type GetAvailableFeaturesRequest = {
   /**
    * Futures contract symbol
    */
-  symbol?: string | null | undefined;
+  symbols?: Array<string> | null | undefined;
   /**
    * Dataset key to which the features
    */
-  datasetKey?: string | null | undefined;
+  datasetKeys?: Array<string> | null | undefined;
+  /**
+   * Calculate how strongly a feature affects a given commodity
+   */
+  featuresStrength?: boolean | undefined;
+  /**
+   * Filter by statistic_type
+   */
+  statisticTypes?: Array<string> | null | undefined;
+  /**
+   * Filter by variable_type
+   */
+  variableTypes?: Array<string> | null | undefined;
+  /**
+   * Filter by source
+   */
+  sources?: Array<string> | null | undefined;
+  /**
+   * Filter by country
+   */
+  countries?: Array<string> | null | undefined;
+  /**
+   * Filter by frequency
+   */
+  frequencies?: Array<string> | null | undefined;
+  /**
+   * Filter by phenology_stage or phenology_phase
+   */
+  phenologyStages?: Array<string> | null | undefined;
+  /**
+   * Maximum number of results to return (required). Maximum is 1000.
+   */
+  limit: number;
+  /**
+   * Number of results to skip before returning (required)
+   */
+  offset: number;
+  /**
+   * Search string to match against feature fields.
+   */
+  search?: string | null | undefined;
 };
 
 /** @internal */
@@ -25,18 +65,42 @@ export const GetAvailableFeaturesRequest$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  symbol: z.nullable(z.string()).optional(),
-  dataset_key: z.nullable(z.string()).optional(),
+  symbols: z.nullable(z.array(z.string())).optional(),
+  dataset_keys: z.nullable(z.array(z.string())).optional(),
+  features_strength: z.boolean().default(false),
+  statistic_types: z.nullable(z.array(z.string())).optional(),
+  variable_types: z.nullable(z.array(z.string())).optional(),
+  sources: z.nullable(z.array(z.string())).optional(),
+  countries: z.nullable(z.array(z.string())).optional(),
+  frequencies: z.nullable(z.array(z.string())).optional(),
+  phenology_stages: z.nullable(z.array(z.string())).optional(),
+  limit: z.number().int(),
+  offset: z.number().int(),
+  search: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    "dataset_key": "datasetKey",
+    "dataset_keys": "datasetKeys",
+    "features_strength": "featuresStrength",
+    "statistic_types": "statisticTypes",
+    "variable_types": "variableTypes",
+    "phenology_stages": "phenologyStages",
   });
 });
 
 /** @internal */
 export type GetAvailableFeaturesRequest$Outbound = {
-  symbol?: string | null | undefined;
-  dataset_key?: string | null | undefined;
+  symbols?: Array<string> | null | undefined;
+  dataset_keys?: Array<string> | null | undefined;
+  features_strength: boolean;
+  statistic_types?: Array<string> | null | undefined;
+  variable_types?: Array<string> | null | undefined;
+  sources?: Array<string> | null | undefined;
+  countries?: Array<string> | null | undefined;
+  frequencies?: Array<string> | null | undefined;
+  phenology_stages?: Array<string> | null | undefined;
+  limit: number;
+  offset: number;
+  search?: string | null | undefined;
 };
 
 /** @internal */
@@ -45,11 +109,25 @@ export const GetAvailableFeaturesRequest$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   GetAvailableFeaturesRequest
 > = z.object({
-  symbol: z.nullable(z.string()).optional(),
-  datasetKey: z.nullable(z.string()).optional(),
+  symbols: z.nullable(z.array(z.string())).optional(),
+  datasetKeys: z.nullable(z.array(z.string())).optional(),
+  featuresStrength: z.boolean().default(false),
+  statisticTypes: z.nullable(z.array(z.string())).optional(),
+  variableTypes: z.nullable(z.array(z.string())).optional(),
+  sources: z.nullable(z.array(z.string())).optional(),
+  countries: z.nullable(z.array(z.string())).optional(),
+  frequencies: z.nullable(z.array(z.string())).optional(),
+  phenologyStages: z.nullable(z.array(z.string())).optional(),
+  limit: z.number().int(),
+  offset: z.number().int(),
+  search: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
-    datasetKey: "dataset_key",
+    datasetKeys: "dataset_keys",
+    featuresStrength: "features_strength",
+    statisticTypes: "statistic_types",
+    variableTypes: "variable_types",
+    phenologyStages: "phenology_stages",
   });
 });
 

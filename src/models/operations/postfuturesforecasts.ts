@@ -14,6 +14,10 @@ export type PostFuturesForecastsRequest = {
    * Future symbol
    */
   symbol: string;
+  /**
+   * Return a concatenated version of the requested trajectories as if it was coming from a single model. Some restrictions apply
+   */
+  concatenateTrajectories?: boolean | undefined;
   postAssetForecastsRequest: components.PostAssetForecastsRequest;
 };
 
@@ -24,9 +28,11 @@ export const PostFuturesForecastsRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   symbol: z.string(),
+  concatenate_trajectories: z.boolean().default(false),
   PostAssetForecastsRequest: components.PostAssetForecastsRequest$inboundSchema,
 }).transform((v) => {
   return remap$(v, {
+    "concatenate_trajectories": "concatenateTrajectories",
     "PostAssetForecastsRequest": "postAssetForecastsRequest",
   });
 });
@@ -34,6 +40,7 @@ export const PostFuturesForecastsRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type PostFuturesForecastsRequest$Outbound = {
   symbol: string;
+  concatenate_trajectories: boolean;
   PostAssetForecastsRequest: components.PostAssetForecastsRequest$Outbound;
 };
 
@@ -44,10 +51,12 @@ export const PostFuturesForecastsRequest$outboundSchema: z.ZodType<
   PostFuturesForecastsRequest
 > = z.object({
   symbol: z.string(),
+  concatenateTrajectories: z.boolean().default(false),
   postAssetForecastsRequest:
     components.PostAssetForecastsRequest$outboundSchema,
 }).transform((v) => {
   return remap$(v, {
+    concatenateTrajectories: "concatenate_trajectories",
     postAssetForecastsRequest: "PostAssetForecastsRequest",
   });
 });

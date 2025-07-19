@@ -19,7 +19,9 @@ import {
   AssetForecastSmallData$outboundSchema,
 } from "./assetforecastsmalldata.js";
 
-export type DataUnion = AssetForecastData | AssetForecastSmallData;
+export type PostAssetForecastsResponseData =
+  | AssetForecastData
+  | AssetForecastSmallData;
 
 export type PostAssetForecastsResponse = {
   success?: true | undefined;
@@ -27,8 +29,8 @@ export type PostAssetForecastsResponse = {
 };
 
 /** @internal */
-export const DataUnion$inboundSchema: z.ZodType<
-  DataUnion,
+export const PostAssetForecastsResponseData$inboundSchema: z.ZodType<
+  PostAssetForecastsResponseData,
   z.ZodTypeDef,
   unknown
 > = z.union([
@@ -37,15 +39,15 @@ export const DataUnion$inboundSchema: z.ZodType<
 ]);
 
 /** @internal */
-export type DataUnion$Outbound =
+export type PostAssetForecastsResponseData$Outbound =
   | AssetForecastData$Outbound
   | AssetForecastSmallData$Outbound;
 
 /** @internal */
-export const DataUnion$outboundSchema: z.ZodType<
-  DataUnion$Outbound,
+export const PostAssetForecastsResponseData$outboundSchema: z.ZodType<
+  PostAssetForecastsResponseData$Outbound,
   z.ZodTypeDef,
-  DataUnion
+  PostAssetForecastsResponseData
 > = z.union([
   AssetForecastData$outboundSchema,
   AssetForecastSmallData$outboundSchema,
@@ -55,26 +57,32 @@ export const DataUnion$outboundSchema: z.ZodType<
  * @internal
  * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
  */
-export namespace DataUnion$ {
-  /** @deprecated use `DataUnion$inboundSchema` instead. */
-  export const inboundSchema = DataUnion$inboundSchema;
-  /** @deprecated use `DataUnion$outboundSchema` instead. */
-  export const outboundSchema = DataUnion$outboundSchema;
-  /** @deprecated use `DataUnion$Outbound` instead. */
-  export type Outbound = DataUnion$Outbound;
+export namespace PostAssetForecastsResponseData$ {
+  /** @deprecated use `PostAssetForecastsResponseData$inboundSchema` instead. */
+  export const inboundSchema = PostAssetForecastsResponseData$inboundSchema;
+  /** @deprecated use `PostAssetForecastsResponseData$outboundSchema` instead. */
+  export const outboundSchema = PostAssetForecastsResponseData$outboundSchema;
+  /** @deprecated use `PostAssetForecastsResponseData$Outbound` instead. */
+  export type Outbound = PostAssetForecastsResponseData$Outbound;
 }
 
-export function dataUnionToJSON(dataUnion: DataUnion): string {
-  return JSON.stringify(DataUnion$outboundSchema.parse(dataUnion));
+export function postAssetForecastsResponseDataToJSON(
+  postAssetForecastsResponseData: PostAssetForecastsResponseData,
+): string {
+  return JSON.stringify(
+    PostAssetForecastsResponseData$outboundSchema.parse(
+      postAssetForecastsResponseData,
+    ),
+  );
 }
 
-export function dataUnionFromJSON(
+export function postAssetForecastsResponseDataFromJSON(
   jsonString: string,
-): SafeParseResult<DataUnion, SDKValidationError> {
+): SafeParseResult<PostAssetForecastsResponseData, SDKValidationError> {
   return safeParse(
     jsonString,
-    (x) => DataUnion$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataUnion' from JSON`,
+    (x) => PostAssetForecastsResponseData$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'PostAssetForecastsResponseData' from JSON`,
   );
 }
 

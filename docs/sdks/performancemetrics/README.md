@@ -101,6 +101,7 @@ async function run() {
     thresholdOnForecast: 0,
     thresholdOnActual: 0,
     sigma: 2,
+    modelName: "coffee_arabica_v1_3",
   });
 
   console.log(result);
@@ -134,6 +135,7 @@ async function run() {
     thresholdOnForecast: 0,
     thresholdOnActual: 0,
     sigma: 2,
+    modelName: "coffee_arabica_v1_3",
   });
   if (res.ok) {
     const { value: result } = res;

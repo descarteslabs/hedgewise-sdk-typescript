@@ -7,15 +7,15 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  Dataset,
-  Dataset$inboundSchema,
-  Dataset$Outbound,
-  Dataset$outboundSchema,
-} from "./dataset.js";
+  DatasetResponse,
+  DatasetResponse$inboundSchema,
+  DatasetResponse$Outbound,
+  DatasetResponse$outboundSchema,
+} from "./datasetresponse.js";
 
 export type GetDatasetsResponse = {
   success?: true | undefined;
-  data: Array<Dataset>;
+  data: Array<DatasetResponse>;
 };
 
 /** @internal */
@@ -25,13 +25,13 @@ export const GetDatasetsResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   success: z.literal(true).default(true).optional(),
-  data: z.array(Dataset$inboundSchema),
+  data: z.array(DatasetResponse$inboundSchema),
 });
 
 /** @internal */
 export type GetDatasetsResponse$Outbound = {
   success: true;
-  data: Array<Dataset$Outbound>;
+  data: Array<DatasetResponse$Outbound>;
 };
 
 /** @internal */
@@ -41,7 +41,7 @@ export const GetDatasetsResponse$outboundSchema: z.ZodType<
   GetDatasetsResponse
 > = z.object({
   success: z.literal(true).default(true as const),
-  data: z.array(Dataset$outboundSchema),
+  data: z.array(DatasetResponse$outboundSchema),
 });
 
 /**
