@@ -37,6 +37,9 @@ import { tool$performanceMetricsGet } from "./tools/performanceMetricsGet.js";
 import { tool$performanceMetricsList } from "./tools/performanceMetricsList.js";
 import { tool$postFuturesForecasts } from "./tools/postFuturesForecasts.js";
 import { tool$sectorIndicesGet } from "./tools/sectorIndicesGet.js";
+import { tool$strategiesGetStrategies } from "./tools/strategiesGetStrategies.js";
+import { tool$strategiesGetStrategy } from "./tools/strategiesGetStrategy.js";
+import { tool$strategiesGetStrategyForecast } from "./tools/strategiesGetStrategyForecast.js";
 import { tool$supplyGet } from "./tools/supplyGet.js";
 import { tool$supplyListCommodities } from "./tools/supplyListCommodities.js";
 import { tool$systemPing } from "./tools/systemPing.js";
@@ -52,7 +55,7 @@ export function createMCPServer(deps: {
 }) {
   const server = new McpServer({
     name: "Hedgewise",
-    version: "0.6.1",
+    version: "0.7.0",
   });
 
   const client = new HedgewiseCore({
@@ -110,6 +113,9 @@ export function createMCPServer(deps: {
   tool(tool$supplyListCommodities);
   tool(tool$supplyGet);
   tool(tool$datasetsGetDatasets);
+  tool(tool$strategiesGetStrategies);
+  tool(tool$strategiesGetStrategy);
+  tool(tool$strategiesGetStrategyForecast);
 
   return server;
 }

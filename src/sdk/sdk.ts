@@ -20,6 +20,7 @@ import { Futures } from "./futures.js";
 import { Indicators } from "./indicators.js";
 import { PerformanceMetrics } from "./performancemetrics.js";
 import { SectorIndices } from "./sectorindices.js";
+import { Strategies } from "./strategies.js";
 import { Supply } from "./supply.js";
 import { System } from "./system.js";
 
@@ -77,6 +78,11 @@ export class Hedgewise extends ClientSDK {
   private _datasets?: Datasets;
   get datasets(): Datasets {
     return (this._datasets ??= new Datasets(this._options));
+  }
+
+  private _strategies?: Strategies;
+  get strategies(): Strategies {
+    return (this._strategies ??= new Strategies(this._options));
   }
 
   /**

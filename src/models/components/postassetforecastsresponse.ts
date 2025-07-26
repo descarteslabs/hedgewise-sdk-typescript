@@ -12,71 +12,11 @@ import {
   AssetForecastData$Outbound,
   AssetForecastData$outboundSchema,
 } from "./assetforecastdata.js";
-import {
-  AssetForecastSmallData,
-  AssetForecastSmallData$inboundSchema,
-  AssetForecastSmallData$Outbound,
-  AssetForecastSmallData$outboundSchema,
-} from "./assetforecastsmalldata.js";
-
-export type DataUnion = AssetForecastData | AssetForecastSmallData;
 
 export type PostAssetForecastsResponse = {
   success?: true | undefined;
-  data: Array<AssetForecastData | AssetForecastSmallData>;
+  data: Array<AssetForecastData>;
 };
-
-/** @internal */
-export const DataUnion$inboundSchema: z.ZodType<
-  DataUnion,
-  z.ZodTypeDef,
-  unknown
-> = z.union([
-  AssetForecastData$inboundSchema,
-  AssetForecastSmallData$inboundSchema,
-]);
-
-/** @internal */
-export type DataUnion$Outbound =
-  | AssetForecastData$Outbound
-  | AssetForecastSmallData$Outbound;
-
-/** @internal */
-export const DataUnion$outboundSchema: z.ZodType<
-  DataUnion$Outbound,
-  z.ZodTypeDef,
-  DataUnion
-> = z.union([
-  AssetForecastData$outboundSchema,
-  AssetForecastSmallData$outboundSchema,
-]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace DataUnion$ {
-  /** @deprecated use `DataUnion$inboundSchema` instead. */
-  export const inboundSchema = DataUnion$inboundSchema;
-  /** @deprecated use `DataUnion$outboundSchema` instead. */
-  export const outboundSchema = DataUnion$outboundSchema;
-  /** @deprecated use `DataUnion$Outbound` instead. */
-  export type Outbound = DataUnion$Outbound;
-}
-
-export function dataUnionToJSON(dataUnion: DataUnion): string {
-  return JSON.stringify(DataUnion$outboundSchema.parse(dataUnion));
-}
-
-export function dataUnionFromJSON(
-  jsonString: string,
-): SafeParseResult<DataUnion, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => DataUnion$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'DataUnion' from JSON`,
-  );
-}
 
 /** @internal */
 export const PostAssetForecastsResponse$inboundSchema: z.ZodType<
@@ -85,18 +25,13 @@ export const PostAssetForecastsResponse$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   success: z.literal(true).default(true).optional(),
-  data: z.array(
-    z.union([
-      AssetForecastData$inboundSchema,
-      AssetForecastSmallData$inboundSchema,
-    ]),
-  ),
+  data: z.array(AssetForecastData$inboundSchema),
 });
 
 /** @internal */
 export type PostAssetForecastsResponse$Outbound = {
   success: true;
-  data: Array<AssetForecastData$Outbound | AssetForecastSmallData$Outbound>;
+  data: Array<AssetForecastData$Outbound>;
 };
 
 /** @internal */
@@ -106,12 +41,7 @@ export const PostAssetForecastsResponse$outboundSchema: z.ZodType<
   PostAssetForecastsResponse
 > = z.object({
   success: z.literal(true).default(true as const),
-  data: z.array(
-    z.union([
-      AssetForecastData$outboundSchema,
-      AssetForecastSmallData$outboundSchema,
-    ]),
-  ),
+  data: z.array(AssetForecastData$outboundSchema),
 });
 
 /**

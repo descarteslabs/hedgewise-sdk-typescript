@@ -236,7 +236,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.ResponseGetFuturesForecasts](../../models/operations/responsegetfuturesforecasts.md)\>**
+**Promise\<[components.GetAssetForecastsResponse](../../models/components/getassetforecastsresponse.md)\>**
 
 ### Errors
 
@@ -354,6 +354,7 @@ async function run() {
     hedgeHorizon: 86,
     startDate: "2025-03-24",
     endDate: "2025-04-24",
+    modelName: "default",
   });
 
   console.log(result);
@@ -384,6 +385,7 @@ async function run() {
     hedgeHorizon: 86,
     startDate: "2025-03-24",
     endDate: "2025-04-24",
+    modelName: "default",
   });
   if (res.ok) {
     const { value: result } = res;

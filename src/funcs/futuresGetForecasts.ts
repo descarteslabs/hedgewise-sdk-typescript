@@ -10,6 +10,7 @@ import { safeParse } from "../lib/schemas.js";
 import { RequestOptions } from "../lib/sdks.js";
 import { extractSecurity, resolveGlobalSecurity } from "../lib/security.js";
 import { pathToFunc } from "../lib/url.js";
+import * as components from "../models/components/index.js";
 import { HedgewiseError } from "../models/errors/hedgewiseerror.js";
 import {
   ConnectionError,
@@ -40,7 +41,7 @@ export function futuresGetForecasts(
   options?: RequestOptions,
 ): APIPromise<
   Result<
-    operations.ResponseGetFuturesForecasts,
+    components.GetAssetForecastsResponse,
     | errors.HTTPValidationError
     | HedgewiseError
     | ResponseValidationError
@@ -66,7 +67,7 @@ async function $do(
 ): Promise<
   [
     Result<
-      operations.ResponseGetFuturesForecasts,
+      components.GetAssetForecastsResponse,
       | errors.HTTPValidationError
       | HedgewiseError
       | ResponseValidationError
@@ -167,7 +168,7 @@ async function $do(
   };
 
   const [result] = await M.match<
-    operations.ResponseGetFuturesForecasts,
+    components.GetAssetForecastsResponse,
     | errors.HTTPValidationError
     | HedgewiseError
     | ResponseValidationError
@@ -178,7 +179,7 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.ResponseGetFuturesForecasts$inboundSchema),
+    M.json(200, components.GetAssetForecastsResponse$inboundSchema),
     M.jsonErr(422, errors.HTTPValidationError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

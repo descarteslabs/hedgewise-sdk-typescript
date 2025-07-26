@@ -3,16 +3,23 @@
  */
 
 import { datasetsGetDatasets } from "../../funcs/datasetsGetDatasets.js";
+import * as operations from "../../models/operations/index.js";
 import { formatResult, ToolDefinition } from "../tools.js";
 
-export const tool$datasetsGetDatasets: ToolDefinition = {
+const args = {
+  request: operations.GetDatasetsRequest$inboundSchema,
+};
+
+export const tool$datasetsGetDatasets: ToolDefinition<typeof args> = {
   name: "datasets-get-datasets",
   description: `Get a list of all premium and standard datasets
 
 Returns a list of all datasets. Datasets are collections of features grouped by interest, relevance, commodity, and/or asset class.`,
-  tool: async (client, ctx) => {
+  args,
+  tool: async (client, args, ctx) => {
     const [result, apiCall] = await datasetsGetDatasets(
       client,
+      args.request,
       { fetchOptions: { signal: ctx.signal } },
     ).$inspect();
 
