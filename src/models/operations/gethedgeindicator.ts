@@ -52,6 +52,10 @@ export type GetHedgeIndicatorRequest = {
    *                 date with indicators
    */
   endDate?: string | null | undefined;
+  /**
+   * Select a specific data model to use when generating the hedge indicator for a future symbol.
+   */
+  modelName?: string | null | undefined;
 };
 
 /** @internal */
@@ -66,12 +70,14 @@ export const GetHedgeIndicatorRequest$inboundSchema: z.ZodType<
   lookback_days: z.number().int().default(30),
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
+  model_name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "hedge_horizon": "hedgeHorizon",
     "lookback_days": "lookbackDays",
     "start_date": "startDate",
     "end_date": "endDate",
+    "model_name": "modelName",
   });
 });
 
@@ -83,6 +89,7 @@ export type GetHedgeIndicatorRequest$Outbound = {
   lookback_days: number;
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
+  model_name?: string | null | undefined;
 };
 
 /** @internal */
@@ -97,12 +104,14 @@ export const GetHedgeIndicatorRequest$outboundSchema: z.ZodType<
   lookbackDays: z.number().int().default(30),
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
+  modelName: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     hedgeHorizon: "hedge_horizon",
     lookbackDays: "lookback_days",
     startDate: "start_date",
     endDate: "end_date",
+    modelName: "model_name",
   });
 });
 

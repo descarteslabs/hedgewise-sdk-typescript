@@ -16,7 +16,7 @@ export type GetModelOutputRequest = {
   /**
    * Model name.
    */
-  model: string;
+  model?: string | null | undefined;
   /**
    * Start of forecast window (YYYY-MM-DD). The returned
    *
@@ -42,7 +42,7 @@ export const GetModelOutputRequest$inboundSchema: z.ZodType<
   unknown
 > = z.object({
   symbol: z.string(),
-  model: z.string(),
+  model: z.nullable(z.string()).optional(),
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
 }).transform((v) => {
@@ -55,7 +55,7 @@ export const GetModelOutputRequest$inboundSchema: z.ZodType<
 /** @internal */
 export type GetModelOutputRequest$Outbound = {
   symbol: string;
-  model: string;
+  model?: string | null | undefined;
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
 };
@@ -67,7 +67,7 @@ export const GetModelOutputRequest$outboundSchema: z.ZodType<
   GetModelOutputRequest
 > = z.object({
   symbol: z.string(),
-  model: z.string(),
+  model: z.nullable(z.string()).optional(),
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
 }).transform((v) => {

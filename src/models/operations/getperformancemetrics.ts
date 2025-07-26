@@ -45,6 +45,10 @@ export type GetPerformanceMetricsRequest = {
    * Number of standard deviations to calculate for ACE. Unused for other metrics.
    */
   sigma?: number | undefined;
+  /**
+   * Model against which performance metrics will be assessed.
+   */
+  modelName?: string | null | undefined;
 };
 
 /** @internal */
@@ -62,6 +66,7 @@ export const GetPerformanceMetricsRequest$inboundSchema: z.ZodType<
   threshold_on_actual: z.nullable(z.number()).optional(),
   use_run_date: z.boolean().default(false),
   sigma: z.number().default(1.28),
+  model_name: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "start_date": "startDate",
@@ -69,6 +74,7 @@ export const GetPerformanceMetricsRequest$inboundSchema: z.ZodType<
     "threshold_on_forecast": "thresholdOnForecast",
     "threshold_on_actual": "thresholdOnActual",
     "use_run_date": "useRunDate",
+    "model_name": "modelName",
   });
 });
 
@@ -83,6 +89,7 @@ export type GetPerformanceMetricsRequest$Outbound = {
   threshold_on_actual?: number | null | undefined;
   use_run_date: boolean;
   sigma: number;
+  model_name?: string | null | undefined;
 };
 
 /** @internal */
@@ -100,6 +107,7 @@ export const GetPerformanceMetricsRequest$outboundSchema: z.ZodType<
   thresholdOnActual: z.nullable(z.number()).optional(),
   useRunDate: z.boolean().default(false),
   sigma: z.number().default(1.28),
+  modelName: z.nullable(z.string()).optional(),
 }).transform((v) => {
   return remap$(v, {
     startDate: "start_date",
@@ -107,6 +115,7 @@ export const GetPerformanceMetricsRequest$outboundSchema: z.ZodType<
     thresholdOnForecast: "threshold_on_forecast",
     thresholdOnActual: "threshold_on_actual",
     useRunDate: "use_run_date",
+    modelName: "model_name",
   });
 });
 

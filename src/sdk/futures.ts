@@ -61,7 +61,7 @@ export class Futures extends ClientSDK {
   async getForecasts(
     request: operations.GetFuturesForecastsRequest,
     options?: RequestOptions,
-  ): Promise<operations.ResponseGetFuturesForecasts> {
+  ): Promise<components.GetAssetForecastsResponse> {
     return unwrapAsync(futuresGetForecasts(
       this,
       request,
