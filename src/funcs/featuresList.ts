@@ -95,8 +95,18 @@ async function $do(
   const path = pathToFunc("/v1/features")();
 
   const query = encodeFormQuery({
-    "dataset_key": payload.dataset_key,
-    "symbol": payload.symbol,
+    "countries": payload.countries,
+    "dataset_keys": payload.dataset_keys,
+    "features_strength": payload.features_strength,
+    "frequencies": payload.frequencies,
+    "limit": payload.limit,
+    "offset": payload.offset,
+    "phenology_stages": payload.phenology_stages,
+    "search": payload.search,
+    "sources": payload.sources,
+    "statistic_types": payload.statistic_types,
+    "symbols": payload.symbols,
+    "variable_types": payload.variable_types,
   });
 
   const headers = new Headers(compactMap({

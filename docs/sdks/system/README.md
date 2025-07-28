@@ -13,6 +13,7 @@ Ping
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="ping" method="get" path="/ping" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

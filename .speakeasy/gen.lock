@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
 management:
-  docChecksum: b16c323cb4a6d77ae52e4372781f5877
+  docChecksum: e31e6ab31a8d7a3a587f751e49127a7d
   docVersion: 1.0.0
-  speakeasyVersion: 1.568.0
-  generationVersion: 2.632.2
-  releaseVersion: 0.6.1
-  configChecksum: 9ed7a7bdaba68774ac88861bdb121c5a
+  speakeasyVersion: 1.592.1
+  generationVersion: 2.667.0
+  releaseVersion: 0.7.0
+  configChecksum: 5e48831193dc7afc3c1fbe310880c92d
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
   published: true
@@ -14,17 +14,16 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.11
+    core: 3.21.16
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
-    enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
     globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
-    mcpServer: 0.9.2
+    mcpServer: 0.9.3
     nameOverrides: 2.81.2
     nullables: 0.1.1
     responseFormat: 0.2.3
@@ -45,7 +44,6 @@ generatedFiles:
   - docs/models/components/assetclass.md
   - docs/models/components/assetforecastdata.md
   - docs/models/components/assetforecastmodeldata.md
-  - docs/models/components/assetforecastsmalldata.md
   - docs/models/components/assetforecaststrategy.md
   - docs/models/components/assetindicatordata.md
   - docs/models/components/assetlongtermforecastdata.md
@@ -55,13 +53,10 @@ generatedFiles:
   - docs/models/components/availablesupplymodels.md
   - docs/models/components/contract.md
   - docs/models/components/contractwithforecasts.md
-  - docs/models/components/contractwithforecastssmall.md
   - docs/models/components/contractwithindicator.md
   - docs/models/components/contractwithpriceticks.md
   - docs/models/components/data.md
-  - docs/models/components/dataset.md
-  - docs/models/components/datasettype.md
-  - docs/models/components/dataunion.md
+  - docs/models/components/datasetresponse.md
   - docs/models/components/feature.md
   - docs/models/components/featurecategory.md
   - docs/models/components/featuredrilldown.md
@@ -70,17 +65,16 @@ generatedFiles:
   - docs/models/components/featuretransformedhistoricaldata.md
   - docs/models/components/featuretreemodel.md
   - docs/models/components/forecast.md
-  - docs/models/components/forecastsmall.md
   - docs/models/components/forecasttick.md
-  - docs/models/components/forecastticksmall.md
   - docs/models/components/forecasttrajectory.md
+  - docs/models/components/forecasttrajectoryelement.md
+  - docs/models/components/forecasttrajectoryspec.md
   - docs/models/components/forexdata.md
   - docs/models/components/forextick.md
   - docs/models/components/getallforexdataresponse.md
   - docs/models/components/getassetcalendarresponse.md
   - docs/models/components/getassetforecastsmodelsresponse.md
   - docs/models/components/getassetforecastsresponse.md
-  - docs/models/components/getassetforecastssmallresponse.md
   - docs/models/components/getassetlongtermforecastsresponse.md
   - docs/models/components/getassetpricesresponse.md
   - docs/models/components/getavailableassetcategoriesresponse.md
@@ -97,6 +91,8 @@ generatedFiles:
   - docs/models/components/getmodeloutputresponse.md
   - docs/models/components/getperformancemetricsresponse.md
   - docs/models/components/getsectorindexhistoricalresponse.md
+  - docs/models/components/getstrategiesresponse.md
+  - docs/models/components/getstrategyforecastresponse.md
   - docs/models/components/getsupplyphenologyresponse.md
   - docs/models/components/getsupplyresponse.md
   - docs/models/components/gettransformedfeatureresponse.md
@@ -117,6 +113,9 @@ generatedFiles:
   - docs/models/components/sectorindexhistoricaldata.md
   - docs/models/components/sectorindextick.md
   - docs/models/components/security.md
+  - docs/models/components/strategyresponse.md
+  - docs/models/components/strategytrajectoryhorizonresponse.md
+  - docs/models/components/strategytrajectoryresponse.md
   - docs/models/components/supplydata.md
   - docs/models/components/tick.md
   - docs/models/components/userregistration.md
@@ -126,6 +125,7 @@ generatedFiles:
   - docs/models/operations/getassetcalendarrequest.md
   - docs/models/operations/getassetclassindexrequest.md
   - docs/models/operations/getavailablefeaturesrequest.md
+  - docs/models/operations/getdatasetsrequest.md
   - docs/models/operations/getfeatureshistoricalvaluesrequest.md
   - docs/models/operations/getforexpricesrequest.md
   - docs/models/operations/getfuturesforecastsmodelsrequest.md
@@ -135,12 +135,14 @@ generatedFiles:
   - docs/models/operations/getlongtermforecastrequest.md
   - docs/models/operations/getmodeloutputrequest.md
   - docs/models/operations/getperformancemetricsrequest.md
+  - docs/models/operations/getstrategiesrequest.md
+  - docs/models/operations/getstrategyforecastrequest.md
+  - docs/models/operations/getstrategyrequest.md
   - docs/models/operations/getsupplyphenologyrequest.md
   - docs/models/operations/getsupplyrequest.md
   - docs/models/operations/gettransformedfeaturevaluesrequest.md
   - docs/models/operations/getweightedindexrequest.md
   - docs/models/operations/postfuturesforecastsrequest.md
-  - docs/models/operations/responsegetfuturesforecasts.md
   - docs/sdks/assets/README.md
   - docs/sdks/data/README.md
   - docs/sdks/datasets/README.md
@@ -151,10 +153,15 @@ generatedFiles:
   - docs/sdks/indicators/README.md
   - docs/sdks/performancemetrics/README.md
   - docs/sdks/sectorindices/README.md
+  - docs/sdks/strategies/README.md
   - docs/sdks/supply/README.md
   - docs/sdks/system/README.md
   - docs/types/rfcdate.md
   - eslint.config.mjs
+  - examples/.env.template
+  - examples/README.md
+  - examples/package.json
+  - examples/postFuturesForecasts.example.ts
   - jsr.json
   - package.json
   - src/core.ts
@@ -182,6 +189,9 @@ generatedFiles:
   - src/funcs/performanceMetricsList.ts
   - src/funcs/postFuturesForecasts.ts
   - src/funcs/sectorIndicesGet.ts
+  - src/funcs/strategiesGetStrategies.ts
+  - src/funcs/strategiesGetStrategy.ts
+  - src/funcs/strategiesGetStrategyForecast.ts
   - src/funcs/supplyGet.ts
   - src/funcs/supplyListCommodities.ts
   - src/funcs/systemPing.ts
@@ -243,6 +253,9 @@ generatedFiles:
   - src/mcp-server/tools/performanceMetricsList.ts
   - src/mcp-server/tools/postFuturesForecasts.ts
   - src/mcp-server/tools/sectorIndicesGet.ts
+  - src/mcp-server/tools/strategiesGetStrategies.ts
+  - src/mcp-server/tools/strategiesGetStrategy.ts
+  - src/mcp-server/tools/strategiesGetStrategyForecast.ts
   - src/mcp-server/tools/supplyGet.ts
   - src/mcp-server/tools/supplyListCommodities.ts
   - src/mcp-server/tools/systemPing.ts
@@ -251,7 +264,6 @@ generatedFiles:
   - src/models/components/assetclass.ts
   - src/models/components/assetforecastdata.ts
   - src/models/components/assetforecastmodeldata.ts
-  - src/models/components/assetforecastsmalldata.ts
   - src/models/components/assetforecaststrategy.ts
   - src/models/components/assetindicatordata.ts
   - src/models/components/assetlongtermforecastdata.ts
@@ -261,12 +273,10 @@ generatedFiles:
   - src/models/components/availablesupplymodels.ts
   - src/models/components/contract.ts
   - src/models/components/contractwithforecasts.ts
-  - src/models/components/contractwithforecastssmall.ts
   - src/models/components/contractwithindicator.ts
   - src/models/components/contractwithpriceticks.ts
   - src/models/components/data.ts
-  - src/models/components/dataset.ts
-  - src/models/components/datasettype.ts
+  - src/models/components/datasetresponse.ts
   - src/models/components/feature.ts
   - src/models/components/featurecategory.ts
   - src/models/components/featuredrilldown.ts
@@ -275,17 +285,16 @@ generatedFiles:
   - src/models/components/featuretransformedhistoricaldata.ts
   - src/models/components/featuretreemodel.ts
   - src/models/components/forecast.ts
-  - src/models/components/forecastsmall.ts
   - src/models/components/forecasttick.ts
-  - src/models/components/forecastticksmall.ts
   - src/models/components/forecasttrajectory.ts
+  - src/models/components/forecasttrajectoryelement.ts
+  - src/models/components/forecasttrajectoryspec.ts
   - src/models/components/forexdata.ts
   - src/models/components/forextick.ts
   - src/models/components/getallforexdataresponse.ts
   - src/models/components/getassetcalendarresponse.ts
   - src/models/components/getassetforecastsmodelsresponse.ts
   - src/models/components/getassetforecastsresponse.ts
-  - src/models/components/getassetforecastssmallresponse.ts
   - src/models/components/getassetlongtermforecastsresponse.ts
   - src/models/components/getassetpricesresponse.ts
   - src/models/components/getavailableassetcategoriesresponse.ts
@@ -302,6 +311,8 @@ generatedFiles:
   - src/models/components/getmodeloutputresponse.ts
   - src/models/components/getperformancemetricsresponse.ts
   - src/models/components/getsectorindexhistoricalresponse.ts
+  - src/models/components/getstrategiesresponse.ts
+  - src/models/components/getstrategyforecastresponse.ts
   - src/models/components/getsupplyphenologyresponse.ts
   - src/models/components/getsupplyresponse.ts
   - src/models/components/gettransformedfeatureresponse.ts
@@ -321,6 +332,9 @@ generatedFiles:
   - src/models/components/sectorindexhistoricaldata.ts
   - src/models/components/sectorindextick.ts
   - src/models/components/security.ts
+  - src/models/components/strategyresponse.ts
+  - src/models/components/strategytrajectoryhorizonresponse.ts
+  - src/models/components/strategytrajectoryresponse.ts
   - src/models/components/supplydata.ts
   - src/models/components/tick.ts
   - src/models/components/userregistration.ts
@@ -336,6 +350,7 @@ generatedFiles:
   - src/models/operations/getassetcalendar.ts
   - src/models/operations/getassetclassindex.ts
   - src/models/operations/getavailablefeatures.ts
+  - src/models/operations/getdatasets.ts
   - src/models/operations/getfeatureshistoricalvalues.ts
   - src/models/operations/getforexprices.ts
   - src/models/operations/getfuturesforecasts.ts
@@ -345,6 +360,9 @@ generatedFiles:
   - src/models/operations/getlongtermforecast.ts
   - src/models/operations/getmodeloutput.ts
   - src/models/operations/getperformancemetrics.ts
+  - src/models/operations/getstrategies.ts
+  - src/models/operations/getstrategy.ts
+  - src/models/operations/getstrategyforecast.ts
   - src/models/operations/getsupply.ts
   - src/models/operations/getsupplyphenology.ts
   - src/models/operations/gettransformedfeaturevalues.ts
@@ -362,6 +380,7 @@ generatedFiles:
   - src/sdk/performancemetrics.ts
   - src/sdk/sdk.ts
   - src/sdk/sectorindices.ts
+  - src/sdk/strategies.ts
   - src/sdk/supply.ts
   - src/sdk/system.ts
   - src/types/async.ts
@@ -391,6 +410,8 @@ examples:
       parameters:
         path:
           symbol: "ZC"
+        query:
+          concatenate_trajectories: false
       requestBody:
         application/json: {"strategy": [{"start_date": "2025-04-24", "end_date": "2025-04-24", "trajectory": [], "price_collar_sigma": 0, "estimate_uncertainty": false, "interpolate": false, "get_market_drivers": false, "get_moving_averages": false}]}
       responses:
@@ -418,7 +439,7 @@ examples:
           details: false
       responses:
         "200":
-          application/json: {"success": true, "data": [{"model_name": "<value>", "start_date": "2023-05-22", "end_date": "2024-02-06", "horizons": [450803]}]}
+          application/json: {"success": true, "data": [{"model_type": "<value>", "model_name": "<value>", "display_name": "Price45", "start_date": "2023-05-22", "end_date": "2024-02-06", "horizons": [450803], "indicators": ["<value 1>", "<value 2>", "<value 3>"], "native": true}]}
         "422":
           application/json: {}
   get_model_output:
@@ -604,6 +625,7 @@ examples:
           lookback_days: 30
           start_date: "2025-03-24"
           end_date: "2025-04-24"
+          model_name: "default"
       responses:
         "200":
           application/json: {"success": true, "data": {"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": null, "code": "<value>", "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "indicator": {"name": "<value>", "series": []}}]}}
@@ -699,6 +721,18 @@ examples:
         query:
           symbol: "ZC"
           dataset_key: "technical_macro_v1_2025"
+          symbols: ["ZC"]
+          dataset_keys: ["technical_macro_v1_2025"]
+          features_strength: false
+          statistic_types: ["raw_value"]
+          variable_types: ["price"]
+          sources: ["CFTC"]
+          countries: ["usa"]
+          frequencies: ["daily"]
+          phenology_stages: ["harvest"]
+          limit: 761472
+          offset: 958645
+          search: "coffee"
       responses:
         "200":
           application/json: {"success": true, "data": [{"feature_code": "<value>", "type": "<value>", "long_name": "<value>", "variable_type": "<value>"}]}
@@ -863,6 +897,7 @@ examples:
           threshold_on_actual: 0
           use_run_date: false
           sigma: 1
+          model_name: "coffee_arabica_v1_3"
       responses:
         "200":
           application/json: {"success": true, "data": [{"metric": "<value>", "horizon": 12011, "value": 1242.77}]}
@@ -917,8 +952,58 @@ examples:
           application/json: {"success": true, "data": "<value>"}
   get_datasets:
     speakeasy-default-get-datasets:
+      parameters:
+        query:
+          symbols: ["KC"]
+          dataset_keys: ["technical_macro_v1_2025"]
+          statistic_types: ["raw_value"]
+          variable_types: ["price"]
+          sources: ["CFTC"]
+          countries: ["usa"]
+          frequencies: ["daily"]
+          phenology_stages: ["harvest"]
+          limit: 979211
+          offset: 968616
+          search: "coffee"
       responses:
         "200":
-          application/json: {"success": true, "data": [{"key": "<key>"}]}
+          application/json: {"success": true, "data": [{"id": "aea3df39-a1bc-4185-b0ea-24fb970f7ba4", "created_at": "2025-10-12T04:57:58.645Z", "updated_at": "2024-05-13T21:29:34.089Z", "key": "<key>", "name": "<value>", "description": "fencing fooey with phooey pretty", "type": "<value>", "publisher_name": "<value>", "publisher_id": "f91fdf61-ef53-45d7-a531-d0668643af02", "start_date": "2023-03-26T00:03:30.226Z", "end_date": "2024-04-17T19:33:50.870Z", "frequency": null, "feature_count": 936931}]}
+        "422":
+          application/json: {}
+  get_strategies:
+    speakeasy-default-get-strategies:
+      parameters:
+        query:
+          include_relationships: true
+          strategy_name: "Coffee Arabica Combination v2025-06"
+      responses:
+        "200":
+          application/json: {"success": true, "data": []}
+        "422":
+          application/json: {}
+  get_strategy:
+    speakeasy-default-get-strategy:
+      parameters:
+        path:
+          strategy_id: "123e4567-e89b-12d3-a456-426614174000"
+        query:
+          include_relationships: true
+      responses:
+        "200":
+          application/json: {"success": true, "data": []}
+        "422":
+          application/json: {}
+  get_strategy_forecast:
+    speakeasy-default-get-strategy-forecast:
+      parameters:
+        path:
+          strategy_id: "123e4567-e89b-12d3-a456-426614174000"
+        query:
+          concatenate_trajectories: false
+      responses:
+        "200":
+          application/json: {"success": true, "data": [{"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": null, "code": null, "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "PT Cruiser", "forecast_date": "2023-07-23T23:55:22.486Z", "close_price_trajectory": [{"date": "2024-09-08T17:23:23.261Z", "target_date_contract": "<value>", "close_price": 4668.02}]}], "market_drivers": [{"model": "Beetle", "forecast_date": "2025-08-31T01:54:26.190Z", "target_date_contract": "<value>", "horizon": 368858, "categories": [{"category": "<value>", "contribution": 4840.73, "drilldown": [{"feature_code": "<value>", "contribution": 3892.38, "description": "of trek correctly lowball"}]}]}], "moving_averages": [{"horizon": 699309, "moving_average": []}]}]}]}
+        "422":
+          application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}

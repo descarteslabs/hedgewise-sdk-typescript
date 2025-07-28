@@ -13,6 +13,7 @@ Return the selected sector or asset class index historical values using a propri
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_asset_class_index" method="get" path="/v1/sector_index/{asset_class_symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

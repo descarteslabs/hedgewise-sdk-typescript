@@ -16,6 +16,7 @@ Returns a list of all asset classes, assets, and currently
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_data" method="get" path="/v1/data" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

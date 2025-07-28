@@ -21,6 +21,7 @@ Returns a list of all forecasts made for a given future
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="post_futures_forecasts" method="post" path="/v1/assets/futures/forecasts/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -114,6 +115,7 @@ Return a list of all forecast models for a given future symbol.  Forecast models
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_futures_forecasts_models" method="get" path="/v1/assets/futures/forecasts/{symbol}/models" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -189,6 +191,7 @@ Returns all output from a requested model over a given time span. The model
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_model_output" method="get" path="/v1/models/output/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -270,6 +273,7 @@ Returns the month day of the beginning and end of phenology stages for a given c
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_supply_phenology" method="get" path="/v1/supply/phenology" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -347,6 +351,7 @@ Registers a user in Hedgewise and provides an API key
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="user_registration" method="post" path="/v1/user_registration" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

@@ -14,6 +14,7 @@ Returns a list of all available asset categories, such as
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_asset_categories" method="get" path="/v1/assets" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

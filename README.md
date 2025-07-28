@@ -308,6 +308,12 @@ run();
 
 * [get](docs/sdks/sectorindices/README.md#get) - Get the proprietary value of the sector index requested
 
+### [strategies](docs/sdks/strategies/README.md)
+
+* [getStrategies](docs/sdks/strategies/README.md#getstrategies) - Get a list of all strategies
+* [getStrategy](docs/sdks/strategies/README.md#getstrategy) - Get a strategy by id
+* [getStrategyForecast](docs/sdks/strategies/README.md#getstrategyforecast) - Get forecasts for a strategy
+
 ### [supply](docs/sdks/supply/README.md)
 
 * [listCommodities](docs/sdks/supply/README.md#listcommodities) - List commodities with supply models
@@ -359,6 +365,9 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`performanceMetricsList`](docs/sdks/performancemetrics/README.md#list) - List available performance metrics and related models
 - [`postFuturesForecasts`](docs/sdks/hedgewise/README.md#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
 - [`sectorIndicesGet`](docs/sdks/sectorindices/README.md#get) - Get the proprietary value of the sector index requested
+- [`strategiesGetStrategies`](docs/sdks/strategies/README.md#getstrategies) - Get a list of all strategies
+- [`strategiesGetStrategy`](docs/sdks/strategies/README.md#getstrategy) - Get a strategy by id
+- [`strategiesGetStrategyForecast`](docs/sdks/strategies/README.md#getstrategyforecast) - Get forecasts for a strategy
 - [`supplyGet`](docs/sdks/supply/README.md#get) - Get supply data for a commodity and country
 - [`supplyListCommodities`](docs/sdks/supply/README.md#listcommodities) - List commodities with supply models
 - [`systemPing`](docs/sdks/system/README.md#ping) - Ping
@@ -531,8 +540,8 @@ run();
 
 
 **Inherit from [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts)**:
-* [`HTTPValidationError`](docs/models/errors/httpvalidationerror.md): Validation Error. Status code `422`. Applicable to 18 of 28 methods.*
-* [`GetUserRegistrationReponseError`](docs/models/errors/getuserregistrationreponseerror.md): Successful Response. Status code `401`. Applicable to 1 of 28 methods.*
+* [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. Applicable to 22 of 31 methods.*
+* [`GetUserRegistrationReponseError`](./src/models/errors/getuserregistrationreponseerror.ts): Successful Response. Status code `401`. Applicable to 1 of 31 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>

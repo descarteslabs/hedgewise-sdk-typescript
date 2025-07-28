@@ -16,6 +16,7 @@ Returns a list of all commodities that have supply models
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_supply_commodities" method="get" path="/v1/supply" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -87,6 +88,7 @@ Returns historical and forecasted supply data for a given
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_supply" method="get" path="/v1/supply/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

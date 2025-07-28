@@ -110,6 +110,7 @@ async function $do(
     "end_date": payload.end_date,
     "hedge_horizon": payload.hedge_horizon,
     "lookback_days": payload.lookback_days,
+    "model_name": payload.model_name,
     "start_date": payload.start_date,
   });
 
