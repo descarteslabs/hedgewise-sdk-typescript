@@ -14,6 +14,7 @@ Get most recent forex prices for all currencies
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_all_forex_prices" method="get" path="/v1/forex" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -83,6 +84,7 @@ Returns forex price history for a given currency code.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_forex_prices" method="get" path="/v1/forex/{code}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

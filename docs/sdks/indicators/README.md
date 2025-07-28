@@ -14,6 +14,7 @@ Returns the list of all available market indicators that
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_indicators" method="get" path="/v1/assets/futures/indicators" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

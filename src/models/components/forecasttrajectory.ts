@@ -3,66 +3,23 @@
  */
 
 import * as z from "zod";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
-
-/**
- * Number of days to forecast.
- */
-export type Horizon = number | string;
+import {
+  ForecastTrajectoryElement,
+  ForecastTrajectoryElement$inboundSchema,
+  ForecastTrajectoryElement$Outbound,
+  ForecastTrajectoryElement$outboundSchema,
+} from "./forecasttrajectoryelement.js";
 
 export type ForecastTrajectory = {
-  /**
-   * Specific model to use for forecast window.
-   */
-  model: string;
-  /**
-   * Number of days to forecast.
-   */
-  horizon: number | string;
+  trajectory: Array<ForecastTrajectoryElement>;
+  startDate: RFCDate;
+  endDate?: RFCDate | null | undefined;
 };
-
-/** @internal */
-export const Horizon$inboundSchema: z.ZodType<Horizon, z.ZodTypeDef, unknown> =
-  z.union([z.number().int(), z.string()]);
-
-/** @internal */
-export type Horizon$Outbound = number | string;
-
-/** @internal */
-export const Horizon$outboundSchema: z.ZodType<
-  Horizon$Outbound,
-  z.ZodTypeDef,
-  Horizon
-> = z.union([z.number().int(), z.string()]);
-
-/**
- * @internal
- * @deprecated This namespace will be removed in future versions. Use schemas and types that are exported directly from this module.
- */
-export namespace Horizon$ {
-  /** @deprecated use `Horizon$inboundSchema` instead. */
-  export const inboundSchema = Horizon$inboundSchema;
-  /** @deprecated use `Horizon$outboundSchema` instead. */
-  export const outboundSchema = Horizon$outboundSchema;
-  /** @deprecated use `Horizon$Outbound` instead. */
-  export type Outbound = Horizon$Outbound;
-}
-
-export function horizonToJSON(horizon: Horizon): string {
-  return JSON.stringify(Horizon$outboundSchema.parse(horizon));
-}
-
-export function horizonFromJSON(
-  jsonString: string,
-): SafeParseResult<Horizon, SDKValidationError> {
-  return safeParse(
-    jsonString,
-    (x) => Horizon$inboundSchema.parse(JSON.parse(x)),
-    `Failed to parse 'Horizon' from JSON`,
-  );
-}
 
 /** @internal */
 export const ForecastTrajectory$inboundSchema: z.ZodType<
@@ -70,14 +27,21 @@ export const ForecastTrajectory$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
-  model: z.string(),
-  horizon: z.union([z.number().int(), z.string()]),
+  trajectory: z.array(ForecastTrajectoryElement$inboundSchema),
+  start_date: z.string().transform(v => new RFCDate(v)),
+  end_date: z.nullable(z.string().transform(v => new RFCDate(v))).optional(),
+}).transform((v) => {
+  return remap$(v, {
+    "start_date": "startDate",
+    "end_date": "endDate",
+  });
 });
 
 /** @internal */
 export type ForecastTrajectory$Outbound = {
-  model: string;
-  horizon: number | string;
+  trajectory: Array<ForecastTrajectoryElement$Outbound>;
+  start_date: string;
+  end_date?: string | null | undefined;
 };
 
 /** @internal */
@@ -86,8 +50,15 @@ export const ForecastTrajectory$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   ForecastTrajectory
 > = z.object({
-  model: z.string(),
-  horizon: z.union([z.number().int(), z.string()]),
+  trajectory: z.array(ForecastTrajectoryElement$outboundSchema),
+  startDate: z.instanceof(RFCDate).transform(v => v.toString()),
+  endDate: z.nullable(z.instanceof(RFCDate).transform(v => v.toString()))
+    .optional(),
+}).transform((v) => {
+  return remap$(v, {
+    startDate: "start_date",
+    endDate: "end_date",
+  });
 });
 
 /**

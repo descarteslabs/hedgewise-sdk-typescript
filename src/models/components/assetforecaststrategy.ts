@@ -8,11 +8,11 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
 import {
-  ForecastTrajectory,
-  ForecastTrajectory$inboundSchema,
-  ForecastTrajectory$Outbound,
-  ForecastTrajectory$outboundSchema,
-} from "./forecasttrajectory.js";
+  ForecastTrajectorySpec,
+  ForecastTrajectorySpec$inboundSchema,
+  ForecastTrajectorySpec$Outbound,
+  ForecastTrajectorySpec$outboundSchema,
+} from "./forecasttrajectoryspec.js";
 
 export type AssetForecastStrategy = {
   /**
@@ -34,7 +34,7 @@ export type AssetForecastStrategy = {
   /**
    * Apply a blended strategy combining a requested model name with how many days to forecast.
    */
-  trajectory: Array<ForecastTrajectory>;
+  trajectory: Array<ForecastTrajectorySpec>;
   /**
    * Apply an empirical price collar to the forecasts. This regulates the forecast when it suggests implausibly large price changes. A smaller number results in a more aggressive collar. Must be a positive number.
    */
@@ -71,7 +71,7 @@ export const AssetForecastStrategy$inboundSchema: z.ZodType<
 > = z.object({
   start_date: z.nullable(z.string()).optional(),
   end_date: z.nullable(z.string()).optional(),
-  trajectory: z.array(ForecastTrajectory$inboundSchema),
+  trajectory: z.array(ForecastTrajectorySpec$inboundSchema),
   price_collar_sigma: z.number().default(0),
   estimate_uncertainty: z.boolean().default(false),
   interpolate: z.boolean().default(false),
@@ -92,7 +92,7 @@ export const AssetForecastStrategy$inboundSchema: z.ZodType<
 export type AssetForecastStrategy$Outbound = {
   start_date?: string | null | undefined;
   end_date?: string | null | undefined;
-  trajectory: Array<ForecastTrajectory$Outbound>;
+  trajectory: Array<ForecastTrajectorySpec$Outbound>;
   price_collar_sigma: number;
   estimate_uncertainty: boolean;
   interpolate: boolean;
@@ -108,7 +108,7 @@ export const AssetForecastStrategy$outboundSchema: z.ZodType<
 > = z.object({
   startDate: z.nullable(z.string()).optional(),
   endDate: z.nullable(z.string()).optional(),
-  trajectory: z.array(ForecastTrajectory$outboundSchema),
+  trajectory: z.array(ForecastTrajectorySpec$outboundSchema),
   priceCollarSigma: z.number().default(0),
   estimateUncertainty: z.boolean().default(false),
   interpolate: z.boolean().default(false),

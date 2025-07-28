@@ -8,15 +8,26 @@ import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { RFCDate } from "../../types/rfcdate.js";
 import { SDKValidationError } from "../errors/sdkvalidationerror.js";
+import {
+  ForecastTrajectory,
+  ForecastTrajectory$inboundSchema,
+  ForecastTrajectory$Outbound,
+  ForecastTrajectory$outboundSchema,
+} from "./forecasttrajectory.js";
 
 export type AssetForecastModelData = {
+  modelType: string;
   modelName: string;
+  displayName: string;
   startDate: RFCDate;
   endDate: RFCDate;
   horizons: Array<number>;
+  indicators: Array<string>;
+  native: boolean;
   targetType?: string | null | undefined;
   rollingMeanWindows?: Array<number> | null | undefined;
   features?: Array<string> | null | undefined;
+  strategy?: Array<ForecastTrajectory> | null | undefined;
 };
 
 /** @internal */
@@ -25,16 +36,23 @@ export const AssetForecastModelData$inboundSchema: z.ZodType<
   z.ZodTypeDef,
   unknown
 > = z.object({
+  model_type: z.string(),
   model_name: z.string(),
+  display_name: z.string(),
   start_date: z.string().transform(v => new RFCDate(v)),
   end_date: z.string().transform(v => new RFCDate(v)),
   horizons: z.array(z.number().int()),
+  indicators: z.array(z.string()),
+  native: z.boolean(),
   target_type: z.nullable(z.string()).optional(),
   rolling_mean_windows: z.nullable(z.array(z.number().int())).optional(),
   features: z.nullable(z.array(z.string())).optional(),
+  strategy: z.nullable(z.array(ForecastTrajectory$inboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
+    "model_type": "modelType",
     "model_name": "modelName",
+    "display_name": "displayName",
     "start_date": "startDate",
     "end_date": "endDate",
     "target_type": "targetType",
@@ -44,13 +62,18 @@ export const AssetForecastModelData$inboundSchema: z.ZodType<
 
 /** @internal */
 export type AssetForecastModelData$Outbound = {
+  model_type: string;
   model_name: string;
+  display_name: string;
   start_date: string;
   end_date: string;
   horizons: Array<number>;
+  indicators: Array<string>;
+  native: boolean;
   target_type?: string | null | undefined;
   rolling_mean_windows?: Array<number> | null | undefined;
   features?: Array<string> | null | undefined;
+  strategy?: Array<ForecastTrajectory$Outbound> | null | undefined;
 };
 
 /** @internal */
@@ -59,16 +82,23 @@ export const AssetForecastModelData$outboundSchema: z.ZodType<
   z.ZodTypeDef,
   AssetForecastModelData
 > = z.object({
+  modelType: z.string(),
   modelName: z.string(),
+  displayName: z.string(),
   startDate: z.instanceof(RFCDate).transform(v => v.toString()),
   endDate: z.instanceof(RFCDate).transform(v => v.toString()),
   horizons: z.array(z.number().int()),
+  indicators: z.array(z.string()),
+  native: z.boolean(),
   targetType: z.nullable(z.string()).optional(),
   rollingMeanWindows: z.nullable(z.array(z.number().int())).optional(),
   features: z.nullable(z.array(z.string())).optional(),
+  strategy: z.nullable(z.array(ForecastTrajectory$outboundSchema)).optional(),
 }).transform((v) => {
   return remap$(v, {
+    modelType: "model_type",
     modelName: "model_name",
+    displayName: "display_name",
     startDate: "start_date",
     endDate: "end_date",
     targetType: "target_type",

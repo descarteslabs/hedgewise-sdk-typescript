@@ -14,6 +14,7 @@ Returns the list of success data that can be requested to assess our forecasting
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_performance_metrics" method="get" path="/v1/models/performance" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -83,6 +84,7 @@ The metrics values are not provided as-is, but the relevant data and recommended
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_performance_metrics" method="get" path="/v1/models/performance/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -101,6 +103,7 @@ async function run() {
     thresholdOnForecast: 0,
     thresholdOnActual: 0,
     sigma: 2,
+    modelName: "coffee_arabica_v1_3",
   });
 
   console.log(result);
@@ -134,6 +137,7 @@ async function run() {
     thresholdOnForecast: 0,
     thresholdOnActual: 0,
     sigma: 2,
+    modelName: "coffee_arabica_v1_3",
   });
   if (res.ok) {
     const { value: result } = res;

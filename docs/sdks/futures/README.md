@@ -19,6 +19,7 @@ Returns a list of all available future symbols that
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_futures" method="get" path="/v1/assets/futures" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -90,6 +91,7 @@ Returns a list of all trading days for a given future
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_asset_calendar" method="get" path="/v1/assets/futures/calendars/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -172,6 +174,7 @@ Returns a list of all forecasts made for a given future
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_futures_forecasts" method="get" path="/v1/assets/futures/forecasts/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -236,7 +239,7 @@ run();
 
 ### Response
 
-**Promise\<[operations.ResponseGetFuturesForecasts](../../models/operations/responsegetfuturesforecasts.md)\>**
+**Promise\<[components.GetAssetForecastsResponse](../../models/components/getassetforecastsresponse.md)\>**
 
 ### Errors
 
@@ -251,6 +254,7 @@ Returns a list of booleans indicating whether the price of the given future is e
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_long_term_forecast" method="get" path="/v1/assets/futures/forecasts/{symbol}/long_term_forecast" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -339,6 +343,7 @@ Returns a list of values indicating the likelihood that the
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_hedge_indicator" method="get" path="/v1/assets/futures/indicators/hedge/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -354,6 +359,7 @@ async function run() {
     hedgeHorizon: 86,
     startDate: "2025-03-24",
     endDate: "2025-04-24",
+    modelName: "default",
   });
 
   console.log(result);
@@ -384,6 +390,7 @@ async function run() {
     hedgeHorizon: 86,
     startDate: "2025-03-24",
     endDate: "2025-04-24",
+    modelName: "default",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -423,6 +430,7 @@ Returns historical price data for a given future symbol.
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_futures_prices" method="get" path="/v1/assets/futures/prices/{symbol}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

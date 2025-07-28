@@ -12,7 +12,7 @@ let value: PostAssetForecastsResponse = {
 
 ## Fields
 
-| Field                    | Type                     | Required                 | Description              |
-| ------------------------ | ------------------------ | ------------------------ | ------------------------ |
-| `success`                | *boolean*                | :heavy_check_mark:       | N/A                      |
-| `data`                   | *components.DataUnion*[] | :heavy_check_mark:       | N/A                      |
+| Field                                                                          | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `success`                                                                      | *boolean*                                                                      | :heavy_check_mark:                                                             | N/A                                                                            |
+| `data`                                                                         | [components.AssetForecastData](../../models/components/assetforecastdata.md)[] | :heavy_check_mark:                                                             | N/A                                                                            |

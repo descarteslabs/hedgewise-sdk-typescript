@@ -13,6 +13,7 @@ Returns a list of all datasets. Datasets are collections of features grouped by 
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_datasets" method="get" path="/v1/datasets" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -22,7 +23,35 @@ const hedgewise = new Hedgewise({
 });
 
 async function run() {
-  const result = await hedgewise.datasets.getDatasets();
+  const result = await hedgewise.datasets.getDatasets({
+    symbols: [
+      "KC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 979211,
+    offset: 968616,
+    search: "coffee",
+  });
 
   console.log(result);
 }
@@ -46,7 +75,35 @@ const hedgewise = new HedgewiseCore({
 });
 
 async function run() {
-  const res = await datasetsGetDatasets(hedgewise);
+  const res = await datasetsGetDatasets(hedgewise, {
+    symbols: [
+      "KC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 979211,
+    offset: 968616,
+    search: "coffee",
+  });
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
@@ -62,6 +119,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.GetDatasetsRequest](../../models/operations/getdatasetsrequest.md)                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
 | `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
@@ -72,6 +130,7 @@ run();
 
 ### Errors
 
-| Error Type      | Status Code     | Content Type    |
-| --------------- | --------------- | --------------- |
-| errors.APIError | 4XX, 5XX        | \*/\*           |
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |

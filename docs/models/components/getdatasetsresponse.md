@@ -12,7 +12,7 @@ let value: GetDatasetsResponse = {
 
 ## Fields
 
-| Field                                                      | Type                                                       | Required                                                   | Description                                                |
-| ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------- |
-| `success`                                                  | *boolean*                                                  | :heavy_check_mark:                                         | N/A                                                        |
-| `data`                                                     | [components.Dataset](../../models/components/dataset.md)[] | :heavy_check_mark:                                         | N/A                                                        |
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `success`                                                                  | *boolean*                                                                  | :heavy_check_mark:                                                         | N/A                                                                        |
+| `data`                                                                     | [components.DatasetResponse](../../models/components/datasetresponse.md)[] | :heavy_check_mark:                                                         | N/A                                                                        |

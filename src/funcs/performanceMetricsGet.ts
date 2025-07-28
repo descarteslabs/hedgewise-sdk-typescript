@@ -103,6 +103,7 @@ async function $do(
     "end_date": payload.end_date,
     "horizon": payload.horizon,
     "metric": payload.metric,
+    "model_name": payload.model_name,
     "sigma": payload.sigma,
     "start_date": payload.start_date,
     "threshold_on_actual": payload.threshold_on_actual,

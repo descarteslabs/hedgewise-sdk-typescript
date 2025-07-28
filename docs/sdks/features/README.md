@@ -17,6 +17,7 @@ Provide the organization of a search tree over the features organization
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_features_tree" method="get" path="/v1/features_tree" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -88,6 +89,7 @@ Returns the list of all available features that Hedgewise
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_available_features" method="get" path="/v1/features" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -98,8 +100,33 @@ const hedgewise = new Hedgewise({
 
 async function run() {
   const result = await hedgewise.features.list({
-    symbol: "ZC",
-    datasetKey: "technical_macro_v1_2025",
+    symbols: [
+      "ZC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 761472,
+    offset: 958645,
+    search: "coffee",
   });
 
   console.log(result);
@@ -125,8 +152,33 @@ const hedgewise = new HedgewiseCore({
 
 async function run() {
   const res = await featuresList(hedgewise, {
-    symbol: "ZC",
-    datasetKey: "technical_macro_v1_2025",
+    symbols: [
+      "ZC",
+    ],
+    datasetKeys: [
+      "technical_macro_v1_2025",
+    ],
+    statisticTypes: [
+      "raw_value",
+    ],
+    variableTypes: [
+      "price",
+    ],
+    sources: [
+      "CFTC",
+    ],
+    countries: [
+      "usa",
+    ],
+    frequencies: [
+      "daily",
+    ],
+    phenologyStages: [
+      "harvest",
+    ],
+    limit: 761472,
+    offset: 958645,
+    search: "coffee",
   });
   if (res.ok) {
     const { value: result } = res;
@@ -168,6 +220,7 @@ Returns historical values for a given feature code. The
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_features_historical_values" method="get" path="/v1/features/historical/{feature_code}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -255,6 +308,7 @@ Provides a facility to apply transformation like computing the average of 5 year
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_transformed_feature_values" method="get" path="/v1/features/transform/{feature_code}" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 
@@ -341,6 +395,7 @@ Provides a facility to create an index formed as a weighted basket of the list o
 
 ### Example Usage
 
+<!-- UsageSnippet language="typescript" operationID="get_weighted_index" method="get" path="/v1/features/weighted_index/" -->
 ```typescript
 import { Hedgewise } from "hedgewise";
 

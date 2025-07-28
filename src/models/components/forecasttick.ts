@@ -12,12 +12,9 @@ export type ForecastTick = {
   date: Date;
   targetDateContract: string;
   closePrice: number;
-  lowerBound1Sigma?: number | null | undefined;
-  upperBound1Sigma?: number | null | undefined;
-  lowerBound2Sigma?: number | null | undefined;
-  upperBound2Sigma?: number | null | undefined;
-  lowerBound3Sigma?: number | null | undefined;
-  upperBound3Sigma?: number | null | undefined;
+  lowerBounds?: Array<number> | null | undefined;
+  upperBounds?: Array<number> | null | undefined;
+  sigmas?: Array<number> | null | undefined;
   interpolated?: boolean | null | undefined;
 };
 
@@ -30,23 +27,16 @@ export const ForecastTick$inboundSchema: z.ZodType<
   date: z.string().datetime({ offset: true }).transform(v => new Date(v)),
   target_date_contract: z.string(),
   close_price: z.number(),
-  lower_bound_1_sigma: z.nullable(z.number()).optional(),
-  upper_bound_1_sigma: z.nullable(z.number()).optional(),
-  lower_bound_2_sigma: z.nullable(z.number()).optional(),
-  upper_bound_2_sigma: z.nullable(z.number()).optional(),
-  lower_bound_3_sigma: z.nullable(z.number()).optional(),
-  upper_bound_3_sigma: z.nullable(z.number()).optional(),
+  lower_bounds: z.nullable(z.array(z.number())).optional(),
+  upper_bounds: z.nullable(z.array(z.number())).optional(),
+  sigmas: z.nullable(z.array(z.number())).optional(),
   interpolated: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     "target_date_contract": "targetDateContract",
     "close_price": "closePrice",
-    "lower_bound_1_sigma": "lowerBound1Sigma",
-    "upper_bound_1_sigma": "upperBound1Sigma",
-    "lower_bound_2_sigma": "lowerBound2Sigma",
-    "upper_bound_2_sigma": "upperBound2Sigma",
-    "lower_bound_3_sigma": "lowerBound3Sigma",
-    "upper_bound_3_sigma": "upperBound3Sigma",
+    "lower_bounds": "lowerBounds",
+    "upper_bounds": "upperBounds",
   });
 });
 
@@ -55,12 +45,9 @@ export type ForecastTick$Outbound = {
   date: string;
   target_date_contract: string;
   close_price: number;
-  lower_bound_1_sigma?: number | null | undefined;
-  upper_bound_1_sigma?: number | null | undefined;
-  lower_bound_2_sigma?: number | null | undefined;
-  upper_bound_2_sigma?: number | null | undefined;
-  lower_bound_3_sigma?: number | null | undefined;
-  upper_bound_3_sigma?: number | null | undefined;
+  lower_bounds?: Array<number> | null | undefined;
+  upper_bounds?: Array<number> | null | undefined;
+  sigmas?: Array<number> | null | undefined;
   interpolated?: boolean | null | undefined;
 };
 
@@ -73,23 +60,16 @@ export const ForecastTick$outboundSchema: z.ZodType<
   date: z.date().transform(v => v.toISOString()),
   targetDateContract: z.string(),
   closePrice: z.number(),
-  lowerBound1Sigma: z.nullable(z.number()).optional(),
-  upperBound1Sigma: z.nullable(z.number()).optional(),
-  lowerBound2Sigma: z.nullable(z.number()).optional(),
-  upperBound2Sigma: z.nullable(z.number()).optional(),
-  lowerBound3Sigma: z.nullable(z.number()).optional(),
-  upperBound3Sigma: z.nullable(z.number()).optional(),
+  lowerBounds: z.nullable(z.array(z.number())).optional(),
+  upperBounds: z.nullable(z.array(z.number())).optional(),
+  sigmas: z.nullable(z.array(z.number())).optional(),
   interpolated: z.nullable(z.boolean()).optional(),
 }).transform((v) => {
   return remap$(v, {
     targetDateContract: "target_date_contract",
     closePrice: "close_price",
-    lowerBound1Sigma: "lower_bound_1_sigma",
-    upperBound1Sigma: "upper_bound_1_sigma",
-    lowerBound2Sigma: "lower_bound_2_sigma",
-    upperBound2Sigma: "upper_bound_2_sigma",
-    lowerBound3Sigma: "lower_bound_3_sigma",
-    upperBound3Sigma: "upper_bound_3_sigma",
+    lowerBounds: "lower_bounds",
+    upperBounds: "upper_bounds",
   });
 });
 
