@@ -7,14 +7,10 @@ import { dlv } from "./dlv.js";
 import * as z from "zod";
 
 export interface Env {
-  HEDGEWISE_BEARER_AUTH?: string | undefined;
-
   HEDGEWISE_DEBUG?: boolean | undefined;
 }
 
 export const envSchema: z.ZodType<Env, z.ZodTypeDef, unknown> = z.object({
-  HEDGEWISE_BEARER_AUTH: z.string().optional(),
-
   HEDGEWISE_DEBUG: z.coerce.boolean().optional(),
 });
 

@@ -17,9 +17,7 @@ Developer-friendly & type-safe Typescript SDK specifically catered to leverage *
 <!-- Start Summary [summary] -->
 ## Summary
 
-Hedgewise: Hedgewise API
 
-Access to Hedgewise data provided by EarthDaily.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
@@ -29,7 +27,6 @@ Access to Hedgewise data provided by EarthDaily.
   * [SDK Installation](#sdk-installation)
   * [Requirements](#requirements)
   * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
   * [Retries](#retries)
@@ -99,8 +96,7 @@ Add the following server definition to your `claude_desktop_config.json` file:
         "-y", "--package", "hedgewise",
         "--",
         "mcp", "start",
-        "--server-url", "...",
-        "--bearer-auth", "..."
+        "--server-url", "..."
       ]
     }
   }
@@ -123,8 +119,7 @@ Create a `.cursor/mcp.json` file in your project root with the following content
         "-y", "--package", "hedgewise",
         "--",
         "mcp", "start",
-        "--server-url", "...",
-        "--bearer-auth", "..."
+        "--server-url", "..."
       ]
     }
   }
@@ -180,7 +175,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -204,48 +198,6 @@ run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
-
-<!-- Start Authentication [security] -->
-## Authentication
-
-### Per-Client Security Schemes
-
-This SDK supports the following security scheme globally:
-
-| Name         | Type | Scheme      | Environment Variable    |
-| ------------ | ---- | ----------- | ----------------------- |
-| `bearerAuth` | http | HTTP Bearer | `HEDGEWISE_BEARER_AUTH` |
-
-To authenticate with the API the `bearerAuth` parameter must be set when initializing the SDK client instance. For example:
-```typescript
-import { Hedgewise } from "hedgewise";
-
-const hedgewise = new Hedgewise({
-  serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
-});
-
-async function run() {
-  const result = await hedgewise.postFuturesForecasts({
-    symbol: "ZC",
-    postAssetForecastsRequest: {
-      strategy: [
-        {
-          startDate: "2025-04-24",
-          endDate: "2025-04-24",
-          trajectory: [],
-        },
-      ],
-    },
-  });
-
-  console.log(result);
-}
-
-run();
-
-```
-<!-- End Authentication [security] -->
 
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
@@ -298,6 +250,14 @@ run();
 ### [indicators](docs/sdks/indicators/README.md)
 
 * [list](docs/sdks/indicators/README.md#list) - List available indicators
+
+### [mcpOnly](docs/sdks/mcponly/README.md)
+
+* [getFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet](docs/sdks/mcponly/README.md#getfuturespricesllmv1assetsfuturespricessymbolllmget) - Get historical prices for a future
+* [getFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet](docs/sdks/mcponly/README.md#getfuturesforecastsllmv1assetsfuturesforecastssymbolllmget) - Get forecasts for a future
+* [getFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet](docs/sdks/mcponly/README.md#getfutureslongtermforecastllmv1assetsfuturesforecastssymbollongtermforecastllmget) - Get long-term forecasts for a future
+* [getForexDataLlmCodeLlmGet](docs/sdks/mcponly/README.md#getforexdatallmcodellmget) - Get forex data for one currency
+* [getSupplyLlm](docs/sdks/mcponly/README.md#getsupplyllm) - Get supply data for a commodity and country
 
 ### [performanceMetrics](docs/sdks/performancemetrics/README.md)
 
@@ -361,6 +321,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`getModelOutput`](docs/sdks/hedgewise/README.md#getmodeloutput) - Get the output of a model for a given symbol
 - [`getSupplyPhenology`](docs/sdks/hedgewise/README.md#getsupplyphenology) - Get phenology stages information for a crop and country and or region
 - [`indicatorsList`](docs/sdks/indicators/README.md#list) - List available indicators
+- [`mcpOnlyGetForexDataLlmCodeLlmGet`](docs/sdks/mcponly/README.md#getforexdatallmcodellmget) - Get forex data for one currency
+- [`mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet`](docs/sdks/mcponly/README.md#getfuturesforecastsllmv1assetsfuturesforecastssymbolllmget) - Get forecasts for a future
+- [`mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet`](docs/sdks/mcponly/README.md#getfutureslongtermforecastllmv1assetsfuturesforecastssymbollongtermforecastllmget) - Get long-term forecasts for a future
+- [`mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet`](docs/sdks/mcponly/README.md#getfuturespricesllmv1assetsfuturespricessymbolllmget) - Get historical prices for a future
+- [`mcpOnlyGetSupplyLlm`](docs/sdks/mcponly/README.md#getsupplyllm) - Get supply data for a commodity and country
 - [`performanceMetricsGet`](docs/sdks/performancemetrics/README.md#get) - Get performance related data metrics for a given futures price forecast model at a given horizon.
 - [`performanceMetricsList`](docs/sdks/performancemetrics/README.md#list) - List available performance metrics and related models
 - [`postFuturesForecasts`](docs/sdks/hedgewise/README.md#postfuturesforecasts) - Get forecasts for a future supporting multiple date ranges and model selection
@@ -387,7 +352,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -438,7 +402,6 @@ const hedgewise = new Hedgewise({
     },
     retryConnectionErrors: false,
   },
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -484,7 +447,6 @@ import * as errors from "hedgewise/models/errors";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -540,8 +502,8 @@ run();
 
 
 **Inherit from [`HedgewiseError`](./src/models/errors/hedgewiseerror.ts)**:
-* [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. Applicable to 22 of 31 methods.*
-* [`GetUserRegistrationReponseError`](./src/models/errors/getuserregistrationreponseerror.ts): Successful Response. Status code `401`. Applicable to 1 of 31 methods.*
+* [`HTTPValidationError`](./src/models/errors/httpvalidationerror.ts): Validation Error. Status code `422`. Applicable to 27 of 36 methods.*
+* [`GetUserRegistrationReponseError`](./src/models/errors/getuserregistrationreponseerror.ts): Successful Response. Status code `401`. Applicable to 1 of 36 methods.*
 * [`ResponseValidationError`](./src/models/errors/responsevalidationerror.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
