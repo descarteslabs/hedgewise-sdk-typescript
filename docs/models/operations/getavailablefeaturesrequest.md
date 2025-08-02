@@ -12,6 +12,7 @@ let value: GetAvailableFeaturesRequest = {
   datasetKeys: [
     "technical_macro_v1_2025",
   ],
+  featuresStrength: true,
   statisticTypes: [
     "raw_value",
   ],
@@ -42,7 +43,7 @@ let value: GetAvailableFeaturesRequest = {
 | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
 | `symbols`                                                        | *string*[]                                                       | :heavy_minus_sign:                                               | Futures contract symbol                                          | ZC                                                               |
 | `datasetKeys`                                                    | *string*[]                                                       | :heavy_minus_sign:                                               | Dataset key to which the features                                | technical_macro_v1_2025                                          |
-| `featuresStrength`                                               | *boolean*                                                        | :heavy_minus_sign:                                               | Calculate how strongly a feature affects a given commodity       |                                                                  |
+| `featuresStrength`                                               | *boolean*                                                        | :heavy_minus_sign:                                               | Calculate how strongly a feature affects a given commodity       | true                                                             |
 | `statisticTypes`                                                 | *string*[]                                                       | :heavy_minus_sign:                                               | Filter by statistic_type                                         | raw_value                                                        |
 | `variableTypes`                                                  | *string*[]                                                       | :heavy_minus_sign:                                               | Filter by variable_type                                          | price                                                            |
 | `sources`                                                        | *string*[]                                                       | :heavy_minus_sign:                                               | Filter by source                                                 | CFTC                                                             |

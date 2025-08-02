@@ -23,7 +23,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -47,7 +46,6 @@ import { featuresGetTree } from "hedgewise/funcs/featuresGetTree.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -95,7 +93,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -106,6 +103,7 @@ async function run() {
     datasetKeys: [
       "technical_macro_v1_2025",
     ],
+    featuresStrength: true,
     statisticTypes: [
       "raw_value",
     ],
@@ -147,7 +145,6 @@ import { featuresList } from "hedgewise/funcs/featuresList.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -158,6 +155,7 @@ async function run() {
     datasetKeys: [
       "technical_macro_v1_2025",
     ],
+    featuresStrength: true,
     statisticTypes: [
       "raw_value",
     ],
@@ -226,7 +224,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -257,7 +254,6 @@ import { featuresGetHistoricalValues } from "hedgewise/funcs/featuresGetHistoric
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -314,7 +310,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -345,7 +340,6 @@ import { featuresGetTransformedValues } from "hedgewise/funcs/featuresGetTransfo
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -401,7 +395,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -435,7 +428,6 @@ import { featuresGetWeightedIndex } from "hedgewise/funcs/featuresGetWeightedInd
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {

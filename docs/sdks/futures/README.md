@@ -25,7 +25,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -49,7 +48,6 @@ import { futuresList } from "hedgewise/funcs/futuresList.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -97,7 +95,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -125,7 +122,6 @@ import { futuresGetCalendar } from "hedgewise/funcs/futuresGetCalendar.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -180,7 +176,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -208,7 +203,6 @@ import { futuresGetForecasts } from "hedgewise/funcs/futuresGetForecasts.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -260,7 +254,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -290,7 +283,6 @@ import { futuresGetLongTermForecast } from "hedgewise/funcs/futuresGetLongTermFo
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -349,7 +341,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -380,7 +371,6 @@ import { futuresGetHedgeIndicator } from "hedgewise/funcs/futuresGetHedgeIndicat
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -436,7 +426,6 @@ import { Hedgewise } from "hedgewise";
 
 const hedgewise = new Hedgewise({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {
@@ -465,7 +454,6 @@ import { futuresGetPrices } from "hedgewise/funcs/futuresGetPrices.js";
 // You can create one instance of it to use across an application.
 const hedgewise = new HedgewiseCore({
   serverURL: "https://api.example.com",
-  bearerAuth: process.env["HEDGEWISE_BEARER_AUTH"] ?? "",
 });
 
 async function run() {

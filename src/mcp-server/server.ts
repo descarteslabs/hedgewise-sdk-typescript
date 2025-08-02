@@ -33,6 +33,13 @@ import { tool$getFuturesForecastsModels } from "./tools/getFuturesForecastsModel
 import { tool$getModelOutput } from "./tools/getModelOutput.js";
 import { tool$getSupplyPhenology } from "./tools/getSupplyPhenology.js";
 import { tool$indicatorsList } from "./tools/indicatorsList.js";
+import { tool$mcpOnlyGetForexDataLlmCodeLlmGet } from "./tools/mcpOnlyGetForexDataLlmCodeLlmGet.js";
+import { tool$mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet } from "./tools/mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet.js";
+import {
+  tool$mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet,
+} from "./tools/mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet.js";
+import { tool$mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet } from "./tools/mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet.js";
+import { tool$mcpOnlyGetSupplyLlm } from "./tools/mcpOnlyGetSupplyLlm.js";
 import { tool$performanceMetricsGet } from "./tools/performanceMetricsGet.js";
 import { tool$performanceMetricsList } from "./tools/performanceMetricsList.js";
 import { tool$postFuturesForecasts } from "./tools/postFuturesForecasts.js";
@@ -50,16 +57,14 @@ export function createMCPServer(deps: {
   allowedTools?: string[] | undefined;
   scopes?: MCPScope[] | undefined;
   serverURL: string;
-  bearerAuth?: SDKOptions["bearerAuth"] | undefined;
   serverIdx?: SDKOptions["serverIdx"] | undefined;
 }) {
   const server = new McpServer({
     name: "Hedgewise",
-    version: "0.7.0",
+    version: "0.8.0",
   });
 
   const client = new HedgewiseCore({
-    bearerAuth: deps.bearerAuth,
     serverURL: deps.serverURL,
     serverIdx: deps.serverIdx,
   });
@@ -100,6 +105,13 @@ export function createMCPServer(deps: {
   tool(tool$futuresGetHedgeIndicator);
   tool(tool$futuresGetPrices);
   tool(tool$indicatorsList);
+  tool(tool$mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet);
+  tool(tool$mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet);
+  tool(
+    tool$mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet,
+  );
+  tool(tool$mcpOnlyGetForexDataLlmCodeLlmGet);
+  tool(tool$mcpOnlyGetSupplyLlm);
   tool(tool$forexListPrices);
   tool(tool$forexGetPrices);
   tool(tool$featuresGetTree);
