@@ -18,6 +18,7 @@ import { Features } from "./features.js";
 import { Forex } from "./forex.js";
 import { Futures } from "./futures.js";
 import { Indicators } from "./indicators.js";
+import { McpOnly } from "./mcponly.js";
 import { PerformanceMetrics } from "./performancemetrics.js";
 import { SectorIndices } from "./sectorindices.js";
 import { Strategies } from "./strategies.js";
@@ -48,6 +49,11 @@ export class Hedgewise extends ClientSDK {
   private _indicators?: Indicators;
   get indicators(): Indicators {
     return (this._indicators ??= new Indicators(this._options));
+  }
+
+  private _mcpOnly?: McpOnly;
+  get mcpOnly(): McpOnly {
+    return (this._mcpOnly ??= new McpOnly(this._options));
   }
 
   private _forex?: Forex;

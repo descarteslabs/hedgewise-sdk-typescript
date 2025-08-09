@@ -72,7 +72,6 @@ export * from "./postassetforecastsrequest.js";
 export * from "./postassetforecastsresponse.js";
 export * from "./sectorindexhistoricaldata.js";
 export * from "./sectorindextick.js";
-export * from "./security.js";
 export * from "./strategyresponse.js";
 export * from "./strategytrajectoryhorizonresponse.js";
 export * from "./strategytrajectoryresponse.js";

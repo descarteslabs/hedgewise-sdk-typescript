@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 383bf1d0-1849-43fc-8c48-dfc9f04e921c
 management:
-  docChecksum: e31e6ab31a8d7a3a587f751e49127a7d
-  docVersion: 1.0.0
-  speakeasyVersion: 1.592.1
-  generationVersion: 2.667.0
-  releaseVersion: 0.7.0
-  configChecksum: 5e48831193dc7afc3c1fbe310880c92d
+  docChecksum: f8697c6dea9aef93b0f6c394016e6fab
+  docVersion: 0.1.0
+  speakeasyVersion: 1.600.2
+  generationVersion: 2.677.3
+  releaseVersion: 0.8.0
+  configChecksum: c85db7c4fc44d9ed8586846b79e2cab9
   repoURL: https://github.com/descarteslabs/hedgewise-sdk-typescript.git
   installationURL: https://github.com/descarteslabs/hedgewise-sdk-typescript
   published: true
@@ -14,13 +14,11 @@ features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.12
-    core: 3.21.16
+    core: 3.21.20
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.0
     envVarSecurityUsage: 0.1.2
-    globalSecurity: 2.82.13
     globalSecurityCallbacks: 0.1.0
-    globalSecurityFlattening: 0.1.0
     globalServerURLs: 2.82.5
     groups: 2.81.2
     mcpServer: 0.9.3
@@ -112,7 +110,6 @@ generatedFiles:
   - docs/models/components/postassetforecastsresponse.md
   - docs/models/components/sectorindexhistoricaldata.md
   - docs/models/components/sectorindextick.md
-  - docs/models/components/security.md
   - docs/models/components/strategyresponse.md
   - docs/models/components/strategytrajectoryhorizonresponse.md
   - docs/models/components/strategytrajectoryresponse.md
@@ -127,9 +124,13 @@ generatedFiles:
   - docs/models/operations/getavailablefeaturesrequest.md
   - docs/models/operations/getdatasetsrequest.md
   - docs/models/operations/getfeatureshistoricalvaluesrequest.md
+  - docs/models/operations/getforexdatallmcodellmgetrequest.md
   - docs/models/operations/getforexpricesrequest.md
+  - docs/models/operations/getfuturesforecastsllmv1assetsfuturesforecastssymbolllmgetrequest.md
   - docs/models/operations/getfuturesforecastsmodelsrequest.md
   - docs/models/operations/getfuturesforecastsrequest.md
+  - docs/models/operations/getfutureslongtermforecastllmv1assetsfuturesforecastssymbollongtermforecastllmgetrequest.md
+  - docs/models/operations/getfuturespricesllmv1assetsfuturespricessymbolllmgetrequest.md
   - docs/models/operations/getfuturespricesrequest.md
   - docs/models/operations/gethedgeindicatorrequest.md
   - docs/models/operations/getlongtermforecastrequest.md
@@ -138,6 +139,7 @@ generatedFiles:
   - docs/models/operations/getstrategiesrequest.md
   - docs/models/operations/getstrategyforecastrequest.md
   - docs/models/operations/getstrategyrequest.md
+  - docs/models/operations/getsupplyllmrequest.md
   - docs/models/operations/getsupplyphenologyrequest.md
   - docs/models/operations/getsupplyrequest.md
   - docs/models/operations/gettransformedfeaturevaluesrequest.md
@@ -151,6 +153,7 @@ generatedFiles:
   - docs/sdks/futures/README.md
   - docs/sdks/hedgewise/README.md
   - docs/sdks/indicators/README.md
+  - docs/sdks/mcponly/README.md
   - docs/sdks/performancemetrics/README.md
   - docs/sdks/sectorindices/README.md
   - docs/sdks/strategies/README.md
@@ -185,6 +188,11 @@ generatedFiles:
   - src/funcs/getModelOutput.ts
   - src/funcs/getSupplyPhenology.ts
   - src/funcs/indicatorsList.ts
+  - src/funcs/mcpOnlyGetForexDataLlmCodeLlmGet.ts
+  - src/funcs/mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet.ts
+  - src/funcs/mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet.ts
+  - src/funcs/mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet.ts
+  - src/funcs/mcpOnlyGetSupplyLlm.ts
   - src/funcs/performanceMetricsGet.ts
   - src/funcs/performanceMetricsList.ts
   - src/funcs/postFuturesForecasts.ts
@@ -249,6 +257,11 @@ generatedFiles:
   - src/mcp-server/tools/getModelOutput.ts
   - src/mcp-server/tools/getSupplyPhenology.ts
   - src/mcp-server/tools/indicatorsList.ts
+  - src/mcp-server/tools/mcpOnlyGetForexDataLlmCodeLlmGet.ts
+  - src/mcp-server/tools/mcpOnlyGetFuturesForecastsLlmV1AssetsFuturesForecastsSymbolLlmGet.ts
+  - src/mcp-server/tools/mcpOnlyGetFuturesLongTermForecastLlmV1AssetsFuturesForecastsSymbolLongTermForecastLlmGet.ts
+  - src/mcp-server/tools/mcpOnlyGetFuturesPricesLlmV1AssetsFuturesPricesSymbolLlmGet.ts
+  - src/mcp-server/tools/mcpOnlyGetSupplyLlm.ts
   - src/mcp-server/tools/performanceMetricsGet.ts
   - src/mcp-server/tools/performanceMetricsList.ts
   - src/mcp-server/tools/postFuturesForecasts.ts
@@ -331,7 +344,6 @@ generatedFiles:
   - src/models/components/postassetforecastsresponse.ts
   - src/models/components/sectorindexhistoricaldata.ts
   - src/models/components/sectorindextick.ts
-  - src/models/components/security.ts
   - src/models/components/strategyresponse.ts
   - src/models/components/strategytrajectoryhorizonresponse.ts
   - src/models/components/strategytrajectoryresponse.ts
@@ -352,10 +364,14 @@ generatedFiles:
   - src/models/operations/getavailablefeatures.ts
   - src/models/operations/getdatasets.ts
   - src/models/operations/getfeatureshistoricalvalues.ts
+  - src/models/operations/getforexdatallmcodellmget.ts
   - src/models/operations/getforexprices.ts
   - src/models/operations/getfuturesforecasts.ts
+  - src/models/operations/getfuturesforecastsllmv1assetsfuturesforecastssymbolllmget.ts
   - src/models/operations/getfuturesforecastsmodels.ts
+  - src/models/operations/getfutureslongtermforecastllmv1assetsfuturesforecastssymbollongtermforecastllmget.ts
   - src/models/operations/getfuturesprices.ts
+  - src/models/operations/getfuturespricesllmv1assetsfuturespricessymbolllmget.ts
   - src/models/operations/gethedgeindicator.ts
   - src/models/operations/getlongtermforecast.ts
   - src/models/operations/getmodeloutput.ts
@@ -364,6 +380,7 @@ generatedFiles:
   - src/models/operations/getstrategy.ts
   - src/models/operations/getstrategyforecast.ts
   - src/models/operations/getsupply.ts
+  - src/models/operations/getsupplyllm.ts
   - src/models/operations/getsupplyphenology.ts
   - src/models/operations/gettransformedfeaturevalues.ts
   - src/models/operations/getweightedindex.ts
@@ -377,6 +394,7 @@ generatedFiles:
   - src/sdk/futures.ts
   - src/sdk/index.ts
   - src/sdk/indicators.ts
+  - src/sdk/mcponly.ts
   - src/sdk/performancemetrics.ts
   - src/sdk/sdk.ts
   - src/sdk/sectorindices.ts
@@ -723,7 +741,7 @@ examples:
           dataset_key: "technical_macro_v1_2025"
           symbols: ["ZC"]
           dataset_keys: ["technical_macro_v1_2025"]
-          features_strength: false
+          features_strength: true
           statistic_types: ["raw_value"]
           variable_types: ["price"]
           sources: ["CFTC"]
@@ -1003,6 +1021,73 @@ examples:
       responses:
         "200":
           application/json: {"success": true, "data": [{"asset": {"symbol": "<value>", "type": "<value>", "asset_class_symbol": "<value>", "name": "<value>", "sku": null, "code": null, "price_file": "<value>"}, "contracts": [{"asset_symbol": "<value>", "symbol": "<value>", "name": "<value>", "forecasts": [{"model": "PT Cruiser", "forecast_date": "2023-07-23T23:55:22.486Z", "close_price_trajectory": [{"date": "2024-09-08T17:23:23.261Z", "target_date_contract": "<value>", "close_price": 4668.02}]}], "market_drivers": [{"model": "Beetle", "forecast_date": "2025-08-31T01:54:26.190Z", "target_date_contract": "<value>", "horizon": 368858, "categories": [{"category": "<value>", "contribution": 4840.73, "drilldown": [{"feature_code": "<value>", "contribution": 3892.38, "description": "of trek correctly lowball"}]}]}], "moving_averages": [{"horizon": 699309, "moving_average": []}]}]}]}
+        "422":
+          application/json: {}
+  get_futures_prices_llm_v1_assets_futures_prices__symbol__llm_get:
+    speakeasy-default-get-futures-prices-llm-v1-assets-futures-prices-symbol-llm-get:
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          contract: "2025H"
+          start_date: "2025-04-24"
+          end_date: "2025-04-24"
+          active_contracts_only: true
+          rollover_method: "hist_vol"
+          back_adjust: false
+      responses:
+        "422":
+          application/json: {}
+  get_futures_forecasts_llm_v1_assets_futures_forecasts__symbol__llm_get:
+    speakeasy-default-get-futures-forecasts-llm-v1-assets-futures-forecasts-symbol-llm-get:
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          contract: "2025H"
+          start_date: "2025-04-24"
+          end_date: "2025-04-24"
+          estimate_uncertainty: true
+          get_market_drivers: false
+          get_moving_averages: false
+          price_collar_sigma: 0
+      responses:
+        "422":
+          application/json: {}
+  get_futures_long_term_forecast_llm_v1_assets_futures_forecasts__symbol__long_term_forecast_llm_get:
+    speakeasy-default-get-futures-long-term-forecast-llm-v1-assets-futures-forecasts-symbol-long-term-forecast-llm-get:
+      parameters:
+        path:
+          symbol: "ZC"
+        query:
+          rollover_method: "hist_vol"
+      responses:
+        "422":
+          application/json: {}
+  get_forex_data_llm__code__llm_get:
+    speakeasy-default-get-forex-data-llm-code-llm-get:
+      parameters:
+        path:
+          code: "EUR"
+        query:
+          start_date: "2025-04-17"
+          end_date: "2025-04-25"
+          foreign_per_usd: true
+      responses:
+        "422":
+          application/json: {}
+  get_supply_llm:
+    speakeasy-default-get-supply-llm:
+      parameters:
+        path:
+          symbol: "KC"
+        query:
+          country_code: "BR"
+          start_date: "2024-04-24"
+          end_date: "2025-04-25"
+          get_feature_contributions: false
+          model: "v2_wholecountry_92to23_interval10_yesyoy_xgb"
+      responses:
         "422":
           application/json: {}
 examplesVersion: 1.0.2
