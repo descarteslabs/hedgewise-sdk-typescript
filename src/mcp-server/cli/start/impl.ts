@@ -17,7 +17,6 @@ interface StartCommandFlags {
   readonly transport: "stdio" | "sse";
   readonly port: number;
   readonly tool?: string[];
-  readonly "bearer-auth"?: string | undefined;
   readonly "server-url": string;
   readonly "server-index"?: SDKOptions["serverIdx"];
   readonly "log-level": ConsoleLoggerLevel;
@@ -47,7 +46,6 @@ async function startStdio(flags: StartCommandFlags) {
   const server = createMCPServer({
     logger,
     allowedTools: flags.tool,
-    ...{ bearerAuth: flags["bearer-auth"] ?? "" },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
@@ -67,7 +65,6 @@ async function startSSE(flags: StartCommandFlags) {
   const mcpServer = createMCPServer({
     logger,
     allowedTools: flags.tool,
-    ...{ bearerAuth: flags["bearer-auth"] ?? "" },
     serverURL: flags["server-url"],
     serverIdx: flags["server-index"],
   });
